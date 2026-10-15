@@ -1,0 +1,211 @@
+[
+   {
+    "name": {
+      "fr": "Conteneurs maritimes",
+      "it": "Container marittimi",
+      "es": "Contenedores marítimos",
+      "de": "Seecontainer",
+      "pt": "Contentores marítimos",
+      "en": "Shipping Containers"
+    },
+    "slug": {
+      "fr": "contenedores-maritimos",
+      "it": "contenedores-maritimos",
+      "es": "contenedores-maritimos",
+      "de": "contenedores-maritimos",
+      "pt": "contenedores-maritimos",
+      "en": "contenedores-maritimos"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Piscine conteneur",
+      "it": "Piscina container",
+      "es": "Piscina contenedor",
+      "de": "Pool-Container",
+      "pt": "Piscina contentor",
+      "en": "Container Pool"
+    },
+    "slug": {
+      "fr": "piscina-contenedor",
+      "it": "piscina-contenedor",
+      "es": "piscina-contenedor",
+      "de": "piscina-contenedor",
+      "pt": "piscina-contenedor",
+      "en": "piscina-contenedor"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Maisons mobiles",
+      "it": "Case mobili",
+      "es": "Casas móviles",
+      "de": "Mobilheime",
+      "pt": "Casas móveis",
+      "en": "Mobile Homes"
+    },
+    "slug": {
+      "fr": "casas-moviles",
+      "it": "casas-moviles",
+      "es": "casas-moviles",
+      "de": "casas-moviles",
+      "pt": "casas-moviles",
+      "en": "casas-moviles"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Bar conteneur",
+      "it": "Bar container",
+      "es": "Bar contenedor",
+      "de": "Bar-Container",
+      "pt": "Bar contentor",
+      "en": "Container Bar"
+    },
+    "slug": {
+      "fr": "bar-contenedor",
+      "it": "bar-contenedor",
+      "es": "bar-contenedor",
+      "de": "bar-contenedor",
+      "pt": "bar-contenedor",
+      "en": "bar-contenedor"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Bungalows de chantier et modules sanitaires",
+      "it": "Casetta da cantiere e moduli sanitari",
+      "es": "Casetas de obra y módulos sanitarios",
+      "de": "Baustellenhütten und Sanitärmodule",
+      "pt": "Casotas de obra e módulos sanitários",
+      "en": "Site Cabins and Sanitary Modules"
+    },
+    "slug": {
+      "fr": "casetas-de-obra-y-modulos-sanitarios",
+      "it": "casetas-de-obra-y-modulos-sanitarios",
+      "es": "casetas-de-obra-y-modulos-sanitarios",
+      "de": "casetas-de-obra-y-modulos-sanitarios",
+      "pt": "casetas-de-obra-y-modulos-sanitarios",
+      "en": "casetas-de-obra-y-modulos-sanitarios"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Plateformes élévatrices",
+      "it": "Piattaforme elevatrici",
+      "es": "Plataformas elevadoras",
+      "de": "Hebebühnen",
+      "pt": "Plataformas elevatórias",
+      "en": "Lift Platforms"
+    },
+    "slug": {
+      "fr": "plataformas-elevadoras",
+      "it": "plataformas-elevadoras",
+      "es": "plataformas-elevadoras",
+      "de": "plataformas-elevadoras",
+      "pt": "plataformas-elevadoras",
+      "en": "plataformas-elevadoras"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Maisons modulaires",
+      "it": "Case modulari",
+      "es": "Casas modulares",
+      "de": "Modulhäuser",
+      "pt": "Casas modulares",
+      "en": "Modular Homes"
+    },
+    "slug": {
+      "fr": "casas-modulares",
+      "it": "casas-modulares",
+      "es": "casas-modulares",
+      "de": "casas-modulares",
+      "pt": "casas-modulares",
+      "en": "casas-modulares"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Maisons mobiles préfabriquées",
+      "it": "Case mobili prefabbricate",
+      "es": "Casas móviles prefabricadas",
+      "de": "Mobile Fertighäuser",
+      "pt": "Casas móveis pré-fabricadas",
+      "en": "Prefabricated Mobile Homes"
+    },
+    "slug": {
+      "fr": "casas-moviles-prefabricadas",
+      "it": "casas-moviles-prefabricadas",
+      "es": "casas-moviles-prefabricadas",
+      "de": "casas-moviles-prefabricadas",
+      "pt": "casas-moviles-prefabricadas",
+      "en": "casas-moviles-prefabricadas"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Conteneurs d'expédition",
+      "it": "Container di spedizione",
+      "es": "Contenedores de envío",
+      "de": "Versandcontainer",
+      "pt": "Contentores de envio",
+      "en": "Shipping Containers"
+    },
+    "slug": {
+      "fr": "contenedores-de-envio",
+      "it": "contenedores-de-envio",
+      "es": "contenedores-de-envio",
+      "de": "contenedores-de-envio",
+      "pt": "contenedores-de-envio",
+      "en": "contenedores-de-envio"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Conteneurs maritimes de 20 pieds",
+      "it": "Container marittimi da 20 piedi",
+      "es": "Contenedores marítimos de 20 pies",
+      "de": "Seecontainer 20 Fuß",
+      "pt": "Contentores marítimos de 20 pés",
+      "en": "20-Foot Shipping Containers"
+    },
+    "slug": {
+      "fr": "contenedores-maritimos-de-20-pies",
+      "it": "contenedores-maritimos-de-20-pies",
+      "es": "contenedores-maritimos-de-20-pies",
+      "de": "contenedores-maritimos-de-20-pies",
+      "pt": "contenedores-maritimos-de-20-pies",
+      "en": "contenedores-maritimos-de-20-pies"
+    },
+    "visible": true
+  },
+  {
+    "name": {
+      "fr": "Conteneurs maritimes de 40 pieds",
+      "it": "Container marittimi da 40 piedi",
+      "es": "Contenedores marítimos de 40 pies",
+      "de": "Seecontainer 40 Fuß",
+      "pt": "Contentores marítimos de 40 pés",
+      "en": "40-Foot Shipping Containers"
+    },
+    "slug": {
+      "fr": "contenedores-maritimos-de-40-pies",
+      "it": "contenedores-maritimos-de-40-pies",
+      "es": "contenedores-maritimos-de-40-pies",
+      "de": "contenedores-maritimos-de-40-pies",
+      "pt": "contenedores-maritimos-de-40-pies",
+      "en": "contenedores-maritimos-de-40-pies"
+    },
+    "visible": true
+  }
+]
