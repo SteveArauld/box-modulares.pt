@@ -280,7 +280,7 @@ background-color: #3964fe;
     color: #fff;
     box-shadow: 0 4px 16px rgba(241,101,33,0.4);
 }
-.mm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(241,101,33,0.55); color: #fff; }
+.mm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(57, 100, 254, 0.55); color: #fff; }
 
 .mm-btn-secondary {
     background: rgba(255,255,255,0.08);

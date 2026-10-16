@@ -89,7 +89,7 @@
         }
         .wd-single-price .price ins {
             font-size: 32px;
-            color: #e74c3c;
+            color: #3964fe;
             text-decoration: none;
             font-weight: 800;
         }
@@ -180,7 +180,7 @@
 
         .wd-dropdown .price {
             font-size: 14px;
-            color: #e74c3c;
+            color: #3964fe;
             font-weight: 700;
             display: block;
         }
@@ -203,7 +203,7 @@
                 max-width: 100% !important;
                 margin: 0 !important;
                 padding: 20px !important;
-                border: 1px solid #e74c3c !important;
+                border: 1px solid #3964fe !important;
                 border-radius: 12px !important;
                 background: #fff !important;
             }
