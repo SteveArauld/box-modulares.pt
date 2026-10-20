@@ -40,7 +40,10 @@
                                             type="text/css" media="all" />
                                         <div class="wd-text-block reset-last-child text-left">
 
-                                            <p>{!! __('En <strong>:app</strong> encontrará una amplia selección de materiales de construcción, productos para jardín, pérgolas, piscinas, barbacoas, pellet, mobiliario de exterior y equipamiento profesional. Trabajamos para ofrecer productos de calidad, precios competitivos y <strong>envío gratuito</strong> en todos los pedidos.', ['app' => config('app.name')]) !!}</p>
+                                            <p>{!! __(
+                                                'En <strong>:app</strong> encontrará una amplia selección de materiales de construcción, productos para jardín, pérgolas, piscinas, barbacoas, pellet, mobiliario de exterior y equipamiento profesional. Trabajamos para ofrecer productos de calidad, precios competitivos y <strong>envío gratuito</strong> en todos los pedidos.',
+                                                ['app' => config('app.name')],
+                                            ) !!}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -71,21 +74,17 @@
                                                             data-e-type="widget"
                                                             data-widget_type="wd_extra_menu_list.default">
                                                             <div class="elementor-widget-container">
-                                                                <link rel="stylesheet"
-                                                                    id="wd-mod-nav-menu-label-css"
+                                                                <link rel="stylesheet" id="wd-mod-nav-menu-label-css"
                                                                     href={{ asset('/wp-content/themes/woodmart/css/parts/mod-nav-menu-label8833.css') }}
                                                                     type="text/css" media="all" />
-                                                                <ul
-                                                                    class="wd-sub-menu wd-sub-accented mega-menu-list">
-                                                                    <li
-                                                                        class="item-with-label item-label-primary">
+                                                                <ul class="wd-sub-menu wd-sub-accented mega-menu-list">
+                                                                    <li class="item-with-label item-label-primary">
 
                                                                         <ul class="sub-sub-menu">
 
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
-                                                                                <a
-                                                                                    href="{{ route('shop.contact') }}">
+                                                                                <a href="{{ route('shop.contact') }}">
 
                                                                                     {{ __('Contacto') }}
                                                                                 </a>
@@ -149,10 +148,8 @@
                                                             data-e-type="widget"
                                                             data-widget_type="wd_extra_menu_list.default">
                                                             <div class="elementor-widget-container">
-                                                                <ul
-                                                                    class="wd-sub-menu wd-sub-accented mega-menu-list">
-                                                                    <li
-                                                                        class="item-with-label item-label-primary">
+                                                                <ul class="wd-sub-menu wd-sub-accented mega-menu-list">
+                                                                    <li class="item-with-label item-label-primary">
 
                                                                         <ul class="sub-sub-menu">
 
@@ -221,7 +218,8 @@
                                 <div class="elementor-element elementor-element-50645bc elementor-widget elementor-widget-heading"
                                     data-id="50645bc" data-element_type="widget" data-e-type="widget"
                                     data-widget_type="heading.default">
-                                    <h2 class="elementor-heading-title elementor-size-default">{{ __('Categorías') }}</h2>
+                                    <h2 class="elementor-heading-title elementor-size-default">{{ __('Categorías') }}
+                                    </h2>
                                 </div>
                                 <div class="elementor-element elementor-element-97c0eb8 elementor-widget elementor-widget-wd_mega_menu"
                                     data-id="97c0eb8" data-element_type="widget" data-e-type="widget"
@@ -239,14 +237,16 @@
                                                 @foreach ($navTree as $entry)
                                                     @if ($entry['children']->isNotEmpty())
                                                         @foreach ($entry['children'] as $child)
-                                                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 menu-simple-dropdown wd-event-hover {{ $child['active'] ? 'current-menu-item current_page_item' : '' }}">
+                                                            <li
+                                                                class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 menu-simple-dropdown wd-event-hover {{ $child['active'] ? 'current-menu-item current_page_item' : '' }}">
                                                                 <a href="{{ $child['href'] }}"
                                                                     class="woodmart-nav-link"><span
                                                                         class="nav-link-text">{{ $child['label'] }}</span></a>
                                                             </li>
                                                         @endforeach
                                                     @else
-                                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 menu-simple-dropdown wd-event-hover {{ $entry['active'] ? 'current-menu-item current_page_item' : '' }}">
+                                                        <li
+                                                            class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 menu-simple-dropdown wd-event-hover {{ $entry['active'] ? 'current-menu-item current_page_item' : '' }}">
                                                             <a href="{{ $entry['href'] }}"
                                                                 class="woodmart-nav-link"><span
                                                                     class="nav-link-text">{{ $entry['label'] }}</span></a>
@@ -274,7 +274,8 @@
 
 
                                     <div class="liner-continer">
-                                        <h4 class="woodmart-title-container title wd-fontsize-l">{{ __('Contacto') }}</h4>
+                                        <h4 class="woodmart-title-container title wd-fontsize-l">{{ __('Contacto') }}
+                                        </h4>
                                     </div>
 
                                 </div>
@@ -284,8 +285,10 @@
                             data-id="b553f7d" data-element_type="widget" data-e-type="widget"
                             data-widget_type="html.default">
                             <div class="mm-footer-company">
-                                <strong class="mm-footer-company-name">{{ __('Arquisset de Construcció S.L.') }}</strong>
-                                <p class="mm-footer-address">{{ __('Calle Avenir 8') }}<br>{{ __('08006 Barcelona, España') }}</p>
+                                <strong
+                                    class="mm-footer-company-name">{{ __('Arquisset de Construcció S.L.') }}</strong>
+                                <p class="mm-footer-address">
+                                    {{ __('Calle Avenir 8') }}<br>{{ __('08006 Barcelona, España') }}</p>
                                 <p class="mm-footer-contact">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                         stroke="currentColor" stroke-width="1.5">
@@ -328,17 +331,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-element elementor-element-e3192de elementor-widget elementor-widget-wd_image_or_svg"
+                    <style>
+                       .mm-footer-payments {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.mm-footer-payments img {
+    height: 26px;
+    width: auto;
+    max-width: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Fond clair pour les logos sombres sur fond noir */
+.mm-footer-payments img.mm-payment-light-bg {
+    background: #fff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    box-sizing: content-box;
+}
+
+                    </style>
+                    <div class="elementor-element elementor-element-e3192de elementor-widget elementor-widget-html"
                         data-id="e3192de" data-element_type="widget" data-e-type="widget"
-                        data-widget_type="wd_image_or_svg.default">
+                        data-widget_type="html.default">
                         <div class="elementor-widget-container">
-
-                            <div class="wd-image text-left">
-                                <img width="250" height="32"
-                                    src="/wp-content/uploads/2026/04/edc-footer-payments.png"
-                                    class="attachment-full size-full" alt="" decoding="async" loading="lazy" />
+                            <div class="mm-footer-payments">
+                                <img src="{{ asset('assets/images/payements/visa.svg') }}" alt="Visa" width="40" height="26" loading="lazy" decoding="async" />
+                                <img src="{{ asset('assets/images/payements/master.svg') }}" alt="Mastercard" width="40" height="26" loading="lazy" decoding="async" />
+                                <img src="{{ asset('assets/images/payements/paypal.svg') }}" alt="PayPal" width="40" height="26" loading="lazy" decoding="async" />
+                                <img src="{{ asset('assets/images/payements/apple_pay.svg') }}" alt="Apple Pay" width="40" height="26" loading="lazy" decoding="async" />
+                                <img src="{{ asset('assets/images/payements/google_pay.svg') }}" alt="Google Pay" width="40" height="26" loading="lazy" decoding="async" />
+                                <img src="{{ asset('assets/images/payements/mb-way.png') }}" alt="MB WAY" width="40" height="26" loading="lazy" decoding="async" />
+                                <img src="{{ asset('assets/images/payements/multibanco.svg') }}" alt="Multibanco" width="40" height="26" loading="lazy" decoding="async" class="mm-payment-light-bg" />
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -348,13 +378,20 @@
 </footer>
 
 
-<a href="https://wa.me/34603547522?text={{ urlencode(__('¡Hola! Me gustaría recibir más información sobre vuestros productos.')) }}" target="_blank" rel="noopener noreferrer" class="pellets-wa-float" aria-label="{{ __('Contactar por WhatsApp') }}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.926a.5.5 0 0 0 .612.612l6.081-1.469A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.878 9.878 0 0 1-5.031-1.374l-.36-.214-3.733.902.918-3.646-.235-.375A9.867 9.867 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1S21.9 6.534 21.9 12 17.466 21.9 12 21.9z"></path>
-        </svg>                         
-           <span class="pellets-wa-tooltip">{{ __('¿Necesitas ayuda?') }}</span>
-                    
+<a href="https://wa.me/34603547522?text={{ urlencode(__('¡Hola! Me gustaría recibir más información sobre vuestros productos.')) }}"
+    target="_blank" rel="noopener noreferrer" class="pellets-wa-float"
+    aria-label="{{ __('Contactar por WhatsApp') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"
+        aria-hidden="true">
+        <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z">
+        </path>
+        <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.845L.057 23.926a.5.5 0 0 0 .612.612l6.081-1.469A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.878 9.878 0 0 1-5.031-1.374l-.36-.214-3.733.902.918-3.646-.235-.375A9.867 9.867 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1S21.9 6.534 21.9 12 17.466 21.9 12 21.9z">
+        </path>
+    </svg>
+    <span class="pellets-wa-tooltip">{{ __('¿Necesitas ayuda?') }}</span>
+
 </a>
 
 
@@ -362,8 +399,9 @@
 
 <div class="wd-close-side wd-fill"></div>
 <link rel="stylesheet" id="wd-scroll-top-css"
-    href={{ asset('/wp-content/themes/woodmart/css/parts/opt-scrolltotop8833.css') }} type="text/css" media="all" /> <a
-    href="#" class="scrollToTop" aria-label="{{ __('Botón de desplazamiento hacia arriba') }}"></a>
+    href={{ asset('/wp-content/themes/woodmart/css/parts/opt-scrolltotop8833.css') }} type="text/css"
+    media="all" /> <a href="#" class="scrollToTop"
+    aria-label="{{ __('Botón de desplazamiento hacia arriba') }}"></a>
 <link rel="stylesheet" id="wd-header-search-fullscreen-css"
     href={{ asset('/wp-content/themes/woodmart/css/parts/header-el-search-fullscreen-general8833.css') }}
     type="text/css" media="all" />
@@ -371,9 +409,11 @@
     href={{ asset('/wp-content/themes/woodmart/css/parts/header-el-search-fullscreen-18833.css') }} type="text/css"
     media="all" />
 <link rel="stylesheet" id="wd-wd-search-form-css"
-    href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-form8833.css') }} type="text/css" media="all" />
+    href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-form8833.css') }} type="text/css"
+    media="all" />
 <link rel="stylesheet" id="wd-wd-search-results-css"
-    href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-results8833.css') }} type="text/css" media="all" />
+    href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-results8833.css') }} type="text/css"
+    media="all" />
 <link rel="stylesheet" id="wd-search-style-default-css"
     href={{ asset('/wp-content/themes/woodmart/css/parts/el-search-style-default8833.css') }} type="text/css"
     media="all" />
@@ -388,7 +428,8 @@
     <form role="search" method="get" class="searchform  wd-style-default woodmart-ajax-search"
         action="{{ route('shop.search') }}" data-thumbnail="1" data-price="1" data-post_type="product"
         data-count="20" data-sku="0" data-symbols_count="3" data-include_cat_search="no" autocomplete="off">
-        <input type="text" class="s" placeholder="{{ __('Buscar productos') }}" value="{{ request('q') }}" name="q" aria-label="{{ __('Buscar') }}"
+        <input type="text" class="s" placeholder="{{ __('Buscar productos') }}"
+            value="{{ request('q') }}" name="q" aria-label="{{ __('Buscar') }}"
             title="{{ __('Buscar productos') }}" required />
 
 
@@ -418,10 +459,12 @@
         <form role="search" method="get" class="searchform  wd-style-default woodmart-ajax-search"
             action="{{ route('shop.search') }}" data-thumbnail="1" data-price="1" data-post_type="product"
             data-count="20" data-sku="0" data-symbols_count="3" data-include_cat_search="no" autocomplete="off">
-            <input type="text" class="s" placeholder="{{ __('Buscar productos') }}" value="{{ request('q') }}" name="q" aria-label="{{ __('Buscar') }}"
+            <input type="text" class="s" placeholder="{{ __('Buscar productos') }}"
+                value="{{ request('q') }}" name="q" aria-label="{{ __('Buscar') }}"
                 title="{{ __('Buscar productos') }}" required />
 
-            <span tabindex="0" aria-label="{{ __('Borrar búsqueda') }}" class="wd-clear-search wd-role-btn wd-hide"></span>
+            <span tabindex="0" aria-label="{{ __('Borrar búsqueda') }}"
+                class="wd-clear-search wd-role-btn wd-hide"></span>
 
 
             <button type="submit" class="searchsubmit">
@@ -444,18 +487,20 @@
         class="mobile-pages-menu menu wd-nav wd-nav-mobile wd-dis-hover wd-layout-dropdown wd-active">
         <li
             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-120 menu-item-6034 item-level-0 {{ request()->routeIs('home') ? 'current-menu-item current_page_item' : '' }}">
-            <a href="{{ route('home') }}" class="woodmart-nav-link"><span class="nav-link-text">{{ __('Inicio') }}</span></a>
+            <a href="{{ route('home') }}" class="woodmart-nav-link"><span
+                    class="nav-link-text">{{ __('Inicio') }}</span></a>
         </li>
         @foreach ($navTree as $entry)
-            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 {{ $entry['active'] ? 'current-menu-item current_page_item' : '' }}">
+            <li
+                class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 {{ $entry['active'] ? 'current-menu-item current_page_item' : '' }}">
                 <a href="{{ $entry['href'] }}" class="woodmart-nav-link"><span
                         class="nav-link-text">{{ $entry['label'] }}</span></a>
                 @if ($entry['children']->isNotEmpty())
                     <ul class="wd-sub-menu">
                         @foreach ($entry['children'] as $child)
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-1 {{ $child['active'] ? 'current-menu-item current_page_item' : '' }}">
-                                <a href="{{ $child['href'] }}"
-                                    class="woodmart-nav-link">{{ $child['label'] }}</a>
+                            <li
+                                class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-1 {{ $child['active'] ? 'current-menu-item current_page_item' : '' }}">
+                                <a href="{{ $child['href'] }}" class="woodmart-nav-link">{{ $child['label'] }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -468,7 +513,8 @@
     </ul>
 </div>
 <link rel="stylesheet" id="wd-widget-general-css"
-    href={{ asset('/wp-content/themes/woodmart/css/parts/widget-general8833.css') }} type="text/css" media="all" />
+    href={{ asset('/wp-content/themes/woodmart/css/parts/widget-general8833.css') }} type="text/css"
+    media="all" />
 <link rel="stylesheet" id="wd-widget-shopping-cart-css"
     href={{ asset('/wp-content/themes/woodmart/css/parts/woo-widget-shopping-cart8833.css') }} type="text/css"
     media="all" />
@@ -489,8 +535,10 @@
     </div>
 </div>
 <link rel="stylesheet" id="wd-bottom-toolbar-css"
-    href={{ asset('/wp-content/themes/woodmart/css/parts/opt-bottom-toolbar8833.css') }} type="text/css" media="all" />
-<div class="wd-toolbar wd-toolbar-label-show" role="complementary" aria-label="{{ __('Barra de herramientas fija') }}">
+    href={{ asset('/wp-content/themes/woodmart/css/parts/opt-bottom-toolbar8833.css') }} type="text/css"
+    media="all" />
+<div class="wd-toolbar wd-toolbar-label-show" role="complementary"
+    aria-label="{{ __('Barra de herramientas fija') }}">
     <div class="wd-toolbar-shop wd-toolbar-item wd-tools-element">
         <a href="tienda/">
             <span class="wd-tools-icon"></span>
@@ -565,19 +613,19 @@
 
 <script id="jquery-ui-core-js" src="wp-includes/js/jquery/ui/core.min0a10.js"></script>
 
-<script id="woodmart-theme-js"
-    src={{ asset('/wp-content/themes/woodmart/js/scripts/global/helpers.min8833.js') }}></script>
+<script id="woodmart-theme-js" src={{ asset('/wp-content/themes/woodmart/js/scripts/global/helpers.min8833.js') }}>
+</script>
 <script id="wd-elementor-integration-js"
     src={{ asset('/wp-content/themes/woodmart/js/scripts/global/elementor-integration.min8833.js') }}></script>
 
 
-<script id="wd-swiper-library-js" src={{ asset('/wp-content/themes/woodmart/js/libs/swiper.min8833.js')}}></script>
+<script id="wd-swiper-library-js" src={{ asset('/wp-content/themes/woodmart/js/libs/swiper.min8833.js') }}></script>
 
 
 
 
-<script id="wd-scroll-top-js"
-    src={{ asset('/wp-content/themes/woodmart/js/scripts/global/scrollTop.min8833.js') }}></script>
+<script id="wd-scroll-top-js" src={{ asset('/wp-content/themes/woodmart/js/scripts/global/scrollTop.min8833.js') }}>
+</script>
 <script id="wd-search-full-screen-js"
     src={{ asset('/wp-content/themes/woodmart/js/scripts/global/searchFullScreen.min8833.js') }}></script>
 
@@ -585,8 +633,8 @@
 <script id="wd-mobile-navigation-js"
     src={{ asset('/wp-content/themes/woodmart/js/scripts/menu/mobileNavigation.min8833.js') }}></script>
 
-<script id="wd-cart-widget-js"
-    src={{ asset('/wp-content/themes/woodmart/js/scripts/wc/cartWidget.min8833.js') }}></script>
+<script id="wd-cart-widget-js" src={{ asset('/wp-content/themes/woodmart/js/scripts/wc/cartWidget.min8833.js') }}>
+</script>
 
 <script data-wp-strategy="defer" defer id="wc-cart-fragments-js"
     src={{ asset('/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min345d.js') }}></script>
