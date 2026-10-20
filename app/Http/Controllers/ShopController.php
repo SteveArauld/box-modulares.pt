@@ -79,44 +79,71 @@ class ShopController extends Controller
         . ")";
 }
 
-    public function home(Request $request): View
+        public function home(Request $request): View
     {
-        // On récupère TOUTES les catégories visibles, indexées par leur slug ESPAGNOL
-        // (clé stable, indépendante de la langue courante).
+        // 1. On définit l'ordre des catégories (on réutilise les clés de ton tableau ou on les recopie)
+        $categoryOrder = [
+            'casas-moviles',
+            'casas-modulares',
+            'casas-moviles-prefabricadas',
+            'casetas-de-obra-y-modulos-sanitarios',
+            'bar-contenedor',
+            'piscina-contenedor',
+            'contenedores-maritimos',
+            'plataformas-elevadoras',
+            'contenedores-de-envio',
+            'contenedores-maritimos-de-20-pies',
+            'contenedores-maritimos-de-40-pies',
+        ];
+
+        // 2. On récupère les IDs des catégories correspondantes pour notre requête SQL
+        // (On utilise translatedValue pour être sûr de matcher le bon slug espagnol)
         $categoriesBySlug = Category::query()
             ->where('is_visible', true)
             ->get()
             ->keyBy(fn (Category $category) => $category->translatedValue('slug', 'es'));
 
-        // On construit la collection DANS L'ORDRE EXACT de HOME_CATEGORY_ICONS
-        // pour éviter tout décalage entre l'image et le nom de la catégorie.
         $heroCategories = collect();
+        $categoryIdsInOrder = [];
 
-        foreach (self::HOME_CATEGORY_ICONS as $slug => $iconPath) {
+        foreach ($categoryOrder as $slug) {
             if (! $categoriesBySlug->has($slug)) {
                 continue;
             }
 
             $category = $categoriesBySlug->get($slug);
+            $categoryIdsInOrder[] = $category->id;
 
+            // Logique pour l'icône (inchangée)
+            $iconPath = self::HOME_CATEGORY_ICONS[$slug] ?? null;
             if ($iconPath === null) {
                 $firstProductImage = $category->products()->orderBy('id')->first()?->coverImage;
                 $iconPath = $firstProductImage ? ltrim($firstProductImage, '/') : null;
             }
 
-            if ($iconPath === null) {
-                continue;
+            if ($iconPath !== null) {
+                $heroCategories->push([
+                    'category' => $category,
+                    'icon' => $iconPath,
+                ]);
             }
-
-            $heroCategories->push([
-                'category' => $category,
-                'icon' => $iconPath,
-            ]);
         }
 
+        // 3. On prépare la clause ORDER BY CASE pour SQL
+        // Exemple : CASE WHEN category_id = 1 THEN 1 WHEN category_id = 2 THEN 2 ELSE 99 END
+        $orderByCase = 'CASE category_id ';
+        foreach ($categoryIdsInOrder as $index => $id) {
+            $position = $index + 1; // On commence à 1
+            $orderByCase .= "WHEN {$id} THEN {$position} ";
+        }
+        $orderByCase .= "ELSE 99 END"; // Les autres catégories passent à la fin
+
+        // 4. On récupère les produits en respectant l'ordre des catégories, 
+        // puis l'ordre de mise en avant (featured_position) à l'intérieur de chaque catégorie.
         $featuredProducts = Product::query()
             ->with('category')
             ->whereHas('category', fn ($query) => $query->where('is_visible', true))
+            ->orderByRaw($orderByCase) // 👈 C'est ici que la magie opère
             ->orderByRaw('featured_position IS NULL')
             ->orderBy('featured_position')
             ->orderBy('id')
