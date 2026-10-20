@@ -25,15 +25,22 @@ class ShopController extends Controller
      * Une valeur `null` signifie qu'il n'existe pas d'icône statique pour
      * cette catégorie : on retombe alors sur l'image du premier produit.
      */
-    private const HOME_CATEGORY_ICONS = [
-        'contenedores-maritimos'               => null,
-        'piscina-contenedor'                   => null,
+     private const HOME_CATEGORY_ICONS = [
+        // 1. Conteneurs préfabriqués (comme les maisons)
         'casas-moviles'                        => null,
-        'bar-contenedor'                       => null,
-        'casetas-de-obra-y-modulos-sanitarios' => null,
-        'plataformas-elevadoras'               => null,
         'casas-modulares'                      => null,
         'casas-moviles-prefabricadas'          => null,
+        
+        // 2. Conteneurs de bureau / modulaires
+        'casetas-de-obra-y-modulos-sanitarios' => null,
+        'bar-contenedor'                       => null,
+
+        // 3. Conteneurs piscine
+        'piscina-contenedor'                   => null,
+
+        // 4. Conteneurs maritimes et plates-formes
+        'contenedores-maritimos'               => null,
+        'plataformas-elevadoras'               => null,
         'contenedores-de-envio'                => null,
         'contenedores-maritimos-de-20-pies'    => null,
         'contenedores-maritimos-de-40-pies'    => null,
