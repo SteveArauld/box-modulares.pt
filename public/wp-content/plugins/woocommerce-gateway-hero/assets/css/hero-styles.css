@@ -1,0 +1,43 @@
+.payment_method_hero .payment-icon{
+    margin: 6px 10px -6px 0;
+}
+.herosublabel{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.herolabeltext{
+    margin: 2px 0 0 0;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-grow:2
+}
+.cardtypes{
+    display: flex;
+    order:3;
+    margin-left:5px;
+}
+.cardtypes img{
+    margin:0 2px;
+}
+li.wc_payment_method.payment_method_hero {
+    display: flex;
+    align-items: center;
+}
+li.wc_payment_method.payment_method_hero label {
+    margin-bottom: 0;
+}
+li.wc_payment_method.payment_method_hero img.payment-icon {
+    max-width: 80px;
+}
+li.wc_payment_method.payment_method_hero .herosublabel {
+    gap: 20px;
+}
+@media (max-width: 1100px){
+    .cardtypes {
+        flex-wrap: wrap;
+        width: 80px;
+        flex-shrink: 0;
+    }
+}

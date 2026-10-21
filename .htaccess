@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Ne pas forcer HTTPS en local (WAMP / artisan serve)
+# Décommente les 2 lignes suivantes uniquement en production HTTPS :
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]
