@@ -98,7 +98,7 @@
                                                         <div class="wd-text-block reset-last-child text-left">
 
                                                             <p><a
-                                                                    href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+                                                                    href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
                                                             </p>
                                                         </div>
                                                     </div>

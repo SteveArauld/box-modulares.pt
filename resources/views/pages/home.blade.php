@@ -622,7 +622,7 @@
                                         <details class="mm-faq-item">
                                             <summary>{{ __('¿Cómo puedo contactar con el servicio de atención al cliente?') }}</summary>
                                             <p>{{ __('Puede ponerse en contacto con nosotros en cualquier momento enviando un correo electrónico a') }} <a
-                                                    href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>{{ __('. Nuestro equipo responderá a su consulta en el menor tiempo posible.') }}</p>
+                                                    href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>{{ __('. Nuestro equipo responderá a su consulta en el menor tiempo posible.') }}</p>
                                         </details>
 
                                     </div>
@@ -641,7 +641,7 @@
                                     <p>{{ __('Envío gratuito · Garantía 3 años · Soporte técnico propio') }}</p>
                                     <div class="mm-final-cta-buttons">
                                         <a href="https://wa.me/34603547522" class="mm-btn mm-btn-primary">{{ __('Contactar por WhatsApp') }}</a>
-                                        <a href="mailto:contacto@novaterra.pt"
+                                        <a href="mailto:contacto@gsccontainers.com"
                                             class="mm-btn mm-btn-secondary">{{ __('Escríbenos por email') }}</a>
                                     </div>
                                 </div>

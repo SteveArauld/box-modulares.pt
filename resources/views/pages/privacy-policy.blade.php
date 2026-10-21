@@ -44,7 +44,7 @@
 										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
 										</p>
 										<p><strong>{{ __('Correo electrónico de contacto:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>
@@ -177,7 +177,7 @@
 										</ul>
 										<p>{{ __('Para ejercer estos derechos deberá enviarse una solicitud, indicando claramente el derecho que desea ejercer, a:') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p>{{ __('El Responsable podrá solicitar información adicional para verificar la identidad del solicitante cuando resulte necesario.') }}</p>
 										<p>{{ __('Si el usuario considera que sus derechos no han sido respetados, podrá presentar una reclamación ante la') }} <strong>{{ __('Agencia Española de Protección de Datos (AEPD)') }}</strong>.</p>
@@ -199,7 +199,7 @@
 										<p>{{ __('Calle Avenir 8') }}</p>
 										<p>{{ __('08006 Barcelona, España') }}</p>
 										<p>{{ __('Correo electrónico:') }} <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p>{{ __('Sitio web:') }} <a href="../">{{ __('https://domaine.pt') }}</a></p>
 									</div>

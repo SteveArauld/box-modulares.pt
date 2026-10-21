@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" role="img" aria-label="NovaTerra">
-    <rect x="2" y="6" width="52" height="52" rx="15" fill="#3964fe"/>
-    <path d="M28 16c-8.3 0-15 6.7-15 15 0 6.6 4.3 12.2 10.3 14.1V49h9.4v-3.9C38.7 43.2 43 37.6 43 31c0-8.3-6.7-15-15-15z" fill="#FFFFFF"/>
-    <path d="M28 21.5c-5.2 0-9.5 4.3-9.5 9.5 0 3.9 2.4 7.3 5.8 8.7" fill="none" stroke="#3964fe" stroke-width="2.2" stroke-linecap="round" opacity="0.55"/>
-    <circle cx="28" cy="29" r="3.2" fill="#3964fe"/>
-    <text x="68" y="40" font-family="'Poppins','Segoe UI',Arial,Helvetica,sans-serif" font-size="27" font-weight="700" letter-spacing="0.2">
-        <tspan fill="#232323">Nova</tspan><tspan fill="#3964fe">Terra</tspan>
-    </text>
-</svg>

@@ -80,7 +80,7 @@
 										</p>
 										<p>{{ __('Arquisset de Construccio S.L. podrá suspender el procesamiento del pedido hasta la correcta verificación del pago.') }}</p>
 										<h2>{{ __('6. Verificación y prevención del fraude') }}</h2>
-										<p>{{ __('Con el fin de garantizar la seguridad de las transacciones, Arquisset de Construccio S.L. podrá realizar verificaciones adicionales cuando existan indicios de fraude o uso indebido de los medios de pago.') }}</p>
+										<p>{{ __('Con el fin de garantizar la seguridad de las transacciones,Gsc Containers. podrá realizar verificaciones adicionales cuando existan indicios de fraude o uso indebido de los medios de pago.') }}</p>
 										<p>{{ __('En estos casos, podrá solicitar documentación adicional o cancelar el pedido si no es posible verificar la legitimidad de la operación.') }}</p>
 										<h2>{{ __('7. Pago rechazado') }}</h2>
 										<p>{{ __('Si una entidad financiera rechaza el pago, el pedido no será aceptado y el cliente será informado para que pueda utilizar otro método de pago.') }}</p>
@@ -97,7 +97,7 @@
 										</p>
 										<p>{{ __('En los pedidos con destino fuera del territorio donde se aplique el IVA español, el cliente podrá estar sujeto al pago de impuestos, derechos de aduana o tasas locales, que serán de su exclusiva responsabilidad.') }}</p>
 										<h2>{{ __('11. Reserva de propiedad') }}</h2>
-										<p>{{ __('La propiedad de los productos permanecerá en poder de Arquisset de Construccio S.L. hasta que se haya recibido el pago completo del importe correspondiente.') }}</p>
+										<p>{{ __('La propiedad de los productos permanecerá en poder deGsc Containers. hasta que se haya recibido el pago completo del importe correspondiente.') }}</p>
 										<h2>{{ __('12. Modificaciones') }}</h2>
 										<p>{{ __('Arquisset de Construccio S.L. podrá modificar la presente Política de Pago para adaptarla a cambios legislativos, tecnológicos o comerciales.') }}</p>
 										<p>{{ __('Las modificaciones serán publicadas en esta página y serán aplicables desde su fecha de publicación.') }}</p>
@@ -107,7 +107,7 @@
 										<p>{{ __('Calle Avenir 8') }}</p>
 										<p>{{ __('08006 Barcelona, España') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>

@@ -44,7 +44,7 @@
 										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
 										</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>

@@ -9,6 +9,13 @@
     var FAV_KEY = 'shop_favorites_v1';
     var ROUTES = { cart: '/carrito', checkout: '/finalizar-compra' };
 
+    // Récupération des traductions avec fallback si non définies
+    var t = window.mmTranslations || {};
+
+    function trans(key, fallback) {
+        return t[key] || fallback;
+    }
+
     function readJSON(key, fallback) {
         try {
             var raw = localStorage.getItem(key);
@@ -167,7 +174,7 @@
 
         return (
             '<li class="woocommerce-mini-cart-item mini_cart_item">' +
-            '<a href="#" class="remove remove_from_cart_button js-mini-cart-remove" data-product_id="' + item.id + '" aria-label="Eliminar">&times;</a>' +
+            '<a href="#" class="remove remove_from_cart_button js-mini-cart-remove" data-product_id="' + item.id + '" aria-label="' + trans('remove', 'Eliminar') + '">&times;</a>' +
             '<a href="' + escapeHtml(item.slug) + '">' +
             (item.image ? '<img src="' + escapeHtml(item.image) + '" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="' + escapeHtml(item.name) + '">' : '') +
             escapeHtml(item.name) +
@@ -189,7 +196,7 @@
         var t = totals(items);
 
         if (!items.length) {
-            container.innerHTML = '<p class="wd-empty-mini-cart">Tu carrito está vacío.</p>';
+            container.innerHTML = '<p class="wd-empty-mini-cart">' + trans('emptyCart', 'Tu carrito está vacío.') + '</p>';
         } else {
             var html = '<div class="shopping-cart-widget-body"><div class="wd-scroll-content">';
             html += '<ul class="woocommerce-mini-cart cart_list product_list_widget">';
@@ -198,8 +205,8 @@
             });
             html += '</ul></div></div>';
             html += '<div class="shopping-cart-widget-footer">';
-            html += '<p class="woocommerce-mini-cart__total total"><strong>Subtotal:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&euro;</span>' + formatPrice(t.subtotal) + '</span></p>';
-            html += '<p class="woocommerce-mini-cart__buttons buttons"><a href="' + ROUTES.cart + '" class="button wc-forward">Ver carrito</a> <a href="' + ROUTES.checkout + '" class="button checkout wc-forward">Finalizar compra</a></p>';
+            html += '<p class="woocommerce-mini-cart__total total"><strong>' + trans('subtotal', 'Subtotal:') + '</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&euro;</span>' + formatPrice(t.subtotal) + '</span></p>';
+            html += '<p class="woocommerce-mini-cart__buttons buttons"><a href="' + ROUTES.cart + '" class="button wc-forward">' + trans('viewCart', 'Ver carrito') + '</a> <a href="' + ROUTES.checkout + '" class="button checkout wc-forward">' + trans('checkout', 'Finalizar compra') + '</a></p>';
             html += '</div>';
             container.innerHTML = html;
         }
@@ -219,7 +226,7 @@
             var label = el.querySelector('span');
             el.childNodes[0].nodeValue = t.count + ' ';
             if (!label) {
-                el.insertAdjacentHTML('beforeend', '<span>artículos</span>');
+                el.insertAdjacentHTML('beforeend', '<span>' + trans('items', 'artículos') + '</span>');
             }
         });
 
@@ -300,7 +307,7 @@
                 }
             }
             addToCart(product, qty);
-            showToast(addBtn.getAttribute('data-success_message') || 'Producto añadido a tu carrito');
+            showToast(addBtn.getAttribute('data-success_message') || trans('addedToCart', 'Producto añadido a tu carrito'));
             return;
         }
 
@@ -312,7 +319,7 @@
             document.querySelectorAll('.js-favorite-btn[data-product_id="' + id + '"]').forEach(function (btn) {
                 btn.classList.toggle('is-active', active);
             });
-            showToast(active ? 'Añadido a tus favoritos' : 'Eliminado de tus favoritos');
+            showToast(active ? trans('addedToFavs', 'Añadido a tus favoritos') : trans('removedFromFavs', 'Eliminado de tus favoritos'));
             return;
         }
 
@@ -335,10 +342,7 @@
     });
 
     /* ---------------------------------------------------------------------
-     * Shared delivery-estimate badge (cart + checkout). The scraped markup
-     * had this as a literal, hardcoded date string ("viernes 9 de octubre")
-     * that goes stale and even reads as a date in the past within days —
-     * computed fresh on every render instead, in the visitor's locale.
+     * Shared delivery-estimate badge (cart + checkout).
      * ------------------------------------------------------------------- */
 
     function formatDeliveryDate(date) {
@@ -351,12 +355,6 @@
     }
 
     function deliveryEstimateHtml(modifierClass) {
-        var labels = window.mmDeliveryLabels || {
-            shipping: '✅ Envío gratuito a toda España',
-            estimate: '📦 Entrega estimada: entre el',
-            and: 'y el',
-        };
-
         var minDate = new Date();
         minDate.setDate(minDate.getDate() + 5);
         var maxDate = new Date();
@@ -364,9 +362,9 @@
 
         return (
             '<div class="pellets-delivery-badge' + (modifierClass ? ' ' + modifierClass : '') + '">' +
-            '<div class="pellets-del-shipping">' + escapeHtml(labels.shipping) + '</div>' +
-            '<div class="pellets-del-dates">' + escapeHtml(labels.estimate) + ' ' +
-            '<strong>' + escapeHtml(formatDeliveryDate(minDate)) + '</strong> ' + escapeHtml(labels.and) + ' ' +
+            '<div class="pellets-del-shipping">' + escapeHtml(trans('delShipping', '✅ Envío gratuito a toda España')) + '</div>' +
+            '<div class="pellets-del-dates">' + escapeHtml(trans('delEstimate', '📦 Entrega estimada: entre el')) + ' ' +
+            '<strong>' + escapeHtml(formatDeliveryDate(minDate)) + '</strong> ' + escapeHtml(trans('delAnd', 'y el')) + ' ' +
             '<strong>' + escapeHtml(formatDeliveryDate(maxDate)) + '</strong></div>' +
             '</div>'
         );
@@ -394,15 +392,6 @@
 
     /* ---------------------------------------------------------------------
      * UI interactions: dropdowns, off-canvas panels, accordions, toggles.
-     *
-     * The theme's CSS already defines open/closed states via the classes
-     * below (.wd-opened, .wd-active, .wd-close-side-opened) but the legacy
-     * jQuery that was meant to wire them never initializes in this app, so
-     * every one of these controls used a bare `href="#"`. Combined with the
-     * <base href> tag in the layout, an unhandled `href="#"` click resolves
-     * to the site root and silently bounces the visitor back to the home
-     * page. This controller wires the real behavior and, as a safety net,
-     * prevents navigation on any `href="#"` control nobody has claimed yet.
      * ------------------------------------------------------------------- */
 
     function closeAllDropdowns(except) {
@@ -588,11 +577,7 @@
             return;
         }
 
-        // Shop sidebar off-canvas toggle ("Mostrar barra lateral" on mobile/tablet).
-        // The theme's own CSS hides this column entirely below 1024px unless it
-        // also carries .wd-side-hidden (the class that turns it into a fixed
-        // slide-in panel) — .wd-opened alone does nothing without it, which is
-        // why the button looked clickable but never actually revealed anything.
+        // Shop sidebar off-canvas toggle.
         var sidebarBtn = e.target.closest('.wd-off-canvas-btn a');
         if (sidebarBtn) {
             e.preventDefault();
@@ -657,8 +642,6 @@
         }
 
         // Safety net: any other unclaimed `href="#"` control must not navigate.
-        // Combined with <base href> in the layout, an unhandled "#" link would
-        // otherwise silently redirect the visitor back to the home page.
         var deadLink = e.target.closest('a[href="#"]');
         if (deadLink) {
             e.preventDefault();
@@ -684,10 +667,7 @@
     });
 
     /* ---------------------------------------------------------------------
-     * Product gallery lightbox: the theme's own gallery viewer (PhotoSwipe +
-     * jQuery zoom plugin) never initializes correctly here, so this is a
-     * small dependency-free replacement wired to the same gallery markup
-     * and image URLs already in the page.
+     * Product gallery lightbox.
      * ------------------------------------------------------------------- */
 
     var lightboxImages = [];
@@ -727,16 +707,15 @@
     }
 
     function ariaLabel(key) {
-        var labels = window.mmLightboxLabels || {};
-        var fallback = {
-            fullscreen: 'Pantalla completa',
-            share: 'Compartir',
-            close: 'Cerrar',
-            prev: 'Imagen anterior',
-            next: 'Imagen siguiente',
-            linkCopied: 'Enlace copiado',
+        var map = {
+            fullscreen: trans('lbFullscreen', 'Pantalla completa'),
+            share: trans('lbShare', 'Compartir'),
+            close: trans('lbClose', 'Cerrar'),
+            prev: trans('lbPrev', 'Imagen anterior'),
+            next: trans('lbNext', 'Imagen siguiente'),
+            linkCopied: trans('lbLinkCopied', 'Enlace copiado'),
         };
-        return labels[key] || fallback[key];
+        return map[key] || key;
     }
 
     function renderLightboxImage() {
@@ -797,11 +776,7 @@
     }
 
     /* ---------------------------------------------------------------------
-     * Inline gallery prev/next arrows (the small carousel on the product
-     * page, separate from the lightbox). The theme's swiper never
-     * initializes, so the grid/flex layout underneath is unpredictable —
-     * this takes explicit control instead: exactly one image shown at a
-     * time via inline display, cycled by the existing prev/next buttons.
+     * Inline gallery prev/next arrows.
      * ------------------------------------------------------------------- */
 
     function initInlineGalleries() {
@@ -910,9 +885,7 @@
         }
     });
 
-    // Shop/category sort dropdown: a plain <select> inside a GET form does
-    // nothing on its own without a submit trigger, so picking an option
-    // visually changed but never actually re-sorted the list.
+    // Shop/category sort dropdown.
     document.addEventListener('change', function (e) {
         var orderBy = e.target.closest('select[name="orderby"]');
         if (orderBy) {

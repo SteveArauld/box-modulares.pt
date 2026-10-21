@@ -49,7 +49,7 @@
 										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
 										</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>
@@ -83,13 +83,13 @@
 										</p>
 										<p>{{ __('El usuario será responsable de todas las actividades realizadas desde su cuenta.') }}</p>
 										<p>{{ __('En caso de uso no autorizado, deberá comunicarlo inmediatamente a') }} <strong><a
-													href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a></strong>.
+													href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a></strong>.
 										</p>
 										<h2>{{ __('6. Disponibilidad del servicio') }}</h2>
 										<p>{{ __('Arquisset de Construccio S.L. realizará los esfuerzos razonables para mantener el Sitio Web disponible de forma continua.') }}</p>
 										<p>{{ __('No obstante, no garantiza la ausencia de interrupciones derivadas de tareas de mantenimiento, incidencias técnicas, problemas de comunicaciones o causas de fuerza mayor.') }}</p>
 										<h2>{{ __('7. Propiedad intelectual e industrial') }}</h2>
-										<p>{{ __('Todos los contenidos del Sitio Web, incluyendo textos, fotografías, imágenes, logotipos, marcas, diseños, vídeos, gráficos, software, bases de datos y código fuente, son propiedad de Arquisset de Construccio S.L. o de sus respectivos titulares y están protegidos por la legislación vigente.') }}</p>
+										<p>{{ __('Todos los contenidos del Sitio Web, incluyendo textos, fotografías, imágenes, logotipos, marcas, diseños, vídeos, gráficos, software, bases de datos y código fuente, son propiedad deGsc Containers. o de sus respectivos titulares y están protegidos por la legislación vigente.') }}</p>
 										<p>{{ __('Queda prohibida la reproducción, distribución, modificación, comunicación pública o cualquier otra forma de explotación sin autorización previa y por escrito.') }}</p>
 										<h2>{{ __('8. Enlaces a terceros') }}</h2>
 										<p>{{ __('El Sitio Web puede contener enlaces a páginas web de terceros.') }}</p>
@@ -132,7 +132,7 @@
 										<p>{{ __('Calle Avenir 8') }}</p>
 										<p>{{ __('08006 Barcelona, España') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>

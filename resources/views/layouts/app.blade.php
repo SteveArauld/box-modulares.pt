@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name'))</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/images/logo/favicon.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}">
 
 
     <link rel='stylesheet' id='fluentform-elementor-widget-css'
@@ -251,11 +251,38 @@
             quantity: @json(__('Cantidad')),
             subtotal: @json(__('Subtotal')),
         };
+        
+    </script>
+    
+    <script>
+        // On prépare le tableau en PHP pur AVANT de l'envoyer à JavaScript
+        @php
+            $jsTranslations = [
+                'remove' => __('Eliminar'),
+                'emptyCart' => __('Tu carrito está vacío.'),
+                'subtotal' => __('Subtotal:'),
+                'viewCart' => __('Ver carrito'),
+                'checkout' => __('Finalizar compra'),
+                'items' => __('artículos'),
+                'addedToCart' => __('Producto añadido a tu carrito'),
+                'addedToFavs' => __('Añadido a tus favoritos'),
+                'removedFromFavs' => __('Eliminado de tus favoritos'),
+                'delShipping' => __('✅ Envío gratuito a toda España'),
+                'delEstimate' => __('📦 Entrega estimada: entre el'),
+                'delAnd' => __('y el'),
+                'lbFullscreen' => __('Pantalla completa'),
+                'lbShare' => __('Compartir'),
+                'lbClose' => __('Cerrar'),
+                'lbPrev' => __('Imagen anterior'),
+                'lbNext' => __('Imagen siguiente'),
+                'lbLinkCopied' => __('Enlace copiado'),
+            ];
+        @endphp
+
+        window.mmTranslations = {!! json_encode($jsTranslations) !!};
     </script>
     <script src="{{ asset('assets/js/shop.js') }}?v={{ filemtime(public_path('assets/js/shop.js')) }}"></script>
     @stack('scripts')
 
 </body>
-
-
 </html>

@@ -48,7 +48,7 @@
 										<p class="isSelectedEnd"><strong>{{ __('CIF:') }}</strong> {{ __('B63714778') }}</p>
 										<p class="isSelectedEnd"><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}</p>
 										<p class="isSelectedEnd"><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p class="isSelectedEnd"><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>
@@ -127,7 +127,7 @@
 											{{ __('desde la recepción del pedido para desistir del contrato sin necesidad de justificar su decisión.') }}</p>
 										<p class="isSelectedEnd">{{ __('Para ejercer este derecho deberá comunicarlo por escrito a:') }}</p>
 										<p class="isSelectedEnd"><a
-												href="mailto:contacto@novaterra.pt"><strong>contacto@novaterra.pt</strong></a>
+												href="mailto:contacto@gsccontainers.com"><strong>contacto@gsccontainers.com</strong></a>
 										</p>
 										<p class="isSelectedEnd">{{ __('El producto deberá devolverse:') }}</p>
 										<ul data-spread="false">
@@ -160,7 +160,7 @@
 										<h2>{{ __('15. Atención al cliente') }}</h2>
 										<p class="isSelectedEnd">{{ __('Para cualquier consulta relacionada con pedidos, devoluciones, garantías o reclamaciones, el cliente podrá contactar con:') }}</p>
 										<p class="isSelectedEnd"><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<h2>{{ __('16. Resolución de litigios') }}</h2>
 										<p class="isSelectedEnd">{{ __('En caso de conflicto, las partes intentarán resolverlo de forma amistosa.') }}</p>

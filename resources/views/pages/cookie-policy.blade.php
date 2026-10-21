@@ -47,7 +47,7 @@
 										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
 										</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
 												href="../">{{ __('https://domaine.pt') }}</a></p>
@@ -194,7 +194,7 @@
 										</ul>
 										<p>{{ __('Las solicitudes podrán dirigirse a:') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@novaterra.pt">contacto@novaterra.pt</a>
+												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
 										</p>
 										<p>{{ __('Asimismo, si considera que sus derechos no han sido respetados, podrá presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD).') }}</p>
 										<h2>{{ __('10. Modificaciones de la Política de Cookies') }}</h2>

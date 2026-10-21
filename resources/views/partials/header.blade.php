@@ -21,7 +21,7 @@
 								<div class="site-logo whb-jey7bav40wk7t8zxlr1t wd-switch-logo">
 									<a href="/" class="wd-logo wd-main-logo" rel="home"
 										aria-label="{{ __('Logotipo del sitio') }}">
-										<img width="175" height="47" src="{{ asset('assets/images/logo/nova-terra-logo.svg') }}"
+										<img width="175" height="47" src="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}"
 											class="attachment-full size-full" alt="{{ config('app.name') }}" style="max-width:175px;"
 											decoding="async"/> </a>
 
@@ -189,7 +189,7 @@
 								<div class="site-logo whb-ep1ny3r4ky7wli5rao3g wd-switch-logo">
 									<a href="/" class="wd-logo wd-main-logo" rel="home"
 										aria-label="{{ __('Logotipo del sitio') }}">
-										<img width="150" height="40" src="{{ asset('assets/images/logo/nova-terra-logo.svg') }}"
+										<img width="150" height="40" src="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}"
 											class="attachment-full size-full" alt="{{ config('app.name') }}"
 											decoding="async"
 											/> </a>
