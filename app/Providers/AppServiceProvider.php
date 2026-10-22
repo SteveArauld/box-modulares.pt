@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        View::share('company', config('company'));
+
         View::composer(['partials.header', 'partials.footer'], function ($view): void {
             $categories = Category::query()->where('is_visible', true)->withCount('products')->orderBy('name->es')->get();
 

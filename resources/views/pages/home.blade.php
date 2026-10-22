@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name').' | Materiales de Construcción, Jardín, Pérgolas, Piscinas y Equipamiento')
+@section('title', config('app.name').' | Contenedores Marítimos y Casas Modulares')
 @section('body_class', 'home page page-id-120 elementor-page elementor-page-120')
 
 
@@ -39,7 +39,7 @@
                                     </h1>
 
                                     <p class="mm-hero-stat">
-                                        {{ __('Desde') }} <strong>149 €</strong> {{ __('· Envío en') }} <strong>{{ __('48-72h') }}</strong> {{ __('a toda España') }}
+                                        {{ __('Conteneurs & construction — devis et commande en ligne') }}
                                     </p>
 
                                     <div class="mm-badges-row">
@@ -55,7 +55,7 @@
                                     </div>
 
                                     <div class="mm-trust-row">
-                                        <span>{{ __('✔ Envío a toda España') }}</span>
+                                        <span>{{ __('✔ Devis & accompagnement') }}</span>
                                         <span>{{ __('✔ Soporte técnico propio') }}</span>
                                     </div>
 
@@ -102,8 +102,8 @@
                                                 </svg>
                                             </span>
                                             <div class="mm-trust-badge-text">
-                                                <strong>{{ __('Envío a toda España') }}</strong>
-                                                <span>{{ __('Rápido y con seguimiento') }}</span>
+                                                <strong>{{ __('Livraison selon devis') }}</strong>
+                                                <span>{{ __('frais et délais confirmés avant commande') }}</span>
                                             </div>
                                         </div>
                                         <div class="mm-trust-badge">
@@ -279,7 +279,7 @@
                                                 </svg>
                                             </div>
                                             <h3>{{ __('Amplio catálogo de productos') }}</h3>
-                                            <p>{{ __('Más de una decena de categorías para la construcción, el jardín, las piscinas, las pérgolas, la calefacción, el taller y el equipamiento profesional.') }}</p>
+                                            <p>{{ __('Más de una decena de categorías: contenedores marítimos, casas modulares, módulos sanitarios, piscinas contenedor, plataformas y equipamiento modular profesional.') }}</p>
                                         </div>
 
                                         <div class="mm-why-card">
@@ -290,8 +290,8 @@
                                                         d="M3 16V6a1 1 0 011-1h9v11M3 16h10M3 16v0a2 2 0 104 0M13 16a2 2 0 104 0m-4 0h4m0 0h3v-5l-3-4h-3v9z" />
                                                 </svg>
                                             </div>
-                                            <h3>{{ __('Envío gratuito') }}</h3>
-                                            <p>{{ __('Todos los pedidos realizados en la tienda disfrutan de envío gratuito.') }}</p>
+                                            <h3>{{ __('Livraison sur devis') }}</h3>
+                                            <p>{{ __('Les frais et délais de livraison sont confirmés selon la destination, le volume et le type de produit, avant validation de la commande.') }}</p>
                                         </div>
 
                                         <div class="mm-why-card">
@@ -340,10 +340,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"La pérgola llegó en perfectas condiciones y la calidad es excelente. La instalación fue más sencilla de lo que esperaba. Muy satisfecho con la compra."') }}</p>
+                                            <p class="mm-review-text">{{ __('"El contenedor llegó en perfectas condiciones y la calidad es excelente. La entrega fue más rápida de lo que esperaba. Muy satisfecho con la compra."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Antonio M.') }}</strong> {{ __('– Valencia') }}
-                                                <span class="mm-review-product">{{ __('Pérgola de aluminio') }}</span>
+                                                <span class="mm-review-product">{{ __('Contenedor marítimo 20 pies') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 2 semanas') }}</span>
                                             </div>
                                         </div>
@@ -352,10 +352,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"La caseta tiene muy buenos acabados y ofrece mucho espacio de almacenamiento. El envío fue rápido y todo llegó perfectamente embalado."') }}</p>
+                                            <p class="mm-review-text">{{ __('"La caseta de obra tiene muy buenos acabados y ofrece mucho espacio. El envío fue rápido y todo llegó perfectamente preparado."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Laura G.') }}</strong> {{ __('– Madrid') }}
-                                                <span class="mm-review-product">{{ __('Caseta de jardín de madera') }}</span>
+                                                <span class="mm-review-product">{{ __('Caseta de obra modular') }}</span>
                                                 <span class="mm-review-date">{{ __('Junio 2026') }}</span>
                                             </div>
                                         </div>
@@ -364,10 +364,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Muy buena relación calidad-precio. La barbacoa es robusta y fácil de montar. Sin duda volveré a comprar."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Muy buena relación calidad-precio. El módulo sanitario es robusto y llegó listo para instalar. Sin duda volveré a comprar."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('José R.') }}</strong> {{ __('– Sevilla') }}
-                                                <span class="mm-review-product">{{ __('Barbacoa de carbón') }}</span>
+                                                <span class="mm-review-product">{{ __('Módulo sanitario de obra') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 1 mes') }}</span>
                                             </div>
                                         </div>
@@ -376,10 +376,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"La piscina superó nuestras expectativas. Perfecta para el verano y muy fácil de instalar. Los niños están encantados."') }}</p>
+                                            <p class="mm-review-text">{{ __('"La piscina contenedor superó nuestras expectativas. Original, resistente y muy bien terminada. Los niños están encantados."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Marta P.') }}</strong> {{ __('– Zaragoza') }}
-                                                <span class="mm-review-product">{{ __('Piscina desmontable') }}</span>
+                                                <span class="mm-review-product">{{ __('Piscina contenedor') }}</span>
                                                 <span class="mm-review-date">{{ __('Mayo 2026') }}</span>
                                             </div>
                                         </div>
@@ -388,10 +388,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Producto de gran calidad y funcionamiento impecable. La descripción de la web era totalmente correcta. Muy recomendable."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Contenedor de gran calidad y exactamente como aparecía en la web. La descripción era totalmente correcta. Muy recomendable."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Carlos F.') }}</strong> {{ __('– Bilbao') }}
-                                                <span class="mm-review-product">{{ __('Generador eléctrico') }}</span>
+                                                <span class="mm-review-product">{{ __('Contenedor marítimo 40 pies') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 3 semanas') }}</span>
                                             </div>
                                         </div>
@@ -400,10 +400,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Los muebles son cómodos, resistentes y muy elegantes. Han quedado perfectos en la terraza. Excelente compra."') }}</p>
+                                            <p class="mm-review-text">{{ __('"El bar contenedor es cómodo, resistente y muy bien diseñado. Ha quedado perfecto en nuestro local. Excelente compra."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Elena S.') }}</strong> {{ __('– Málaga') }}
-                                                <span class="mm-review-product">{{ __('Muebles de jardín') }}</span>
+                                                <span class="mm-review-product">{{ __('Bar contenedor modular') }}</span>
                                                 <span class="mm-review-date">{{ __('Junio 2026') }}</span>
                                             </div>
                                         </div>
@@ -412,10 +412,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Pellet de muy buena calidad y con excelente rendimiento. El proceso de compra fue sencillo y la entrega sin incidencias."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Casa modular de muy buena calidad y con excelente acabado. El proceso de compra fue sencillo y la entrega sin incidencias."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('David C.') }}</strong> {{ __('– Alicante') }}
-                                                <span class="mm-review-product">{{ __('Pellet para calefacción') }}</span>
+                                                <span class="mm-review-product">{{ __('Casa modular prefabricada') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 1 semana') }}</span>
                                             </div>
                                         </div>
@@ -424,10 +424,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"El cenador es muy resistente y tiene un diseño moderno. Llegó bien protegido y el montaje fue bastante fácil."') }}</p>
+                                            <p class="mm-review-text">{{ __('"El contenedor llegó en perfecto estado y los plazos se cumplieron. Muy recomendable para quien necesite una solución modular rápida."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Sonia L.') }}</strong> {{ __('– Murcia') }}
-                                                <span class="mm-review-product">{{ __('Cenador para jardín') }}</span>
+                                                <span class="mm-review-product">{{ __('Contenedor marítimo 20 pies') }}</span>
                                                 <span class="mm-review-date">{{ __('Abril 2026') }}</span>
                                             </div>
                                         </div>
@@ -436,10 +436,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Material de buena calidad y exactamente como aparecía en la web. Muy buena experiencia de compra."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Calidad sobresaliente y entrega puntual. El módulo sanitario cumple perfectamente con las necesidades de nuestra obra."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Miguel A.') }}</strong> {{ __('– Valladolid') }}
-                                                <span class="mm-review-product">{{ __('Herramienta para trabajo de madera') }}</span>
+                                                <span class="mm-review-product">{{ __('Módulo sanitario de obra') }}</span>
                                                 <span class="mm-review-date">{{ __('Mayo 2026') }}</span>
                                             </div>
                                         </div>
@@ -448,10 +448,10 @@
                                             <div class="mm-stars" style="--rating:100%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Buscábamos una solución resistente para nuestra terraza y este producto ha cumplido todas nuestras expectativas. Muy buena calidad y envío gratuito, un punto muy positivo."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Nous cherchions une solution robuste pour notre projet. La qualité correspond à la description et le suivi a été clair du devis à la livraison."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Cristina T.') }}</strong> {{ __('– Barcelona') }}
-                                                <span class="mm-review-product">{{ __('Techo para terraza') }}</span>
+                                                <span class="mm-review-product">{{ __('Casa modular prefabricada') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 2 meses') }}</span>
                                             </div>
                                         </div>
@@ -463,7 +463,7 @@
                                             <p class="mm-review-text">{{ __('"La calidad es muy buena y el resultado final es excelente. Solo habría agradecido recibir las instrucciones un poco más detalladas."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Javier D.') }}</strong> {{ __('– Granada') }}
-                                                <span class="mm-review-product">{{ __('Pérgola bioclimática') }}</span>
+                                                <span class="mm-review-product">{{ __('Contenedor 40 pies High Cube') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 3 semanas') }}</span>
                                             </div>
                                         </div>
@@ -532,10 +532,10 @@
                                             <div class="mm-stars" style="--rating:80%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Buen rendimiento y precio competitivo. Todo el proceso de compra fue sencillo."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Buena calidad de construcción y precio competitivo. Todo el proceso de compra fue sencillo."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Sergio P.') }}</strong> {{ __('– Tarragona') }}
-                                                <span class="mm-review-product">{{ __('Pellet') }}</span>
+                                                <span class="mm-review-product">{{ __('Contenedor marítimo usado') }}</span>
                                                 <span class="mm-review-date">{{ __('Junio 2026') }}</span>
                                             </div>
                                         </div>
@@ -544,10 +544,10 @@
                                             <div class="mm-stars" style="--rating:80%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"El cenador tiene un diseño muy bonito y parece resistente. La entrega fue puntual y el embalaje estaba en buen estado."') }}</p>
+                                            <p class="mm-review-text">{{ __('"El contenedor tiene un acabado muy sólido y parece muy resistente. La entrega fue puntual y todo estaba en perfecto estado."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Rosa M.') }}</strong> {{ __('– León') }}
-                                                <span class="mm-review-product">{{ __('Cenador de jardín') }}</span>
+                                                <span class="mm-review-product">{{ __('Contenedor 40 pies Open Top') }}</span>
                                                 <span class="mm-review-date">{{ __('Mayo 2026') }}</span>
                                             </div>
                                         </div>
@@ -556,10 +556,10 @@
                                             <div class="mm-stars" style="--rating:80%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Producto de buena calidad y fácil de instalar. En general, una experiencia de compra positiva."') }}</p>
+                                            <p class="mm-review-text">{{ __('"Estructura de muy buena calidad y sencilla de instalar. En general, una experiencia de compra muy positiva."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Fernando G.') }}</strong> {{ __('– Pamplona') }}
-                                                <span class="mm-review-product">{{ __('Techo para terraza') }}</span>
+                                                <span class="mm-review-product">{{ __('Caseta de obra prefabricada') }}</span>
                                                 <span class="mm-review-date">{{ __('Hace 6 semanas') }}</span>
                                             </div>
                                         </div>
@@ -568,10 +568,10 @@
                                             <div class="mm-stars" style="--rating:80%"><span
                                                     class="mm-stars-bg">★★★★★</span><span
                                                     class="mm-stars-fg">★★★★★</span></div>
-                                            <p class="mm-review-text">{{ __('"Las herramientas cumplen con su función y tienen buenos acabados. Todo llegó correctamente embalado y en buen estado."') }}</p>
+                                            <p class="mm-review-text">{{ __('"La plataforma elevadora cumple perfectamente con su función y tiene muy buenos acabados. Todo llegó correctamente y en buen estado."') }}</p>
                                             <div class="mm-review-meta">
                                                 <strong>{{ __('Lucía T.') }}</strong> {{ __('– A Coruña') }}
-                                                <span class="mm-review-product">{{ __('Herramientas para madera') }}</span>
+                                                <span class="mm-review-product">{{ __('Plataforma elevadora') }}</span>
                                                 <span class="mm-review-date">{{ __('Abril 2026') }}</span>
                                             </div>
                                         </div>
@@ -594,14 +594,14 @@
 
                                         <details class="mm-faq-item">
                                             <summary>{{ __('¿Cuánto tarda en llegar mi pedido?') }}</summary>
-                                            <p>{{ __('El plazo de entrega depende del tipo de producto y del destino del envío. Una vez confirmado el pedido, nuestro equipo lo prepara y expide lo antes posible. Recibirá información de seguimiento cuando esté disponible.') }}</p>
+                                            <p>{{ __('Preparación: 2 a 3 días laborables. Entrega: 3 a 6 días laborables a Portugal y España. El plazo total orientativo es de 5 a 9 días laborables según el destino y la disponibilidad.') }}</p>
                                         </details>
 
                                         <details class="mm-faq-item">
-                                            <summary>{{ __('¿Los gastos de envío son gratuitos?') }}</summary>
-                                            <p>Sí. Todos los pedidos realizados en {{ config('app.name') }} incluyen envío
-                                                gratuito, sin costes adicionales de transporte, salvo que se
-                                                indique expresamente para servicios especiales.</p>
+                                            <summary>{{ __('¿Cuáles son los gastos de envío?') }}</summary>
+                                            <p>{{ __('El envío a Portugal y España tiene un coste fijo de') }}
+                                                <strong>{{ number_format((float) config('company.shipping.fee', 400), 0, ',', '.') }} €</strong>
+                                                {{ __('por pedido. El importe se muestra en el carrito y en el checkout antes de confirmar la compra.') }}</p>
                                         </details>
 
                                         <details class="mm-faq-item">
@@ -622,7 +622,7 @@
                                         <details class="mm-faq-item">
                                             <summary>{{ __('¿Cómo puedo contactar con el servicio de atención al cliente?') }}</summary>
                                             <p>{{ __('Puede ponerse en contacto con nosotros en cualquier momento enviando un correo electrónico a') }} <a
-                                                    href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>{{ __('. Nuestro equipo responderá a su consulta en el menor tiempo posible.') }}</p>
+                                                    href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>{{ __('. Nuestro equipo responderá a su consulta en el menor tiempo posible.') }}</p>
                                         </details>
 
                                     </div>
@@ -637,12 +637,12 @@
                                 data-id="5572096" data-element_type="widget" data-e-type="widget"
                                 data-widget_type="html.default">
                                 <div class="mm-final-cta">
-                                    <h2>{{ __('¿Listo para equipar tu jardín y tu taller?') }}</h2>
-                                    <p>{{ __('Envío gratuito · Garantía 3 años · Soporte técnico propio') }}</p>
+                                    <h2>{{ __('Un projet conteneurs ou construction ?') }}</h2>
+                                    <p>{{ __('Devis transparent · Informations légales claires · Accompagnement GSC') }}</p>
                                     <div class="mm-final-cta-buttons">
-                                        <a href="https://wa.me/34603547522" class="mm-btn mm-btn-primary">{{ __('Contactar por WhatsApp') }}</a>
-                                        <a href="mailto:contacto@gsccontainers.com"
-                                            class="mm-btn mm-btn-secondary">{{ __('Escríbenos por email') }}</a>
+                                        <a href="{{ route('shop.contact') }}" class="mm-btn mm-btn-primary">{{ __('Nous contacter') }}</a>
+                                        <a href="mailto:{{ config('company.email') }}"
+                                            class="mm-btn mm-btn-secondary">{{ __('Écrire par email') }}</a>
                                     </div>
                                 </div>
                             </div>

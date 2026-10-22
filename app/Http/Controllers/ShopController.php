@@ -449,4 +449,38 @@ class ShopController extends Controller
     {
         return view('pages.cookie-policy');
     }
+
+    public function robots(): \Illuminate\Http\Response
+    {
+        $content = implode("\n", [
+            'User-agent: *',
+            'Disallow: /finalizar-compra',
+            'Disallow: /carrito',
+            'Disallow: /mi-cuenta',
+            'Disallow: /login',
+            'Disallow: /register',
+            '',
+            'Sitemap: '.url('/sitemap.xml'),
+        ]);
+
+        return response($content, 200, ['Content-Type' => 'text/plain']);
+    }
+
+    public function sitemap(): \Illuminate\Http\Response
+    {
+        $products = Product::query()
+            ->whereHas('category', fn ($q) => $q->where('is_visible', true))
+            ->get(['id', 'slug', 'updated_at']);
+
+        $categories = Category::query()
+            ->where('is_visible', true)
+            ->get(['id', 'slug']);
+
+        $xml = view('feeds.sitemap', compact('products', 'categories'))->render();
+
+        return response($xml, 200, [
+            'Content-Type'  => 'application/xml; charset=utf-8',
+            'Cache-Control' => 'public, max-age=86400',
+        ]);
+    }
 }

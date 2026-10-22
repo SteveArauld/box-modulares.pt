@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('title', 'Finalizar compra | '.config('app.name'))
 @section('body_class', 'woocommerce-checkout page')
@@ -170,13 +170,13 @@
   align-self:var(--wd-btn-align, start)
 }
 
-/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-page-checkout-builder.css */
+/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-page-checkout-builder.css */
 
-/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/page-title.css */
+/*# sourceURL=/wp-content/themes/woodmart/css/parts/page-title.css */
 
-/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/page-title.css */
+/*# sourceURL=/wp-content/themes/woodmart/css/parts/page-title.css */
 
-/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-page-title-builder.css */
+/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-page-title-builder.css */
 
 </style>
 
@@ -187,21 +187,20 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="pingback" href="../xmlrpc.php">
 
-	<title>Finalizar compra &#8211; {{ config('app.name') }} | Materiales de Construcción, Jardín, Pérgolas, Piscinas y
-		Equipamiento</title>
+	<title>Finalizar compra &#8211; {{ config('app.name') }} | Contenedores Marítimos y Casas Modulares</title>
 	<meta name='robots' content='max-image-preview:large, noindex, follow' />
 	<link rel='dns-prefetch' href='http://cdn-reach.hostinger.com/' />
 	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 	<link rel="alternate" type="application/rss+xml"
-		title="{{ config('app.name') }} | Materiales de Construcción, Jardín, Pérgolas, Piscinas y Equipamiento &raquo; Feed"
+		title="{{ config('app.name') }} | Contenedores Marítimos y Casas Modulares &raquo; Feed"
 		href="../feed/index.html" />
 	<link rel="alternate" type="application/rss+xml"
-		title="{{ config('app.name') }} | Materiales de Construcción, Jardín, Pérgolas, Piscinas y Equipamiento &raquo; Feed de los comentarios"
+		title="{{ config('app.name') }} | Contenedores Marítimos y Casas Modulares &raquo; Feed de los comentarios"
 		href="../comments/feed/index.html" />
 	<link rel="alternate" title="{{ __('oEmbed (JSON)') }}" type="application/json+oembed"
-		href="../wp-json/oembed/1.0/embedccb1.html?url=https%3A%2F%2Fgsccontainers.com%2Ffinalizar-compra%2F" />
+		href="../wp-json/oembed/1.0/embedccb1.html?url=https%3A%2F%2Fgsc-containers.com%2Ffinalizar-compra%2F" />
 	<link rel="alternate" title="{{ __('oEmbed (XML)') }}" type="text/xml+oembed"
-		href="../wp-json/oembed/1.0/embed6f28.html?url=https%3A%2F%2Fgsccontainers.com%2Ffinalizar-compra%2F&amp;format=xml" />
+		href="../wp-json/oembed/1.0/embed6f28.html?url=https%3A%2F%2Fgsc-containers.com%2Ffinalizar-compra%2F&amp;format=xml" />
 	<style id="wp-img-auto-sizes-contain-inline-css">
 		img:is([sizes=auto i], [sizes^="auto," i]) {
 			contain-intrinsic-size: 3000px 1500px
@@ -1237,7 +1236,7 @@
 			width: 100%
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/plugins/safe-svg/dist/safe-svg-block-frontend.css */
+		/*# sourceURL=/wp-content/plugins/safe-svg/dist/safe-svg-block-frontend.css */
 	</style>
 	<link rel='stylesheet' id='hostinger-reach-subscription-block-css'
 		href={{ asset('/wp-content/plugins/hostinger-reach/frontend/dist/blocks/subscription29b3.css') }}
@@ -1411,7 +1410,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/helpers-wpb-elem.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/helpers-wpb-elem.css */
 	</style>
 	<link rel='stylesheet' id='wd-woo-stripe-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/int-woo-stripe8833.css') }} media='all' />
@@ -1550,7 +1549,7 @@
 			padding: 0 !important
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/int-woo-payments.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/int-woo-payments.css */
 	</style>
 	<link rel='stylesheet' id='wd-elementor-base-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/int-elem-base8833.css') }} media='all' />
@@ -1591,7 +1590,7 @@
 			text-indent: 0
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/mod-star-rating.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/mod-star-rating.css */
 	</style>
 	<link rel='stylesheet' id='wd-select2-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/woo-lib-select28833.css') }} media='all' />
@@ -1635,7 +1634,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-mod-grid.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-mod-grid.css */
 	</style>
 	<link rel='stylesheet' id='wd-page-checkout-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/woo-page-checkout8833.html') }} media='all' />
@@ -1747,7 +1746,7 @@
 			bottom: var(--btn-accented-bottom-active, 0)
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-page-checkout-el-payment-methods.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-page-checkout-el-payment-methods.css */
 	</style>
 	<style id="wd-woo-page-checkout-builder-inline-css">
 		.wd-checkout-form {
@@ -1834,7 +1833,7 @@
 			align-self: var(--wd-btn-align, start)
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-page-checkout-builder.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-page-checkout-builder.css */
 	</style>
 	<style id="wd-woo-opt-manage-checkout-prod-inline-css">
 		.wd-checkout-prod {
@@ -1942,7 +1941,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-opt-manage-checkout-prod.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-opt-manage-checkout-prod.css */
 	</style>
 	<style id="wd-woo-opt-fbt-cart-inline-css">
 		.product_list_widget li[class*=wd-fbt-item]:not(.wd-fbt-item-last) {
@@ -1994,7 +1993,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-opt-fbt-cart.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-opt-fbt-cart.css */
 	</style>
 	<style id="wd-woo-mod-cart-labels-inline-css">
 		.wd-cart-label {
@@ -2031,7 +2030,7 @@
 			margin-inline-end: 3px
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-mod-cart-labels.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-mod-cart-labels.css */
 	</style>
 	<link rel='stylesheet' id='wd-wp-blocks-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/wp-blocks8833.css') }} media='all' />
@@ -2049,7 +2048,7 @@
 			display: block
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/header-el-logo-opt-swap.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/header-el-logo-opt-swap.css */
 	</style>
 	<style id="wd-header-search-inline-css">
 		.wd-header-search {
@@ -2118,7 +2117,7 @@
 			padding-left: 15px
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/header-el-search.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/header-el-search.css */
 	</style>
 	<style id="wd-woo-mod-login-form-inline-css">
 		.woocommerce-form-login>*:last-child {
@@ -2217,7 +2216,7 @@
 			border-bottom: 1px solid var(--brdcolor-gray-300)
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-mod-login-form.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-mod-login-form.css */
 	</style>
 	<style id="wd-header-divider-inline-css">
 		.wd-header-divider:before {
@@ -2256,7 +2255,7 @@
 			padding-inline-end: 10px
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/header-el-divider.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/header-el-divider.css */
 	</style>
 	<style id="wd-header-cart-inline-css">
 		.wd-header-cart {
@@ -2346,7 +2345,7 @@
 			padding-inline: 10px
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/header-el-cart.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/header-el-cart.css */
 	</style>
 	<style id="wd-el-page-title-builder-inline-css">
 		.wd-page-title-el .wd-page-title {
@@ -2359,7 +2358,7 @@
 			inset-inline-start: calc(50% - 50vw + var(--wd-scroll-w)/2 + var(--wd-sticky-nav-w)/2)
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-page-title-builder.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-page-title-builder.css */
 	</style>
 	<style id="wd-page-title-inline-css">
 		.wd-page-title {
@@ -2412,7 +2411,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/page-title.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/page-title.css */
 	</style>
 	<style id="wd-woo-mod-checkout-steps-inline-css">
 		.wd-checkout-steps {
@@ -2472,7 +2471,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-mod-checkout-steps.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-mod-checkout-steps.css */
 	</style>
 	<style id="wd-woo-el-notices-builder-inline-css">
 		.wd-wc-notices .woocommerce-notices-wrapper {
@@ -2489,7 +2488,7 @@
 			display: none
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-el-notices-builder.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-el-notices-builder.css */
 	</style>
 	<style id="wd-int-elem-opt-sticky-column-inline-css">
 		[class*=wd-sticky-container] {
@@ -2520,7 +2519,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/int-elem-opt-sticky-column.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/int-elem-opt-sticky-column.css */
 	</style>
 	<style id="wd-section-title-inline-css">
 		.title-wrapper {
@@ -2636,7 +2635,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-section-title.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-section-title.css */
 	</style>
 	<style id="wd-woo-mod-quantity-inline-css">
 		div.quantity {
@@ -2715,7 +2714,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-mod-quantity.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-mod-quantity.css */
 	</style>
 	<style id="wd-widget-collapse-inline-css">
 		.wd-widget-collapse .widget-title {
@@ -2770,7 +2769,7 @@
 			color: #333
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/opt-widget-collapse.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/opt-widget-collapse.css */
 	</style>
 	<style id="wd-footer-base-inline-css">
 		.footer-sidebar {
@@ -2829,7 +2828,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/footer-base.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/footer-base.css */
 	</style>
 	<style id="wd-text-block-inline-css">
 		.wd-text-block:not(.inline-element) {
@@ -2849,7 +2848,7 @@
 			margin-left: auto
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-text-block.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-text-block.css */
 	</style>
 	<style id="wd-mod-nav-menu-label-inline-css">
 		.menu-label {
@@ -2921,7 +2920,7 @@
 			--wd-label-color: #65B32E
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/mod-nav-menu-label.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/mod-nav-menu-label.css */
 	</style>
 	<style id="wd-el-menu-inline-css">
 		@media(max-width: 1024px) {
@@ -2930,7 +2929,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-menu.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-menu.css */
 	</style>
 	<style id="wd-el-menu-wpb-elem-inline-css">
 		.wd-menu>.widget-title {
@@ -2964,7 +2963,7 @@
 			margin-inline-end: 7px
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-menu-wpb-elem.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-menu-wpb-elem.css */
 	</style>
 	<style id="wd-scroll-top-inline-css">
 		.scrollToTop {
@@ -3019,7 +3018,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/opt-scrolltotop.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/opt-scrolltotop.css */
 	</style>
 	<style id="wd-header-search-fullscreen-inline-css">
 		[class*=wd-search-full-screen] {
@@ -3135,7 +3134,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/header-el-search-fullscreen-general.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/header-el-search-fullscreen-general.css */
 	</style>
 	<link rel='stylesheet' id='wd-header-search-fullscreen-1-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/header-el-search-fullscreen-18833.css') }} media='all' />
@@ -3250,7 +3249,7 @@
 			opacity: .7
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/wd-search-form.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/wd-search-form.css */
 	</style>
 	<link rel='stylesheet' id='wd-wd-search-results-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-results8833.css') }} media='all' />
@@ -3273,7 +3272,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/el-search-style-default.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/el-search-style-default.css */
 	</style>
 	<link rel='stylesheet' id='wd-wd-search-dropdown-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-dropdown8833.css') }} media='all' />
@@ -3324,7 +3323,7 @@
 			border-bottom: none
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/widget-general.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/widget-general.css */
 	</style>
 	<link rel='stylesheet' id='wd-widget-shopping-cart-css'
 		href={{ asset('/wp-content/themes/woodmart/css/parts/woo-widget-shopping-cart8833.css') }} media='all' />
@@ -3398,7 +3397,7 @@
 			clear: both
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/woo-widget-product-list.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/woo-widget-product-list.css */
 	</style>
 	<style id="wd-bottom-toolbar-inline-css">
 		.wd-toolbar {
@@ -3541,7 +3540,7 @@
 			}
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/themes/woodmart/css/parts/opt-bottom-toolbar.css */
+		/*# sourceURL=/wp-content/themes/woodmart/css/parts/opt-bottom-toolbar.css */
 	</style>
 	<style id="xts-style-header_423087-inline-css">
 		:root {
@@ -3600,7 +3599,7 @@
 			background-color: rgba(18, 18, 18, 1);
 		}
 
-		/*# sourceURL=https://gsccontainers.com/wp-content/uploads/2026/07/xts-header_423087-1783445091.css */
+		/*# sourceURL=/wp-content/uploads/2026/07/xts-header_423087-1783445091.css */
 	</style>
 	
 	
@@ -3806,7 +3805,7 @@
 														src="/wp-content/uploads/2026/04/edc-hero-section-bg.jpg"
 														class="attachment-full size-full" alt="" decoding="async"
 														fetchpriority="high"
-														srcset="https://gsccontainers.com/wp-content/uploads/2026/04/edc-hero-section-bg.jpg 1920w, https://gsccontainers.com/wp-content/uploads/2026/04/edc-hero-section-bg-150x32.jpg 150w, https://gsccontainers.com/wp-content/uploads/2026/04/edc-hero-section-bg-1200x256.jpg 1200w"
+														srcset="/wp-content/uploads/2026/04/edc-hero-section-bg.jpg 1920w, /wp-content/uploads/2026/04/edc-hero-section-bg-150x32.jpg 150w, /wp-content/uploads/2026/04/edc-hero-section-bg-1200x256.jpg 1200w"
 														sizes="(max-width: 1920px) 100vw, 1920px" />
 												</div>
 												<div class="container">
@@ -5018,10 +5017,10 @@
 																		<li>
 																			<input type="hidden"
 																				name="shipping_method[0]" data-index="0"
-																				id="shipping_method_0_free_shipping1"
-																				value="free_shipping:1"
-																				class="shipping_method" /><label
-																				for="shipping_method_0_free_shipping1">{{ __('Envío gratuito') }}</label>
+																				id="shipping_method_0_flat_rate1"
+																				value="flat_rate:1"
+																				class="shipping_method" checked="checked" /><label
+																				for="shipping_method_0_flat_rate1">{{ __('Envío Portugal / España') }}: <span id="js-checkout-shipping-amount" class="woocommerce-Price-amount amount">{{ number_format((float) config('company.shipping.fee', 400), 2, ',', '.') }}</span>&nbsp;€</label>
 																		</li>
 																	</ul>
 
@@ -5095,9 +5094,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var totals = window.Shop.totals(items);
         var subtotalEl = document.getElementById('js-checkout-subtotal-amount');
+        var shippingEl = document.getElementById('js-checkout-shipping-amount');
         var totalEl = document.getElementById('js-checkout-total-amount');
         if (subtotalEl) {
             subtotalEl.textContent = window.Shop.formatPrice(totals.subtotal);
+        }
+        if (shippingEl) {
+            shippingEl.textContent = window.Shop.formatPrice(totals.shipping);
         }
         if (totalEl) {
             totalEl.textContent = window.Shop.formatPrice(totals.total);

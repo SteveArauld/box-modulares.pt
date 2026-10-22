@@ -40,19 +40,19 @@
 										data-widget_type="text-editor.default">
 										<h2>{{ __('1. Objeto') }}</h2>
 										<p>{{ __('Las presentes Condiciones Generales de Uso regulan el acceso, la navegación y la utilización del sitio web') }} <strong><a
-													href="../">{{ __('https://domaine.pt') }}</a></strong> {{ __('(en adelante, el «Sitio Web»), titularidad de') }} <strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
+													href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></strong> {{ __('(en adelante, el «Sitio Web»), titularidad de') }} <strong>{{ config('company.legal_name') }}</strong></p>
 										<p>{{ __('El acceso y uso del Sitio Web implica la aceptación plena y sin reservas de las presentes Condiciones Generales de Uso.') }}</p>
 										<p>{{ __('Si el usuario no está de acuerdo con estas condiciones, deberá abstenerse de utilizar el Sitio Web.') }}</p>
 										<h2>{{ __('2. Identificación del titular') }}</h2>
-										<p><strong>{{ __('Titular:') }}</strong> {{ __('Arquisset de Construccio S.L.') }}</p>
-										<p><strong>{{ __('CIF:') }}</strong> {{ __('B63714778') }}</p>
-										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
+										<p><strong>{{ __('Titular:') }}</strong> {{ config('company.legal_name') }}</p>
+										<p><strong>{{ __('SIRET:') }}</strong> {{ config('company.siret') }}</p>
+										<p><strong>{{ __('Domicilio social:') }}</strong> {{ config('company.address_line1') }}@if(!empty(config('company.address_line2'))), {{ config('company.address_line2') }}@endif, {{ config('company.postal_code') }} {{ config('company.city') }}, {{ config('company.region') }}, {{ config('company.country') }}.
 										</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
+												href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></p>
 										<h2>{{ __('3. Acceso al sitio web') }}</h2>
 										<p>{{ __('El acceso al Sitio Web es gratuito, sin perjuicio de que la contratación de determinados productos o servicios esté sujeta al pago del precio correspondiente.') }}</p>
 										<p>{{ __('El usuario declara ser mayor de edad y disponer de capacidad legal suficiente para utilizar este Sitio Web y realizar compras.') }}</p>
@@ -83,19 +83,19 @@
 										</p>
 										<p>{{ __('El usuario será responsable de todas las actividades realizadas desde su cuenta.') }}</p>
 										<p>{{ __('En caso de uso no autorizado, deberá comunicarlo inmediatamente a') }} <strong><a
-													href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a></strong>.
+													href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a></strong>.
 										</p>
 										<h2>{{ __('6. Disponibilidad del servicio') }}</h2>
-										<p>{{ __('Arquisset de Construccio S.L. realizará los esfuerzos razonables para mantener el Sitio Web disponible de forma continua.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('realizará los esfuerzos razonables para mantener el Sitio Web disponible de forma continua.') }}</p>
 										<p>{{ __('No obstante, no garantiza la ausencia de interrupciones derivadas de tareas de mantenimiento, incidencias técnicas, problemas de comunicaciones o causas de fuerza mayor.') }}</p>
 										<h2>{{ __('7. Propiedad intelectual e industrial') }}</h2>
-										<p>{{ __('Todos los contenidos del Sitio Web, incluyendo textos, fotografías, imágenes, logotipos, marcas, diseños, vídeos, gráficos, software, bases de datos y código fuente, son propiedad deGsc Containers. o de sus respectivos titulares y están protegidos por la legislación vigente.') }}</p>
+										<p>{{ __('Todos los contenidos del Sitio Web, incluyendo textos, fotografías, imágenes, logotipos, marcas, diseños, vídeos, gráficos, software, bases de datos y código fuente, son propiedad de') }} {{ config('company.legal_name') }} {{ __('o de sus respectivos titulares y están protegidos por la legislación vigente.') }}</p>
 										<p>{{ __('Queda prohibida la reproducción, distribución, modificación, comunicación pública o cualquier otra forma de explotación sin autorización previa y por escrito.') }}</p>
 										<h2>{{ __('8. Enlaces a terceros') }}</h2>
 										<p>{{ __('El Sitio Web puede contener enlaces a páginas web de terceros.') }}</p>
-										<p>{{ __('Arquisset de Construccio S.L. no controla dichos sitios ni asume responsabilidad alguna sobre sus contenidos, políticas o servicios.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('no controla dichos sitios ni asume responsabilidad alguna sobre sus contenidos, políticas o servicios.') }}</p>
 										<h2>{{ __('9. Exclusión de responsabilidad') }}</h2>
-										<p>{{ __('Arquisset de Construccio S.L. no será responsable de:') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('no será responsable de:') }}</p>
 										<ul>
 											<li>
 												<p>{{ __('Interrupciones temporales del servicio.') }}</p>
@@ -119,23 +119,23 @@
 										<h2>{{ __('11. Cookies') }}</h2>
 										<p>{{ __('El Sitio Web utiliza cookies propias y de terceros conforme a la Política de Cookies, donde el usuario puede obtener información detallada y gestionar sus preferencias.') }}</p>
 										<h2>{{ __('12. Modificaciones') }}</h2>
-										<p>{{ __('Arquisset de Construccio S.L. podrá modificar en cualquier momento las presentes Condiciones Generales de Uso para adaptarlas a cambios legislativos, técnicos o comerciales.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('podrá modificar en cualquier momento las presentes Condiciones Generales de Uso para adaptarlas a cambios legislativos, técnicos o comerciales.') }}</p>
 										<p>{{ __('Las nuevas condiciones serán publicadas en el Sitio Web y entrarán en vigor desde su publicación.') }}</p>
 										<h2>{{ __('13. Suspensión del acceso') }}</h2>
-										<p>{{ __('Arquisset de Construccio S.L. podrá suspender o bloquear el acceso al Sitio Web, de forma temporal o definitiva, cuando detecte un uso contrario a la legislación vigente, a estas Condiciones Generales de Uso o que pueda perjudicar al propio Sitio Web o a terceros.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('podrá suspender o bloquear el acceso al Sitio Web, de forma temporal o definitiva, cuando detecte un uso contrario a la legislación vigente, a estas Condiciones Generales de Uso o que pueda perjudicar al propio Sitio Web o a terceros.') }}</p>
 										<h2>{{ __('14. Legislación aplicable y jurisdicción') }}</h2>
 										<p>{{ __('Las presentes Condiciones Generales de Uso se rigen por la legislación española.') }}</p>
 										<p>{{ __('En caso de conflicto o controversia, las partes se someterán a los Juzgados y Tribunales competentes conforme a la normativa española sobre consumidores y usuarios, sin perjuicio de los derechos que correspondan al consumidor según la legislación aplicable.') }}</p>
 										<h2>{{ __('15. Contacto') }}</h2>
 										<p>{{ __('Para cualquier consulta relacionada con estas Condiciones Generales de Uso, puede contactar con:') }}</p>
-										<p><strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
-										<p>{{ __('Calle Avenir 8') }}</p>
-										<p>{{ __('08006 Barcelona, España') }}</p>
+										<p><strong>{{ config('company.legal_name') }}</strong></p>
+										<p>{{ config('company.address_line1') }}@if(!empty(config('company.address_line2'))), {{ config('company.address_line2') }}@endif</p>
+										<p>{{ config('company.postal_code') }} {{ config('company.city') }}, {{ config('company.region') }}, {{ config('company.country') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
+												href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></p>
 									</div>
 								</div>
 							</div>

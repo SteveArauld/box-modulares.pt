@@ -21,7 +21,8 @@
 								<div class="site-logo whb-jey7bav40wk7t8zxlr1t wd-switch-logo">
 									<a href="/" class="wd-logo wd-main-logo" rel="home"
 										aria-label="{{ __('Logotipo del sitio') }}">
-										<img width="175" height="47" src="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}"
+										<img width="175" height="47" src="{{ asset('assets/images/logo/gsccontainers-logo-175w.png') }}"
+											srcset="{{ asset('assets/images/logo/gsccontainers-logo-175w.png') }} 1x, {{ asset('assets/images/logo/gsccontainers-logo-350w.png') }} 2x"
 											class="attachment-full size-full" alt="{{ config('app.name') }}" style="max-width:175px;"
 											decoding="async"/> </a>
 
@@ -189,7 +190,8 @@
 								<div class="site-logo whb-ep1ny3r4ky7wli5rao3g wd-switch-logo">
 									<a href="/" class="wd-logo wd-main-logo" rel="home"
 										aria-label="{{ __('Logotipo del sitio') }}">
-										<img width="150" height="40" src="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}"
+										<img width="150" height="40" src="{{ asset('assets/images/logo/gsccontainers-logo-150w.png') }}"
+											srcset="{{ asset('assets/images/logo/gsccontainers-logo-150w.png') }} 1x, {{ asset('assets/images/logo/gsccontainers-logo-350w.png') }} 2x"
 											class="attachment-full size-full" alt="{{ config('app.name') }}"
 											decoding="async"
 											/> </a>

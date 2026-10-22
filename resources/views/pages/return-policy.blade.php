@@ -39,12 +39,12 @@
 										data-widget_type="text-editor.default">
 										<h2>{{ __('1. Objeto') }}</h2>
 										<p>{{ __('La presente Política de Devoluciones y Reembolsos regula las condiciones aplicables a las devoluciones, cambios y reembolsos de los productos adquiridos a través del sitio web') }} <strong><a
-													href="../">{{ __('https://domaine.pt') }}</a></strong>{{ __(', de conformidad con la normativa española y europea en materia de protección de los consumidores.') }}</p>
+													href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></strong>{{ __(', de conformidad con la normativa española y europea en materia de protección de los consumidores.') }}</p>
 										<h2>{{ __('2. Derecho de desistimiento') }}</h2>
 										<p>{{ __('De acuerdo con el') }} <strong>{{ __('Real Decreto Legislativo 1/2007') }}</strong>{{ __(', el consumidor dispone de un plazo de') }} <strong>{{ __('14 días naturales') }}</strong> {{ __('desde la recepción del pedido para ejercer su derecho de desistimiento sin necesidad de justificar su decisión.') }}</p>
 										<p>{{ __('Para ejercer este derecho, deberá comunicar su decisión mediante un correo electrónico a:') }}</p>
 										<p><strong><a
-													href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a></strong>
+													href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a></strong>
 										</p>
 										<p>{{ __('indicando:') }}</p>
 										<ul>
@@ -82,7 +82,7 @@
 												</p>
 											</li>
 										</ul>
-										<p>{{ __('Arquisset de Construccio S.L. se reserva el derecho de rechazar devoluciones que no cumplan estas condiciones cuando la pérdida de valor del producto sea consecuencia de una manipulación distinta de la necesaria para comprobar su naturaleza, características o funcionamiento.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('se reserva el derecho de rechazar devoluciones que no cumplan estas condiciones cuando la pérdida de valor del producto sea consecuencia de una manipulación distinta de la necesaria para comprobar su naturaleza, características o funcionamiento.') }}</p>
 										<h2>{{ __('4. Productos excluidos del derecho de desistimiento') }}</h2>
 										<p>{{ __('De conformidad con la legislación vigente, no podrán devolverse, entre otros:') }}
 										</p>
@@ -105,7 +105,7 @@
 										</ul>
 										<h2>{{ __('5. Productos dañados o defectuosos') }}</h2>
 										<p>{{ __('Si el cliente recibe un producto dañado durante el transporte, defectuoso o diferente al solicitado, deberá comunicar la incidencia en el menor plazo posible enviando un correo electrónico a') }} <strong><a
-													href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a></strong>.
+													href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a></strong>.
 										</p>
 										<p>{{ __('La comunicación deberá incluir:') }}</p>
 										<ul>
@@ -119,15 +119,15 @@
 												<p>{{ __('Fotografías del producto y del embalaje.') }}</p>
 											</li>
 										</ul>
-										<p>{{ __('Una vez comprobada la incidencia,Gsc Containers. ofrecerá la reparación, sustitución, devolución del importe o cualquier otra solución prevista por la legislación vigente.') }}</p>
+										<p>{{ __('Una vez comprobada la incidencia,') }} {{ config('company.legal_name') }} {{ __('ofrecerá la reparación, sustitución, devolución del importe o cualquier otra solución prevista por la legislación vigente.') }}</p>
 										<h2>{{ __('6. Procedimiento de devolución') }}</h2>
 										<p>{{ __('Una vez autorizada la devolución, el cliente recibirá las instrucciones necesarias para realizar el envío del producto.') }}</p>
 										<p>{{ __('Se recomienda conservar el justificante del envío hasta la finalización del proceso.') }}</p>
 										<h2>{{ __('7. Gastos de devolución') }}</h2>
 										<p>{{ __('Cuando la devolución se deba al ejercicio del derecho de desistimiento,') }}
-											<strong>{{ __('los gastos directos del envío de devolución serán asumidos por el cliente') }}</strong>{{ __(', salvo que la legislación aplicable disponga otra cosa o queGsc Containers. indique expresamente lo contrario.') }}</p>
+											<strong>{{ __('los gastos directos del envío de devolución serán asumidos por el cliente') }}</strong>{{ __(', salvo que la legislación aplicable disponga otra cosa o que') }} {{ config('company.legal_name') }} {{ __('indique expresamente lo contrario.') }}</p>
 										<p>{{ __('En caso de error en el envío, producto defectuoso o falta de conformidad,') }}
-											<strong>{{ __('Arquisset de Construccio S.L. asumirá los gastos de devolución y, en su caso, de un nuevo envío') }}</strong>.</p>
+											<strong>{{ config('company.legal_name') }} {{ __('asumirá los gastos de devolución y, en su caso, de un nuevo envío') }}</strong>.</p>
 										<h2>{{ __('8. Reembolsos') }}</h2>
 										<p>{{ __('Una vez recibidos los productos y comprobado su estado, el reembolso se efectuará utilizando el mismo medio de pago empleado por el cliente, salvo acuerdo expreso en contrario.') }}</p>
 										<p>{{ __('El reembolso se realizará') }} <strong>{{ __('en un plazo máximo de 14 días naturales') }}</strong> {{ __('desde la recepción de la comunicación del desistimiento, pudiendo ser retenido hasta recibir los productos o hasta que el cliente aporte una prueba suficiente de su devolución, conforme a la legislación vigente.') }}</p>
@@ -155,17 +155,9 @@
 										</ul>
 										<h2>{{ __('11. Atención al cliente') }}</h2>
 										<p>{{ __('Para cualquier consulta relacionada con devoluciones, cambios o reembolsos, puede contactar con:') }}</p>
-										<p><strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
-										<p>{{ __('Calle Avenir 8') }}</p>
-										<p>{{ __('08006 Barcelona, España') }}</p>
-										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
-										</p>
-										<p><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
-										<h2>{{ __('12. Legislación aplicable') }}</h2>
-										<p>{{ __('La presente Política de Devoluciones y Reembolsos se rige por la legislación española y, en particular, por el') }} <strong>{{ __('Real Decreto Legislativo 1/2007') }}</strong>{{ __(', la') }} <strong>{{ __('Ley 34/2002 (LSSI-CE)') }}</strong> {{ __('y el') }}
-											<strong>{{ __('Reglamento (UE) 2016/679 (RGPD)') }}</strong>{{ __(', sin perjuicio de los derechos que correspondan a los consumidores conforme a la normativa de la Unión Europea.') }}</p>
+										@include('partials.company-contact-block')
+										<h2>{{ __('12. Droit applicable') }}</h2>
+										<p>{{ __('La présente Politique de retours et remboursements est régie par le droit français, notamment le Code de la consommation et le RGPD, sans préjudice des droits impératifs des consommateurs de l’Union européenne.') }}</p>
 									</div>
 								</div>
 							</div>

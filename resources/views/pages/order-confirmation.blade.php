@@ -58,7 +58,7 @@
                                 </tr>
                                 <tr>
                                     <th>{{ __('Envío') }}</th>
-                                    <td>{{ (float) $order->shipping_total > 0 ? number_format((float) $order->shipping_total, 2, ',', '.').' €' : 'Envío gratuito' }}</td>
+                                    <td>{{ number_format((float) $order->shipping_total, 2, ',', '.') }} €</td>
                                 </tr>
                                 <tr class="order-total">
                                     <th>{{ __('Total') }}</th>

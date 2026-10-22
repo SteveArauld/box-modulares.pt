@@ -98,7 +98,7 @@
                                                         <div class="wd-text-block reset-last-child text-left">
 
                                                             <p><a
-                                                                    href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+                                                                    href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -151,7 +151,7 @@
                                                     <div class="elementor-widget-container">
                                                         <div class="wd-text-block reset-last-child text-left">
 
-                                                            <p>{{ __('Calle Avenir 8, 08006 Barcelona, España') }}</p>
+                                                            <p>{{ config('company.address_line1') }}@if(!empty(config('company.address_line2'))), {{ config('company.address_line2') }}@endif, {{ config('company.postal_code') }} {{ config('company.city') }}, {{ config('company.region') }}, {{ config('company.country') }}</p>
                                                         </div>
                                                     </div>
                                                 </div>

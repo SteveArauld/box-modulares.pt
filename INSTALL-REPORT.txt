@@ -1,0 +1,117 @@
+﻿[21:31:37] === install-deps.ps1 start ===
+[21:31:37] cwd: C:\wamp2\www\box-modulares.pt-main
+[21:31:37] [OK] PHP path: C:\laragon\bin\php\php-8.4.26-Win32-vs17-x64\php.exe
+[21:31:37] [OK] PHP version: PHP 8.4.26 (cli) (built: Sep 22 2026 15:09:58) (ZTS Visual C++ 2022 x64)
+[21:31:37] [OK] .env exists
+[21:31:37] [OK] database/database.sqlite exists
+[21:31:37] [OK] Composer: C:\ProgramData\ComposerSetup\bin\composer.bat
+[21:31:38] [OK] Composer version 2.9.5 2026-01-29 11:40:53
+composer.bat : PHP version 8.4.26 (C:\laragon\bin\php\php-8.4.26-Win32-vs17-x64\php.exe)
+Au caractère C:\wamp2\www\box-modulares.pt-main\install-deps.ps1:169 : 15
++         $cv = & $composer.Path -V 2>&1 | Out-String
++               ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PHP version 8.4...17-x64\php.exe):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Run the "diagnose" command to get more detailed diagnostics output.
+[21:31:38] [..] composer install --no-interaction ...
+[21:31:41] Installing dependencies from lock file (including require-dev)
+[21:31:41] Verifying lock file contents can be installed on current platform.
+[21:31:41] Package operations: 128 installs, 0 updates, 0 removals
+[21:31:41]   - Downloading dragon-code/contracts (2.25.0)
+[21:31:41]   - Downloading dragon-code/support (6.17.1)
+[21:31:41]   - Downloading laravel-lang/native-locale-names (2.9.0)
+[21:31:42]   - Downloading laravel/prompts (v0.3.25)
+[21:31:42]   - Downloading laravel/framework (v13.35.0)
+[21:31:42]   - Downloading laravel-lang/native-currency-names (1.10.0)
+[21:31:42]   - Downloading laravel-lang/native-country-names (1.8.0)
+[21:31:42]   - Downloading laravel-lang/config (1.17.1)
+[21:31:42]   - Downloading laravel-lang/locales (2.11.0)
+[21:31:42]   - Downloading composer/semver (3.5.1)
+[21:31:42]   - Downloading laravel-lang/publisher (16.8.0)
+[21:31:42]   - Downloading laravel-lang/lang (15.37.4)
+[21:31:42]   - Downloading symfony/yaml (v8.1.8)
+[21:31:42]   - Downloading laravel/roster (v1.0.0)
+[21:31:42]   - Downloading laravel/mcp (v1.0.1)
+[21:31:42]   - Downloading laravel/boost (v2.10.2)
+[21:31:42]   - Downloading spatie/laravel-package-tools (1.93.3)
+[21:31:42]   - Downloading spatie/laravel-translatable (6.14.1)
+[21:31:42]   0/18 [>---------------------------]   0%    Failed to download dragon-code/contracts from dist: The "https://api.github.com/repos/TheDragonCode/contracts/zipball/13d1254801026be5ba33cf1309a414953869175f" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-77a919bd7bc130858a0693edb2833d38.zip: Failed to open stream: Permission denied
+[21:31:42]     Now trying to download from source
+[21:31:42]   - Syncing dragon-code/contracts (2.25.0) into cache
+[21:31:44]     Failed to download dragon-code/support from dist: The "https://api.github.com/repos/TheDragonCode/support/zipball/82a465953267989883d64b921e9725600a5073b5" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-39f4a9e40415c77af78befe1d91d7ce0.zip: Failed to open stream: Permission denied
+[21:31:44]     Now trying to download from source
+[21:31:44]   - Syncing dragon-code/support (6.17.1) into cache
+[21:31:46]     Failed to download laravel-lang/native-locale-names from dist: The "https://api.github.com/repos/Laravel-Lang/native-locale-names/zipball/e5925182bad34654203a5d93544357ca00a6d9c0" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-adb943e8222440c9a63e92d083052259.zip: Failed to open stream: Permission denied
+[21:31:46]     Now trying to download from source
+[21:31:46]   - Syncing laravel-lang/native-locale-names (2.9.0) into cache
+[21:31:48]     Failed to download laravel/prompts from dist: The "https://api.github.com/repos/laravel/prompts/zipball/21b7b49d60fcb700016dd27b582ae739c75de816" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-7d62ad17f169400b3b587f5f0a1fc59e.zip: Failed to open stream: Permission denied
+[21:31:48]     Now trying to download from source
+[21:31:48]   - Syncing laravel/prompts (v0.3.25) into cache
+[21:31:49]     Failed to download laravel/framework from dist: The "https://api.github.com/repos/laravel/framework/zipball/a413a9da94884e5e9d58f4e6612884f712827804" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-95ab14de0e3c9d409f18b0fcf8965dce.zip: Failed to open stream: Permission denied
+[21:31:49]     Now trying to download from source
+[21:31:49]   - Syncing laravel/framework (v13.35.0) into cache
+[21:31:50]     Failed to download laravel-lang/native-currency-names from dist: The "https://api.github.com/repos/Laravel-Lang/native-currency-names/zipball/7ebe95a9942bebf6afd61986fa18c82dade3d583" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-686bf2ce24ede526972da0a52db411e1.zip: Failed to open stream: Permission denied
+[21:31:50]     Now trying to download from source
+[21:31:50]   - Syncing laravel-lang/native-currency-names (1.10.0) into cache
+[21:31:52]     Failed to download laravel-lang/native-country-names from dist: The "https://api.github.com/repos/Laravel-Lang/native-country-names/zipball/1d293138e34eb9e914bc4568cdebac2cb0a2eb0e" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-5b29742b5c9d27c06758792f0b2481fa.zip: Failed to open stream: Permission denied
+[21:31:52]     Now trying to download from source
+[21:31:52]   - Syncing laravel-lang/native-country-names (1.8.0) into cache
+[21:31:54]     Failed to download laravel-lang/config from dist: The "https://api.github.com/repos/Laravel-Lang/config/zipball/7970b89045998b73aab4ffd99a04c6f7f5b3f4f8" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-b0bf6a555bc526e3622973f5f63df8e2.zip: Failed to open stream: Permission denied
+[21:31:54]     Now trying to download from source
+[21:31:54]   - Syncing laravel-lang/config (1.17.1) into cache
+[21:31:55]     Failed to download laravel-lang/locales from dist: The "https://api.github.com/repos/Laravel-Lang/locales/zipball/761aa3cfbc5bbe29eb958c9839e7dd3806193bac" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-dd8f9aa682761adf33c2d70752481e79.zip: Failed to open stream: Permission denied
+[21:31:55]     Now trying to download from source
+[21:31:55]   - Syncing laravel-lang/locales (2.11.0) into cache
+[21:31:56]     Failed to download composer/semver from dist: The "https://api.github.com/repos/composer/semver/zipball/528948210cc46f967a4b98e83b19e76f2b504993" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-f11a55aa1cc6253ddfc5dd75971c0172.zip: Failed to open stream: Permission denied
+[21:31:56]     Now trying to download from source
+[21:31:56]   - Syncing composer/semver (3.5.1) into cache
+[21:31:58]     Failed to download laravel-lang/publisher from dist: The "https://api.github.com/repos/Laravel-Lang/publisher/zipball/e5d3383f5385c2102f8a0d3dbe488ed86cd0250f" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-61be77d353c667325fb0a874a0caf323.zip: Failed to open stream: Permission denied
+[21:31:58]     Now trying to download from source
+[21:31:58]   - Syncing laravel-lang/publisher (16.8.0) into cache
+[21:32:00]     Failed to download laravel-lang/lang from dist: The "https://api.github.com/repos/Laravel-Lang/lang/zipball/a3a9ef9b039d10db442bfb3bed0a97c9b50f30a7" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-c2deca02263066132564a5956f70a9c8.zip: Failed to open stream: Permission denied
+[21:32:00]     Now trying to download from source
+[21:32:00]   - Syncing laravel-lang/lang (15.37.4) into cache
+[21:32:01] System.Management.Automation.RemoteException
+[21:32:01]  12/18 [==================>---------]  66%    Failed to download symfony/yaml from dist: The "https://api.github.com/repos/symfony/yaml/zipball/030e96eed0303223bfca3af9109e9e64830b6ec3" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-fde001c15af8cd750d43f6702d9f939d.zip: Failed to open stream: Permission denied
+[21:32:01]     Now trying to download from source
+[21:32:01]   - Syncing symfony/yaml (v8.1.8) into cache
+[21:32:03]     Failed to download laravel/roster from dist: The "https://api.github.com/repos/laravel/roster/zipball/89e518bd88ae98ff50f6082f6b517c8d8e8245fa" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-45fc35139584abca63eb676b75e5a6a4.zip: Failed to open stream: Permission denied
+[21:32:03]     Now trying to download from source
+[21:32:03]   - Syncing laravel/roster (v1.0.0) into cache
+[21:32:04]     Failed to download laravel/mcp from dist: The "https://api.github.com/repos/laravel/mcp/zipball/92987a9d03847801299ff4abe909ba7686147dde" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-1a0cf0ac4e3dd524f7aa012dda341bc3.zip: Failed to open stream: Permission denied
+[21:32:04]     Now trying to download from source
+[21:32:04]   - Syncing laravel/mcp (v1.0.1) into cache
+[21:32:06]     Failed to download laravel/boost from dist: The "https://api.github.com/repos/laravel/boost/zipball/2379e52b09bbdd2e72a5bf392891449be2f9f906" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-b3c5950dee33ed8ac6ecc50ef189eec8.zip: Failed to open stream: Permission denied
+[21:32:06]     Now trying to download from source
+[21:32:06]   - Syncing laravel/boost (v2.10.2) into cache
+[21:32:07]     Failed to download spatie/laravel-package-tools from dist: The "https://api.github.com/repos/spatie/laravel-package-tools/zipball/7aeef26bd8d4909bec744dbf47aee7d1395588c1" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-cc1c8992aba3e884dfd9c74c3f8f3501.zip: Failed to open stream: Permission denied
+[21:32:07]     Now trying to download from source
+[21:32:07]   - Syncing spatie/laravel-package-tools (1.93.3) into cache
+[21:32:08]     Failed to download spatie/laravel-translatable from dist: The "https://api.github.com/repos/spatie/laravel-translatable/zipball/d120a925cf413b2427f886264bb6eb102ac23d42" file could not be written to C:\wamp2\www\box-modulares.pt-main/vendor/composer/tmp-aa9b4e8943ce9ebe4ecfd5a6ea7aeca7.zip: Failed to open stream: Permission denied
+[21:32:08]     Now trying to download from source
+[21:32:08]   - Syncing spatie/laravel-translatable (6.14.1) into cache
+[21:32:10] System.Management.Automation.RemoteException
+[21:32:10]  18/18 [============================] 100%
+[21:32:10] In Git.php line 652:
+[21:32:10]                                                                                                                        
+[21:32:10]   Failed to clone https://github.com/TheDragonCode/contracts.git via https, ssh protocols, aborting.                   
+[21:32:11]                                                                                                                        
+[21:32:11]   - https://github.com/TheDragonCode/contracts.git                                                                     
+[21:32:11]     Cloning into bare repository 'C:/Users/MR TONY/AppData/Local/Composer/vcs/https---github.com-TheDragonCode-contra  
+[21:32:11]   cts.git'...                                                                                                          
+[21:32:11]     fatal: unable to access 'https://github.com/TheDragonCode/contracts.git/': Could not resolve host: github.com      
+[21:32:11]                                                                                                                        
+[21:32:11]   - git@github.com:TheDragonCode/contracts.git                                                                         
+[21:32:11]     Cloning into bare repository 'C:/Users/MR TONY/AppData/Local/Composer/vcs/https---github.com-TheDragonCode-contra  
+[21:32:11]   cts.git'...                                                                                                          
+[21:32:11]     ssh: Could not resolve hostname github.com: Name or service not known                                              
+[21:32:11]     fatal: Could not read from remote repository.                                                                      
+[21:32:11]                                                                                                                        
+[21:32:11]     Please make sure you have the correct access rights                                                                
+[21:32:11]     and the repository exists.                                                                                         
+[21:32:11]                                                                                                                        
+[21:32:11] System.Management.Automation.RemoteException
+[21:32:11] install [--prefer-source] [--prefer-dist] [--prefer-install PREFER-INSTALL] [--dry-run] [--download-only] [--dev] [--no-suggest] [--no-dev] [--no-security-blocking] [--no-autoloader] [--no-progress] [--no-install] [--audit] [--audit-format AUDIT-FORMAT] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--apcu-autoloader-prefix APCU-AUTOLOADER-PREFIX] [--ignore-platform-req IGNORE-PLATFORM-REQ] [--ignore-platform-reqs] [--] [<packages>...]
+[21:32:11] System.Management.Automation.RemoteException
+[21:32:11] [FAIL] composer install exit 1

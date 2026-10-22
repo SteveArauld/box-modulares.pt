@@ -40,39 +40,28 @@
 										data-widget_type="text-editor.default">
 										<h2>{{ __('1. Objeto') }}</h2>
 										<p class="isSelectedEnd">{{ __('Las presentes Condiciones Generales de Venta regulan la compra de productos realizada a través del sitio web') }} <a
-												href="../"><strong>{{ __('https://domaine.pt') }}</strong></a>{{ __(', titularidad de') }} <strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
+												href="{{ rtrim((string) config('company.website'), '/') }}"><strong>{{ rtrim((string) config('company.website'), '/') }}</strong></a>{{ __(', titularidad de') }} <strong>{{ config('company.legal_name') }}</strong></p>
 										<p class="isSelectedEnd">{{ __('La realización de un pedido implica la aceptación plena de las presentes condiciones.') }}</p>
 										<h2>{{ __('2. Identificación del vendedor') }}</h2>
-										<p class="isSelectedEnd"><strong>{{ __('Titular:') }}</strong> {{ __('Arquisset de Construccio S.L.') }}
+										<p class="isSelectedEnd"><strong>{{ __('Titular:') }}</strong> {{ config('company.legal_name') }}
 										</p>
-										<p class="isSelectedEnd"><strong>{{ __('CIF:') }}</strong> {{ __('B63714778') }}</p>
-										<p class="isSelectedEnd"><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}</p>
+										<p class="isSelectedEnd"><strong>{{ __('SIRET:') }}</strong> {{ config('company.siret') }}</p>
+										<p class="isSelectedEnd"><strong>{{ __('Domicilio social:') }}</strong> {{ config('company.address_line1') }}@if(!empty(config('company.address_line2'))), {{ config('company.address_line2') }}@endif, {{ config('company.postal_code') }} {{ config('company.city') }}, {{ config('company.region') }}, {{ config('company.country') }}.</p>
 										<p class="isSelectedEnd"><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<p class="isSelectedEnd"><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
+												href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></p>
 										<h2>{{ __('3. Productos') }}</h2>
 										<p class="isSelectedEnd">{{ __('Los productos comercializados incluyen, entre otros:') }}
 										</p>
 										<ul data-spread="false">
-											<li>{{ __('Materiales de construcción.') }}</li>
-											<li>{{ __('Barbacoas.') }}</li>
-											<li>{{ __('Casetas de jardín.') }}</li>
-											<li>{{ __('Cenadores.') }}</li>
-											<li>{{ __('Pérgolas.') }}</li>
-											<li>{{ __('Techos para terrazas.') }}</li>
-											<li>{{ __('Piscinas.') }}</li>
-											<li>{{ __('Piscinas desmontables.') }}</li>
-											<li>{{ __('Muebles de jardín.') }}</li>
-											<li>{{ __('Pellet.') }}</li>
-											<li>{{ __('Palets de leña.') }}</li>
-											<li>{{ __('Generadores.') }}</li>
-											<li>{{ __('Calefactores.') }}</li>
-											<li>{{ __('Herramientas para madera.') }}</li>
-											<li>{{ __('Equipos industriales.') }}</li>
-											<li>{{ __('Equipos para jardinería.') }}</li>
-											<li>{{ __('Productos para taller.') }}</li>
+											<li>{{ __('Contenedores marítimos nuevos y usados (20 pies, 40 pies, 45 pies, High Cube, Open Top, etc.).') }}</li>
+											<li>{{ __('Casas modulares y casas móviles prefabricadas.') }}</li>
+											<li>{{ __('Casetas de obra y módulos sanitarios.') }}</li>
+											<li>{{ __('Bares contenedor y locales comerciales modulares.') }}</li>
+											<li>{{ __('Piscinas contenedor.') }}</li>
+											<li>{{ __('Plataformas elevadoras y equipos de manipulación.') }}</li>
 										</ul>
 										<p class="isSelectedEnd">{{ __('Las fotografías, descripciones y características tienen carácter informativo. Aunque se procura la máxima exactitud, pueden existir pequeñas variaciones respecto al producto final.') }}</p>
 										<h2>{{ __('4. Disponibilidad') }}</h2>
@@ -87,7 +76,7 @@
 										<p class="isSelectedEnd">{{ __('Todos los precios se muestran en euros (€).') }}</p>
 										<p class="isSelectedEnd">{{ __('Salvo indicación expresa en contrario, los precios incluyen el IVA aplicable conforme a la legislación española.') }}</p>
 										<p class="isSelectedEnd">{{ __('Los gastos de transporte, montaje, instalación, seguros u otros servicios adicionales se indicarán claramente antes de finalizar el pedido.') }}</p>
-										<p class="isSelectedEnd">{{ __('Arquisset de Construccio S.L. podrá modificar los precios en cualquier momento, sin que ello afecte a los pedidos ya confirmados.') }}</p>
+										<p class="isSelectedEnd">{{ config('company.legal_name') }} {{ __('podrá modificar los precios en cualquier momento, sin que ello afecte a los pedidos ya confirmados.') }}</p>
 										<h2>{{ __('6. Proceso de compra') }}</h2>
 										<p class="isSelectedEnd">{{ __('Para realizar una compra el cliente deberá:') }}</p>
 										<ol start="1" data-spread="false">
@@ -110,7 +99,10 @@
 										</ul>
 										<p class="isSelectedEnd">{{ __('El pago se realizará mediante plataformas seguras que garantizan la protección de los datos financieros del cliente.') }}</p>
 										<h2>{{ __('8. Envíos') }}</h2>
-										<p class="isSelectedEnd">{{ __('Los pedidos se entregarán en la dirección indicada por el cliente.') }}</p>
+										<p class="isSelectedEnd">{{ __('Los pedidos se entregarán en la dirección indicada por el cliente en Portugal o España.') }}</p>
+										<p class="isSelectedEnd"><strong>{{ __('Gastos de envío:') }}</strong> {{ number_format((float) config('company.shipping.fee', 400), 2, ',', '.') }} € {{ __('(forfait fijo para Portugal y España).') }}</p>
+										<p class="isSelectedEnd"><strong>{{ __('Preparación:') }}</strong> {{ (int) config('company.shipping.preparation_days_min', 2) }}–{{ (int) config('company.shipping.preparation_days_max', 3) }} {{ __('días laborables tras la confirmación del pago.') }}</p>
+										<p class="isSelectedEnd"><strong>{{ __('Entrega:') }}</strong> {{ (int) config('company.shipping.delivery_days_min', 3) }}–{{ (int) config('company.shipping.delivery_days_max', 6) }} {{ __('días laborables desde la expedición.') }}</p>
 										<p class="isSelectedEnd">{{ __('Los plazos de entrega son orientativos y pueden variar según:') }}</p>
 										<ul data-spread="false">
 											<li>{{ __('Disponibilidad del producto.') }}</li>
@@ -119,6 +111,7 @@
 											<li>{{ __('Circunstancias excepcionales.') }}</li>
 										</ul>
 										<p class="isSelectedEnd">{{ __('El riesgo sobre los productos se transmitirá al consumidor en el momento de la entrega.') }}</p>
+										<p class="isSelectedEnd"><a href="{{ route('shop.shipping-policy') }}">{{ __('Consultar la Política de envíos completa') }}</a></p>
 										<h2>{{ __('9. Recepción del pedido') }}</h2>
 										<p class="isSelectedEnd">{{ __('El cliente deberá comprobar el estado del pedido en el momento de la entrega.') }}</p>
 										<p class="isSelectedEnd">{{ __('Si detecta daños visibles o incidencias en el embalaje, deberá hacerlo constar en el albarán del transportista y comunicarlo al vendedor en un plazo máximo de 48 horas.') }}</p>
@@ -127,7 +120,7 @@
 											{{ __('desde la recepción del pedido para desistir del contrato sin necesidad de justificar su decisión.') }}</p>
 										<p class="isSelectedEnd">{{ __('Para ejercer este derecho deberá comunicarlo por escrito a:') }}</p>
 										<p class="isSelectedEnd"><a
-												href="mailto:contacto@gsccontainers.com"><strong>contacto@gsccontainers.com</strong></a>
+												href="mailto:{{ config('company.email') }}"><strong>{{ config('company.email') }}</strong></a>
 										</p>
 										<p class="isSelectedEnd">{{ __('El producto deberá devolverse:') }}</p>
 										<ul data-spread="false">
@@ -153,14 +146,14 @@
 										<p class="isSelectedEnd">{{ __('En caso de falta de conformidad, el consumidor tendrá derecho, según corresponda, a la reparación, sustitución, rebaja del precio o resolución del contrato, de acuerdo con la legislación aplicable.') }}</p>
 										<p class="isSelectedEnd">{{ __('La garantía no cubre daños derivados del uso indebido, accidentes, desgaste normal o manipulaciones no autorizadas.') }}</p>
 										<h2>{{ __('13. Responsabilidad') }}</h2>
-										<p class="isSelectedEnd">{{ __('Arquisset de Construccio S.L. no será responsable de los retrasos o incumplimientos debidos a causas de fuerza mayor, caso fortuito o circunstancias ajenas a su control.') }}</p>
+										<p class="isSelectedEnd">{{ config('company.legal_name') }} {{ __('no será responsable de los retrasos o incumplimientos debidos a causas de fuerza mayor, caso fortuito o circunstancias ajenas a su control.') }}</p>
 										<p class="isSelectedEnd">{{ __('La responsabilidad del vendedor quedará limitada al importe efectivamente abonado por el cliente, salvo disposición legal en contrario.') }}</p>
 										<h2>{{ __('14. Protección de datos') }}</h2>
 										<p class="isSelectedEnd">{{ __('Los datos personales facilitados durante el proceso de compra serán tratados conforme al Reglamento (UE) 2016/679 (RGPD), la Ley Orgánica 3/2018 (LOPDGDD) y la Política de Privacidad del sitio web.') }}</p>
 										<h2>{{ __('15. Atención al cliente') }}</h2>
 										<p class="isSelectedEnd">{{ __('Para cualquier consulta relacionada con pedidos, devoluciones, garantías o reclamaciones, el cliente podrá contactar con:') }}</p>
 										<p class="isSelectedEnd"><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<h2>{{ __('16. Resolución de litigios') }}</h2>
 										<p class="isSelectedEnd">{{ __('En caso de conflicto, las partes intentarán resolverlo de forma amistosa.') }}</p>
@@ -170,13 +163,14 @@
 												href="https://ec.europa.eu/consumers/odr">{{ __('https://ec.europa.eu/consumers/odr') }}</a>
 										</p>
 										<h2>{{ __('17. Legislación aplicable') }}</h2>
-										<p class="isSelectedEnd">{{ __('Las presentes Condiciones Generales de Venta se rigen por la legislación española y, en particular, por:') }}</p>
+										<p class="isSelectedEnd">{{ __('Las presentes Condiciones Generales de Venta se rigen por el derecho de la Unión Europea y por la legislación nacional aplicable en función del país de residencia del consumidor, en particular:') }}</p>
 										<ul data-spread="false">
 											<li>{{ __('Reglamento (UE) 2016/679 (RGPD).') }}</li>
-											<li>{{ __('Ley Orgánica 3/2018 (LOPDGDD).') }}</li>
-											<li>{{ __('Ley 34/2002, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE).') }}</li>
-											<li>{{ __('Real Decreto Legislativo 1/2007, por el que se aprueba el texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios.') }}</li>
-											<li>{{ __('Demás normativa española y europea aplicable.') }}</li>
+											<li>{{ __('Directiva (UE) 2019/771 sobre contratos de compraventa de bienes.') }}</li>
+											<li>{{ __('Directiva (UE) 2011/83 sobre los derechos de los consumidores.') }}</li>
+											<li>{{ __('Para clientes en España: Real Decreto Legislativo 1/2007 (LGDCU), Ley 34/2002 (LSSI-CE).') }}</li>
+											<li>{{ __('Para clientes en Portugal: Lei n.º 24/96 (Lei de Defesa do Consumidor), Decreto-Lei n.º 84/2021.') }}</li>
+											<li>{{ __('Demás normativa europea y nacional aplicable.') }}</li>
 										</ul>
 									</div>
 								</div>

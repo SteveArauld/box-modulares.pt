@@ -39,7 +39,7 @@
 										data-widget_type="text-editor.default">
 										<h2>{{ __('1. Objeto') }}</h2>
 										<p>{{ __('La presente Política de Pago regula las condiciones aplicables a los pagos realizados en el sitio web') }} <strong><a
-													href="../">{{ __('https://domaine.pt') }}</a></strong>{{ __(', titularidad de') }} <strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
+													href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></strong>{{ __(', titularidad de') }} <strong>{{ config('company.legal_name') }}</strong></p>
 										<p>{{ __('Al realizar un pedido, el cliente acepta las condiciones establecidas en esta Política de Pago.') }}</p>
 										<h2>{{ __('2. Moneda') }}</h2>
 										<p>{{ __('Todos los precios publicados en el Sitio Web se expresan en') }} <strong>{{ __('euros (€)') }}</strong>.</p>
@@ -73,18 +73,18 @@
 										<p>{{ __('Únicamente aparecerán durante el proceso de compra los métodos de pago disponibles para el cliente.') }}</p>
 										<h2>{{ __('4. Seguridad de los pagos') }}</h2>
 										<p>{{ __('Todos los pagos se procesan mediante plataformas de pago seguras que utilizan protocolos de cifrado SSL/TLS y cumplen con los estándares internacionales de seguridad para la protección de la información financiera.') }}</p>
-										<p>{{ __('Arquisset de Construccio S.L. no almacena ni tiene acceso a los datos completos de las tarjetas bancarias utilizadas por los clientes.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('no almacena ni tiene acceso a los datos completos de las tarjetas bancarias utilizadas por los clientes.') }}</p>
 										<h2>{{ __('5. Confirmación del pago') }}</h2>
 										<p>{{ __('El pedido se considerará confirmado una vez que el pago haya sido autorizado y validado correctamente.') }}</p>
 										<p>{{ __('El cliente recibirá un correo electrónico con la confirmación de su pedido.') }}
 										</p>
-										<p>{{ __('Arquisset de Construccio S.L. podrá suspender el procesamiento del pedido hasta la correcta verificación del pago.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('podrá suspender el procesamiento del pedido hasta la correcta verificación del pago.') }}</p>
 										<h2>{{ __('6. Verificación y prevención del fraude') }}</h2>
-										<p>{{ __('Con el fin de garantizar la seguridad de las transacciones,Gsc Containers. podrá realizar verificaciones adicionales cuando existan indicios de fraude o uso indebido de los medios de pago.') }}</p>
+										<p>{{ __('Con el fin de garantizar la seguridad de las transacciones,') }} {{ config('company.legal_name') }} {{ __('podrá realizar verificaciones adicionales cuando existan indicios de fraude o uso indebido de los medios de pago.') }}</p>
 										<p>{{ __('En estos casos, podrá solicitar documentación adicional o cancelar el pedido si no es posible verificar la legitimidad de la operación.') }}</p>
 										<h2>{{ __('7. Pago rechazado') }}</h2>
 										<p>{{ __('Si una entidad financiera rechaza el pago, el pedido no será aceptado y el cliente será informado para que pueda utilizar otro método de pago.') }}</p>
-										<p>{{ __('Arquisset de Construccio S.L. no será responsable de los costes o comisiones que pueda aplicar la entidad emisora del medio de pago.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('no será responsable de los costes o comisiones que pueda aplicar la entidad emisora del medio de pago.') }}</p>
 										<h2>{{ __('8. Facturación') }}</h2>
 										<p>{{ __('Una vez confirmado el pedido, el cliente recibirá la correspondiente factura conforme a la legislación fiscal española.') }}</p>
 										<p>{{ __('La factura podrá emitirse en formato electrónico, salvo que el cliente solicite expresamente otro formato cuando la normativa lo permita.') }}</p>
@@ -97,20 +97,20 @@
 										</p>
 										<p>{{ __('En los pedidos con destino fuera del territorio donde se aplique el IVA español, el cliente podrá estar sujeto al pago de impuestos, derechos de aduana o tasas locales, que serán de su exclusiva responsabilidad.') }}</p>
 										<h2>{{ __('11. Reserva de propiedad') }}</h2>
-										<p>{{ __('La propiedad de los productos permanecerá en poder deGsc Containers. hasta que se haya recibido el pago completo del importe correspondiente.') }}</p>
+										<p>{{ __('La propiedad de los productos permanecerá en poder de') }} {{ config('company.legal_name') }} {{ __('hasta que se haya recibido el pago completo del importe correspondiente.') }}</p>
 										<h2>{{ __('12. Modificaciones') }}</h2>
-										<p>{{ __('Arquisset de Construccio S.L. podrá modificar la presente Política de Pago para adaptarla a cambios legislativos, tecnológicos o comerciales.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('podrá modificar la presente Política de Pago para adaptarla a cambios legislativos, tecnológicos o comerciales.') }}</p>
 										<p>{{ __('Las modificaciones serán publicadas en esta página y serán aplicables desde su fecha de publicación.') }}</p>
 										<h2>{{ __('13. Contacto') }}</h2>
 										<p>{{ __('Para cualquier consulta relacionada con los pagos, puede ponerse en contacto con nosotros:') }}</p>
-										<p><strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
-										<p>{{ __('Calle Avenir 8') }}</p>
-										<p>{{ __('08006 Barcelona, España') }}</p>
+										<p><strong>{{ config('company.legal_name') }}</strong></p>
+										<p>{{ config('company.address_line1') }}@if(!empty(config('company.address_line2'))), {{ config('company.address_line2') }}@endif</p>
+										<p>{{ config('company.postal_code') }} {{ config('company.city') }}@if(!empty(config('company.region'))), {{ config('company.region') }}@endif, {{ config('company.country') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
+												href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></p>
 									</div>
 								</div>
 							</div>

@@ -24,7 +24,8 @@
                                         <div class="wd-image text-left">
                                             <a href="{{ url('/') }}" aria-label="{{ __('Enlace de imagen') }}">
                                                 <img width="150" height="40"
-                                                    src="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}"
+                                                    src="{{ asset('assets/images/logo/gsccontainers-logo-150w.png') }}"
+                                                    srcset="{{ asset('assets/images/logo/gsccontainers-logo-150w.png') }} 1x, {{ asset('assets/images/logo/gsccontainers-logo-350w.png') }} 2x"
                                                     class="attachment-167x24 size-167x24" alt="{{ config('app.name') }}"
                                                     decoding="async" loading="lazy" /> </a>
                                         </div>
@@ -41,8 +42,11 @@
                                         <div class="wd-text-block reset-last-child text-left">
 
                                             <p>{!! __(
-                                                'En <strong>:app</strong> encontrará una amplia selección de materiales de construcción, productos para jardín, pérgolas, piscinas, barbacoas, pellet, mobiliario de exterior y equipamiento profesional. Trabajamos para ofrecer productos de calidad, precios competitivos y <strong>envío gratuito</strong> en todos los pedidos.',
-                                                ['app' => config('app.name')],
+                                                '<strong>:brand</strong> (:legal) — transformation, achat, vente et location de conteneurs maritimes, ainsi que construction de bâtiments. Offres transparentes et accompagnement professionnel.',
+                                                [
+                                                    'brand' => config('company.brand'),
+                                                    'legal' => config('company.legal_name'),
+                                                ],
                                             ) !!}</p>
                                         </div>
                                     </div>
@@ -82,6 +86,13 @@
 
                                                                         <ul class="sub-sub-menu">
 
+                                                                            @if (filled(config('company.phone_display')))
+                                                                            <li class="item-with-label item-label-primary">
+                                                                                <a href="tel:{{ preg_replace('/\s+/', '', (string) config('company.phone')) }}">
+                                                                                    {{ config('company.phone_display') }}
+                                                                                </a>
+                                                                            </li>
+                                                                            @endif
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a href="{{ route('shop.contact') }}">
@@ -285,17 +296,24 @@
                             data-id="b553f7d" data-element_type="widget" data-e-type="widget"
                             data-widget_type="html.default">
                             <div class="mm-footer-company">
-                                <strong
-                                    class="mm-footer-company-name">{{ __('Gsc Containers') }}</strong>
+                                <strong class="mm-footer-company-name">{{ config('company.legal_name') }}</strong>
                                 <p class="mm-footer-address">
-                                    {{ __('Calle Avenir 8') }}<br>{{ __('08006 Barcelona, España') }}</p>
+                                    {{ config('company.trade_name') }} — {{ config('company.legal_form') }}<br>
+                                    {{ __('SIRET') }} : {{ config('company.siret') }}<br>
+                                    {{ __('TVA') }} : {{ config('company.vat_number') }}<br>
+                                    {{ __('RCS') }} {{ config('company.rcs_city') }} {{ config('company.rcs_number') }}<br>
+                                    {{ config('company.address_line1') }}<br>
+                                    {{ config('company.address_line2') }}<br>
+                                    {{ config('company.postal_code') }} {{ config('company.city') }}<br>
+                                    {{ config('company.region') }}, {{ config('company.country') }}
+                                </p>
                                 <p class="mm-footer-contact">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
                                         stroke="currentColor" stroke-width="1.5">
                                         <path
                                             d="M3 6l9 7 9-7M3 6v12a1 1 0 001 1h16a1 1 0 001-1V6a1 1 0 00-1-1H4a1 1 0 00-1 1z" />
                                     </svg>
-                                    <a href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+                                    <a href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
                                 </p>
                                 <p class="mm-footer-contact">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
@@ -303,16 +321,19 @@
                                         <circle cx="12" cy="12" r="9" />
                                         <path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" />
                                     </svg>
-                                    <a href="{{ url('/') }}">{{ __('gsccontainers.com') }}</a>
+                                    <a href="{{ url('/') }}">{{ config('company.brand') }}</a>
                                 </p>
-                                <p class="mm-footer-contact">
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                                        stroke="currentColor" stroke-width="1.5">
-                                        <path
-                                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                                    </svg>
-                                    <a href="tel:+34 603 547 522">+34 603 547 522</a>
-                                </p>
+                                @if (filled(config('company.phone_display')))
+                                    <p class="mm-footer-contact">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="1.5">
+                                            <path
+                                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                        </svg>
+                                        <a href="tel:{{ preg_replace('/\s+/', '', (string) config('company.phone')) }}">{{ config('company.phone_display') }}</a>
+                                    </p>
+                                @endif
+                                <p class="mm-footer-contact">&copy; {{ date('Y') }} {{ config('company.legal_name') }}</p>
                             </div>
                         </div>
                     </div>
@@ -327,7 +348,7 @@
                         <div class="elementor-widget-container">
                             <div class="wd-text-block reset-last-child text-left">
 
-                                <p>{{ __('© 2026 Gsc Containers. Todos los derechos reservados.') }}</p>
+                                <p>© {{ date('Y') }} {{ config('company.legal_name') }}. {{ __('Todos los derechos reservados.') }}</p>
                             </div>
                         </div>
                     </div>

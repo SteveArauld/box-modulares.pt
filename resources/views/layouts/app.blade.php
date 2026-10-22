@@ -7,10 +7,47 @@
     
     <meta charset="UTF-8">
     <base href="{{ url('/') }}/">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name'))</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/images/logo/gsccontainers-logo.jpg') }}">
+    <meta name="description" content="@yield('meta_description', config('company.activity'))">
+
+    {{-- Favicons & app icons --}}
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/images/logo/favicon.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/logo/icon-16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/logo/icon-32.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('assets/images/logo/icon-48.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/images/logo/icon-192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/logo/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <meta name="theme-color" content="#0d1f44">
+    <meta name="msapplication-TileColor" content="#0d1f44">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/images/logo/icon-192.png') }}">
+
+    {{-- Canonical --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Open Graph (defaults, overridden per page via @push('meta')) --}}
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <meta property="og:locale" content="{{ str_replace('-', '_', app()->getLocale()) }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@yield('title', config('app.name'))">
+    <meta property="og:description" content="@yield('meta_description', config('company.activity'))">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('assets/images/logo/og-image.jpg') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ config('app.name') }}">
+
+    {{-- Twitter / X Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', config('app.name'))">
+    <meta name="twitter:description" content="@yield('meta_description', config('company.activity'))">
+    <meta name="twitter:image" content="{{ asset('assets/images/logo/og-image.jpg') }}">
+
+    {{-- Per-page overrides (canonical, hreflang, product OG, JSON-LD) --}}
+    @stack('meta')
 
 
     <link rel='stylesheet' id='fluentform-elementor-widget-css'
@@ -241,8 +278,17 @@
     </div>
 
     <script>
+        window.mmShipping = {
+            fee: {{ (float) config('company.shipping.fee', 350) }},
+            currency: @json(config('company.shipping.currency', 'EUR')),
+            zones: @json(config('company.shipping.zones', ['PT', 'ES'])),
+            preparation_days_min: {{ (int) config('company.shipping.preparation_days_min', 2) }},
+            preparation_days_max: {{ (int) config('company.shipping.preparation_days_max', 3) }},
+            delivery_days_min: {{ (int) config('company.shipping.delivery_days_min', 3) }},
+            delivery_days_max: {{ (int) config('company.shipping.delivery_days_max', 6) }},
+        };
         window.mmDeliveryLabels = {
-            shipping: @json(__('✅ Envío gratuito a toda España')),
+            shipping: @json(__('🚚 Envío a Portugal y España — 400 €')),
             estimate: @json(__('📦 Entrega estimada: entre el')),
             and: @json(__('y el')),
         };
@@ -251,38 +297,11 @@
             quantity: @json(__('Cantidad')),
             subtotal: @json(__('Subtotal')),
         };
-        
-    </script>
-    
-    <script>
-        // On prépare le tableau en PHP pur AVANT de l'envoyer à JavaScript
-        @php
-            $jsTranslations = [
-                'remove' => __('Eliminar'),
-                'emptyCart' => __('Tu carrito está vacío.'),
-                'subtotal' => __('Subtotal:'),
-                'viewCart' => __('Ver carrito'),
-                'checkout' => __('Finalizar compra'),
-                'items' => __('artículos'),
-                'addedToCart' => __('Producto añadido a tu carrito'),
-                'addedToFavs' => __('Añadido a tus favoritos'),
-                'removedFromFavs' => __('Eliminado de tus favoritos'),
-                'delShipping' => __('✅ Envío gratuito a toda España'),
-                'delEstimate' => __('📦 Entrega estimada: entre el'),
-                'delAnd' => __('y el'),
-                'lbFullscreen' => __('Pantalla completa'),
-                'lbShare' => __('Compartir'),
-                'lbClose' => __('Cerrar'),
-                'lbPrev' => __('Imagen anterior'),
-                'lbNext' => __('Imagen siguiente'),
-                'lbLinkCopied' => __('Enlace copiado'),
-            ];
-        @endphp
-
-        window.mmTranslations = {!! json_encode($jsTranslations) !!};
     </script>
     <script src="{{ asset('assets/js/shop.js') }}?v={{ filemtime(public_path('assets/js/shop.js')) }}"></script>
     @stack('scripts')
 
 </body>
+
+
 </html>

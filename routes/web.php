@@ -2,10 +2,17 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/feeds/google.xml', [FeedController::class, 'google'])->defaults('locale', 'es')->name('feed.google');
+Route::get('/feeds/google-{locale}.xml', [FeedController::class, 'google'])->name('feed.google.locale');
+
+Route::get('/sitemap.xml', [ShopController::class, 'sitemap'])->name('sitemap');
+Route::get('/robots.txt', [ShopController::class, 'robots'])->name('robots');
 
 Route::get('/', [ShopController::class, 'home'])->name('home');
 

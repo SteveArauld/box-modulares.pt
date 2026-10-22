@@ -877,7 +877,7 @@
                                                 src="/wp-content/uploads/2026/04/edc-hero-section-bg.jpg"
                                                 class="attachment-full size-full" alt="" decoding="async"
                                                 fetchpriority="high"
-                                                srcset="https://gsccontainers.com/wp-content/uploads/2026/04/edc-hero-section-bg.jpg 1920w, https://gsccontainers.com/wp-content/uploads/2026/04/edc-hero-section-bg-150x32.jpg 150w, https://gsccontainers.com/wp-content/uploads/2026/04/edc-hero-section-bg-1200x256.jpg 1200w"
+                                                srcset="/wp-content/uploads/2026/04/edc-hero-section-bg.jpg 1920w, /wp-content/uploads/2026/04/edc-hero-section-bg-150x32.jpg 150w, /wp-content/uploads/2026/04/edc-hero-section-bg-1200x256.jpg 1200w"
                                                 sizes="(max-width: 1920px) 100vw, 1920px" />
                                         </div>
                                         <div class="container">
@@ -976,14 +976,14 @@
                                                         <ul id="shipping_method" class="woocommerce-shipping-methods">
                                                             <li>
                                                                 <input type="hidden" name="shipping_method[0]"
-                                                                    data-index="0" id="shipping_method_0_free_shipping1"
-                                                                    value="free_shipping:1"
-                                                                    class="shipping_method" /><label
-                                                                    for="shipping_method_0_free_shipping1">{{ __('Envío gratuito') }}</label>
+                                                                    data-index="0" id="shipping_method_0_flat_rate1"
+                                                                    value="flat_rate:1"
+                                                                    class="shipping_method" checked="checked" /><label
+                                                                    for="shipping_method_0_flat_rate1">{{ __('Envío Portugal / España') }}: <span id="js-cart-shipping-amount" class="woocommerce-Price-amount amount">{{ number_format((float) config('company.shipping.fee', 400), 2, ',', '.') }}</span>&nbsp;€</label>
                                                             </li>
                                                         </ul>
                                                         <p class="woocommerce-shipping-destination">
-                                                            {{ __('Enviar a') }} <strong>{{ __('Barcelona') }}</strong>. </p>
+                                                            {{ __('Envío disponible en') }} <strong>{{ __('Portugal y España') }}</strong> — {{ number_format((float) config('company.shipping.fee', 400), 0, ',', '.') }} €.</p>
 
 
 
@@ -1618,10 +1618,14 @@
 
             var totals = Shop.totals(items);
             var subtotalEl = document.getElementById('js-cart-subtotal-amount');
+            var shippingEl = document.getElementById('js-cart-shipping-amount');
             var totalEl = document.getElementById('js-cart-total-amount');
 
             if (subtotalEl) {
                 subtotalEl.textContent = Shop.formatPrice(totals.subtotal);
+            }
+            if (shippingEl) {
+                shippingEl.textContent = Shop.formatPrice(totals.shipping);
             }
             if (totalEl) {
                 totalEl.textContent = Shop.formatPrice(totals.total);

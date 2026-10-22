@@ -42,15 +42,14 @@
 										<p>{{ __('Su finalidad es permitir el correcto funcionamiento del sitio, recordar determinadas preferencias, mejorar la experiencia de navegación, analizar el uso del sitio web y, en algunos casos, mostrar publicidad personalizada.') }}</p>
 										<h2>{{ __('2. Responsable') }}</h2>
 										<p><strong>{{ __('Responsable del sitio web:') }}</strong></p>
-										<p><strong>{{ __('Arquisset de Construccio S.L.') }}</strong></p>
-										<p><strong>{{ __('CIF:') }}</strong> {{ __('B63714778') }}</p>
-										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
-										</p>
+										<p><strong>{{ config('company.legal_name') }}</strong></p>
+										<p><strong>{{ __('SIRET:') }}</strong> {{ config('company.siret') }}</p>
+										<p><strong>{{ __('Domicilio social:') }}</strong> {{ config('company.address_line1') }}@if(!empty(config('company.address_line2'))), {{ config('company.address_line2') }}@endif, {{ config('company.postal_code') }} {{ config('company.city') }}@if(!empty(config('company.region'))), {{ config('company.region') }}@endif, {{ config('company.country') }}.</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<p><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
+												href="{{ rtrim((string) config('company.website'), '/') }}">{{ rtrim((string) config('company.website'), '/') }}</a></p>
 										<h2>{{ __('3. Tipos de cookies utilizadas') }}</h2>
 										<p>{{ __('Este sitio web puede utilizar las siguientes categorías de cookies:') }}</p>
 										<h3>{{ __('Cookies técnicas') }}</h3>
@@ -194,11 +193,11 @@
 										</ul>
 										<p>{{ __('Las solicitudes podrán dirigirse a:') }}</p>
 										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
+												href="mailto:{{ config('company.email') }}">{{ config('company.email') }}</a>
 										</p>
 										<p>{{ __('Asimismo, si considera que sus derechos no han sido respetados, podrá presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD).') }}</p>
 										<h2>{{ __('10. Modificaciones de la Política de Cookies') }}</h2>
-										<p>{{ __('Arquisset de Construccio S.L. podrá actualizar esta Política de Cookies para adaptarla a cambios legislativos, tecnológicos o a la incorporación de nuevos servicios.') }}</p>
+										<p>{{ config('company.legal_name') }} {{ __('podrá actualizar esta Política de Cookies para adaptarla a cambios legislativos, tecnológicos o a la incorporación de nuevos servicios.') }}</p>
 										<p>{{ __('Las modificaciones serán publicadas en esta misma página y entrarán en vigor desde su publicación.') }}</p>
 									</div>
 								</div>

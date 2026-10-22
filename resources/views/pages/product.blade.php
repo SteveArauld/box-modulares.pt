@@ -1,7 +1,124 @@
 @extends('layouts.app')
 
 @section('title', ($product->translatedValue('name') ?? 'Producto').' | '.config('app.name'))
+@section('meta_description', strip_tags($product->translatedValue('short_description') ?? ''))
 @section('body_class', 'single-product single product page')
+
+@push('meta')
+    {{-- hreflang multilingue (chaque langue utilise son propre slug, sans préfixe de locale) --}}
+    @php $supportedLocales = ['es','pt','fr','it','en','de']; @endphp
+    @foreach ($supportedLocales as $lang)
+        @php $localSlug = $product->getTranslation('slug', $lang, false); @endphp
+        @if ($localSlug)
+            <link rel="alternate" hreflang="{{ $lang }}" href="{{ route('product', $localSlug) }}">
+        @endif
+    @endforeach
+    <link rel="alternate" hreflang="x-default" href="{{ route('product', $product->getTranslation('slug', 'es', false)) }}">
+
+    {{-- Open Graph produit --}}
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="{{ $product->translatedValue('name') }}">
+    <meta property="og:description" content="{{ strip_tags($product->translatedValue('short_description') ?? '') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    @if ($product->cover_image)
+        <meta property="og:image" content="{{ url($product->cover_image) }}">
+        <meta property="og:image:width" content="800">
+        <meta property="og:image:height" content="800">
+    @endif
+    <meta property="product:price:amount" content="{{ $product->price }}">
+    <meta property="product:price:currency" content="EUR">
+
+    {{-- JSON-LD schema.org Product + Offer --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": {{ json_encode($product->translatedValue('name')) }},
+        "sku": {{ json_encode($product->sku) }},
+        "brand": {
+            "@type": "Brand",
+            "name": {{ json_encode(config('company.brand')) }}
+        },
+        "description": {{ json_encode(strip_tags($product->translatedValue('short_description') ?? '')) }},
+        @if ($product->cover_image)
+        "image": [
+            {{ json_encode(url($product->cover_image)) }}
+            @foreach ($product->gallery->skip(1)->take(9) as $img)
+            , {{ json_encode(url($img->path)) }}
+            @endforeach
+        ],
+        @endif
+        "offers": {
+            "@type": "Offer",
+            "url": {{ json_encode(url()->current()) }},
+            "priceCurrency": "EUR",
+            "price": {{ json_encode((string) $product->price) }},
+            @if ($product->on_sale && $product->regular_price > $product->price)
+            "priceValidUntil": "{{ now()->addYear()->toDateString() }}",
+            @endif
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/{{ $product->condition === 'used' ? 'UsedCondition' : ($product->condition === 'refurbished' ? 'RefurbishedCondition' : 'NewCondition') }}",
+            "seller": {
+                "@type": "Organization",
+                "name": {{ json_encode(config('company.legal_name')) }}
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": {{ json_encode((string) config('company.shipping.fee', 350)) }},
+                    "currency": "EUR"
+                },
+                "shippingDestination": [
+                    @foreach (config('company.shipping.zones', ['PT','ES']) as $i => $zone)
+                    {{ $i > 0 ? ',' : '' }}{ "@type": "DefinedRegion", "addressCountry": {{ json_encode($zone) }} }
+                    @endforeach
+                ],
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": {{ config('company.shipping.preparation_days_min', 2) }},
+                        "maxValue": {{ config('company.shipping.preparation_days_max', 3) }},
+                        "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": {{ config('company.shipping.delivery_days_min', 3) }},
+                        "maxValue": {{ config('company.shipping.delivery_days_max', 6) }},
+                        "unitCode": "DAY"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+
+    {{-- JSON-LD Organisation (une seule fois sur la page produit) --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": {{ json_encode(config('company.legal_name')) }},
+        "url": {{ json_encode(url('/')) }},
+        "logo": {{ json_encode(url('assets/images/logo/gsccontainers-logo.jpg')) }},
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": {{ json_encode(config('company.email')) }},
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish","French","Portuguese","English"]
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": {{ json_encode(config('company.address_line1').' '.config('company.address_line2')) }},
+            "postalCode": {{ json_encode(config('company.postal_code')) }},
+            "addressLocality": {{ json_encode(config('company.city')) }},
+            "addressRegion": {{ json_encode(config('company.region')) }},
+            "addressCountry": {{ json_encode(config('company.country_code')) }}
+        }
+    }
+    </script>
+@endpush
 
 @push('styles')
     <link rel='stylesheet' href='{{ asset('assets/css/product.css') }}?v={{ filemtime(public_path('assets/css/product.css')) }}' media='all' />
@@ -781,13 +898,13 @@
                                                         tabindex="0">
                                                         <div class="wd-accordion-title-text">
                                                             <span>
-                                                                {{ __('Envío gratuito y devoluciones sencillas') }} </span>
+                                                                {{ __('Envío a Portugal y España — 400 € · Preparación 2–3 días · Entrega 3–6 días') }}</span>
                                                         </div>
                                                         <span class="wd-accordion-opener"></span>
                                                     </div>
                                                     <div class="wd-accordion-content wd-entry-content"
                                                         data-accordion-index="1">
-                                                        <p>{{ __('Ofrecemos') }} <strong>{{ __('envío gratuito') }}</strong> {{ __('en todos los pedidos. Si desea devolver un producto, dispone de') }} <strong>{{ __('14 días naturales') }}</strong> {{ __('desde su recepción para ejercer su derecho de desistimiento, siempre que el artículo se encuentre en su estado original y cumpla las condiciones de devolución.') }}
+                                                        <p>{{ __('Enviamos a Portugal y España con un coste fijo de') }} <strong>{{ number_format((float) config('company.shipping.fee', 400), 0, ',', '.') }} €</strong>. {{ __('Preparación:') }} <strong>2–3 {{ __('días') }}</strong>. {{ __('Entrega:') }} <strong>3–6 {{ __('días') }}</strong>. {{ __('Si desea devolver un producto, dispone de') }} <strong>{{ __('14 días naturales') }}</strong> {{ __('desde su recepción para ejercer su derecho de desistimiento, siempre que el artículo se encuentre en su estado original y cumpla las condiciones de devolución.') }}
                                                         </p>
                                                     </div>
                                                 </div>

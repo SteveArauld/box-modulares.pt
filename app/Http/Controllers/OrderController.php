@@ -42,7 +42,7 @@ class OrderController extends Controller
         });
 
         $subtotal = round((float) $lines->sum('line_total'), 2);
-        $shipping = 0.0;
+        $shipping = round((float) config('company.shipping.fee', 350), 2);
         $total = round($subtotal + $shipping, 2);
 
         $order = DB::transaction(function () use ($data, $lines, $subtotal, $shipping, $total) {

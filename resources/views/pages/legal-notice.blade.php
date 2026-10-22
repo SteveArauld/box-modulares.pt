@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Aviso legal | '.config('app.name'))
-
+@section('title', __('Mentions légales').' | '.config('app.name'))
 
 @section('content')
 	<div class="wd-page-content main-page-wrapper">
@@ -17,11 +16,11 @@
 				</div>
 				<div class="container">
 					<h1 class="entry-title title">
-						{{ __('Aviso Legal') }} </h1>
+						{{ __('Mentions légales') }} </h1>
 
 
-					<nav class="wd-breadcrumbs"><a href="../">{{ __('Inicio') }}</a><span
-							class="wd-delimiter">•</span><span class="wd-last">{{ __('Aviso Legal') }}</span></nav>
+					<nav class="wd-breadcrumbs"><a href="{{ url('/') }}">{{ __('Inicio') }}</a><span
+							class="wd-delimiter">•</span><span class="wd-last">{{ __('Mentions légales') }}</span></nav>
 				</div>
 			</div>
 
@@ -37,80 +36,70 @@
 									<div class="elementor-element elementor-element-2f65f0b color-scheme-inherit text-left elementor-widget elementor-widget-text-editor"
 										data-id="2f65f0b" data-element_type="widget" data-e-type="widget"
 										data-widget_type="text-editor.default">
-										<h2>{{ __('1. Datos identificativos') }}</h2>
-										<p>{{ __('En cumplimiento de lo dispuesto en la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa a los usuarios de los siguientes datos del titular del sitio web:') }}</p>
-										<p><strong>{{ __('Titular:') }}</strong> {{ __('Arquisset de Construccio S.L.') }}</p>
-										<p><strong>{{ __('CIF:') }}</strong> {{ __('B63714778') }}</p>
-										<p><strong>{{ __('Domicilio social:') }}</strong> {{ __('Calle Avenir 8, 08006 Barcelona, España.') }}
+										@include('partials.company-legal-identity')
+
+										@if (! empty(config('company.hosting_name')))
+											<h2>{{ __('Hébergeur') }}</h2>
+											<p><strong>{{ config('company.hosting_name') }}</strong></p>
+											@if (! empty(config('company.hosting_address')))
+												<p>{{ config('company.hosting_address') }}</p>
+											@endif
+											@if (! empty(config('company.hosting_website')))
+												<p><a href="{{ config('company.hosting_website') }}" rel="noopener noreferrer" target="_blank">{{ config('company.hosting_website') }}</a></p>
+											@endif
+										@endif
+
+										@if (! empty(config('company.mediator_name')) || ! empty(config('company.mediator_website')))
+											<h2>{{ __('Médiation de la consommation') }}</h2>
+											@if (! empty(config('company.mediator_name')))
+												<p><strong>{{ config('company.mediator_name') }}</strong></p>
+											@endif
+											@if (! empty(config('company.mediator_website')))
+												<p><a href="{{ config('company.mediator_website') }}" rel="noopener noreferrer" target="_blank">{{ config('company.mediator_website') }}</a></p>
+											@endif
+										@endif
+
+										<h2>{{ __('2. Objet') }}</h2>
+										<p>{{ __('Les présentes Mentions légales régissent l’accès, la navigation et l’utilisation du site web édité par') }}
+											<strong>{{ config('company.legal_name') }}</strong>
+											({{ config('company.trade_name') }}),
+											{{ __('ainsi que les responsabilités liées à l’utilisation de ses contenus (textes, images, designs, logos, produits, services, bases de données et logiciels).') }}
 										</p>
-										<p><strong>{{ __('Correo electrónico:') }}</strong> <a
-												href="mailto:contacto@gsccontainers.com">contacto@gsccontainers.com</a>
-										</p>
-										<p><strong>{{ __('Sitio web:') }}</strong> <a
-												href="../">{{ __('https://domaine.pt') }}</a></p>
-										<p>{{ __('En adelante, el «Titular».') }}</p>
-										<h2>{{ __('2. Objeto') }}</h2>
-										<p>{{ __('El presente Aviso Legal regula el acceso, navegación y utilización del sitio web') }} <a href="../">{{ __('https://domaine.pt') }}</a>{{ __(', así como las responsabilidades derivadas de la utilización de sus contenidos, incluyendo textos, imágenes, diseños, logotipos, productos, servicios, bases de datos, software y cualquier otro material protegido por la legislación vigente.') }}</p>
-										<p>{{ __('El acceso al sitio web implica la aceptación plena y sin reservas de las presentes condiciones.') }}</p>
-										<h2>{{ __('3. Condiciones de uso') }}</h2>
-										<p>{{ __('El usuario se compromete a utilizar el sitio web de forma lícita, diligente y conforme a la legislación vigente, la buena fe, el orden público y el presente Aviso Legal.') }}</p>
-										<p>{{ __('Queda prohibido:') }}</p>
+										<p>{{ __('L’accès au site implique l’acceptation pleine et entière des présentes conditions.') }}</p>
+
+										<h2>{{ __('3. Conditions d’utilisation') }}</h2>
+										<p>{{ __('L’utilisateur s’engage à utiliser le site de manière licite, diligente et conforme à la législation applicable, à la bonne foi, à l’ordre public et aux présentes Mentions légales.') }}</p>
+										<p>{{ __('Il est notamment interdit de :') }}</p>
 										<ul>
-											<li>
-												<p>{{ __('Utilizar el sitio con fines ilícitos o fraudulentos.') }}</p>
-											</li>
-											<li>
-												<p>{{ __('Introducir virus, malware o cualquier otro elemento susceptible de dañar los sistemas del Titular o de terceros.') }}</p>
-											</li>
-											<li>
-												<p>{{ __('Intentar acceder sin autorización a áreas restringidas del sitio.') }}</p>
-											</li>
-											<li>
-												<p>{{ __('Utilizar los contenidos del sitio para actividades comerciales no autorizadas.') }}</p>
-											</li>
+											<li><p>{{ __('Utiliser le site à des fins illicites ou frauduleuses.') }}</p></li>
+											<li><p>{{ __('Introduire des virus, malwares ou tout élément susceptible d’endommager les systèmes de l’éditeur ou de tiers.') }}</p></li>
+											<li><p>{{ __('Tenter d’accéder sans autorisation à des zones restreintes, systèmes ou réseaux liés au site.') }}</p></li>
+											<li><p>{{ __('Reproduire, copier, distribuer ou exploiter commercialement les contenus sans autorisation préalable écrite.') }}</p></li>
 										</ul>
-										<p>{{ __('El Titular podrá suspender o cancelar el acceso a los usuarios que incumplan estas condiciones.') }}</p>
-										<h2>{{ __('4. Propiedad intelectual e industrial') }}</h2>
-										<p>{{ __('Todos los contenidos del sitio web, incluyendo, entre otros, textos, fotografías, imágenes, logotipos, marcas, nombres comerciales, diseños, vídeos, código fuente y software, son propiedad del Titular o de terceros que han autorizado su utilización y están protegidos por la normativa española, europea e internacional sobre propiedad intelectual e industrial.') }}
-										</p>
-										<p>{{ __('Queda prohibida la reproducción, distribución, transformación, comunicación pública o cualquier otra forma de explotación sin autorización previa y por escrito del Titular.') }}</p>
-										<h2>{{ __('5. Responsabilidad') }}</h2>
-										<p>{{ __('El Titular realiza sus mejores esfuerzos para garantizar la disponibilidad y el correcto funcionamiento del sitio web.') }}</p>
-										<p>{{ __('No obstante, no garantiza que el sitio permanezca disponible de forma permanente ni que esté libre de errores, interrupciones o incidencias técnicas.') }}</p>
-										<p>{{ __('El Titular no será responsable de:') }}</p>
-										<ul>
-											<li>
-												<p>{{ __('Los daños derivados del uso del sitio web.') }}</p>
-											</li>
-											<li>
-												<p>{{ __('Los fallos de conexión a Internet.') }}</p>
-											</li>
-											<li>
-												<p>{{ __('La presencia de virus o programas maliciosos introducidos por terceros.') }}</p>
-											</li>
-											<li>
-												<p>{{ __('El uso indebido que los usuarios hagan del sitio web.') }}</p>
-											</li>
-										</ul>
-										<h2>{{ __('6. Enlaces externos') }}</h2>
-										<p>{{ __('El sitio web puede contener enlaces a páginas de terceros.') }}</p>
-										<p>{{ __('El Titular no controla ni asume responsabilidad alguna sobre los contenidos, servicios, políticas o prácticas de privacidad de dichos sitios web.') }}</p>
-										<h2>{{ __('7. Protección de datos personales') }}</h2>
-										<p>{{ __('El tratamiento de los datos personales se realiza conforme al Reglamento (UE) 2016/679 (RGPD), la Ley Orgánica 3/2018 (LOPDGDD) y demás normativa aplicable.') }}</p>
-										<p>{{ __('Toda la información relativa al tratamiento de datos personales se encuentra disponible en la Política de Privacidad del sitio web.') }}</p>
-										<h2>{{ __('8. Cookies') }}</h2>
-										<p>{{ __('Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia del usuario, analizar la navegación y ofrecer determinados servicios.') }}</p>
-										<p>{{ __('Puede consultar toda la información en la Política de Cookies.') }}</p>
-										<h2>{{ __('9. Comercio electrónico') }}</h2>
-										<p>{{ __('Los productos comercializados a través del sitio web están sujetos a la legislación española sobre consumidores y usuarios, incluyendo el Real Decreto Legislativo 1/2007 y demás normativa aplicable.') }}</p>
-										<p>{{ __('Las condiciones de compra, precios, formas de pago, entrega, devoluciones y derecho de desistimiento se regulan en las Condiciones Generales de Venta.') }}
-										</p>
-										<h2>{{ __('10. Legislación aplicable') }}</h2>
-										<p>{{ __('El presente Aviso Legal se rige por la legislación española.') }}</p>
-										<p>{{ __('En caso de conflicto o controversia relacionada con el sitio web, las partes se someterán a los Juzgados y Tribunales que correspondan conforme a la normativa vigente en materia de consumidores y usuarios.') }}</p>
-										<h2>{{ __('11. Modificaciones') }}</h2>
-										<p>{{ __('El Titular se reserva el derecho de modificar en cualquier momento el presente Aviso Legal con el fin de adaptarlo a cambios legislativos, jurisprudenciales o de funcionamiento del sitio web.') }}</p>
-										<p>{{ __('Las modificaciones serán publicadas en esta misma página y entrarán en vigor desde su publicación.') }}</p>
+
+										<h2>{{ __('4. Propriété intellectuelle') }}</h2>
+										<p>{{ __('Tous les contenus du site sont protégés par le droit de la propriété intellectuelle. Toute reproduction non autorisée est interdite.') }}</p>
+
+										<h2>{{ __('5. Responsabilité') }}</h2>
+										<p>{{ __('L’éditeur s’efforce de maintenir des informations exactes et à jour. Toutefois, il ne garantit pas l’absence totale d’erreurs, d’interruptions ou d’indisponibilités temporaires.') }}</p>
+										<p>{{ __('Les descriptions, photos et caractéristiques des produits sont fournies de bonne foi. En cas d’écart manifeste, le client en est informé avant confirmation définitive de la commande lorsque cela est possible.') }}</p>
+
+										<h2>{{ __('6. Données personnelles') }}</h2>
+										<p>{{ __('Le traitement des données personnelles est décrit dans la Politique de confidentialité, conformément au RGPD et à la législation française applicable.') }}</p>
+
+										<h2>{{ __('7. Cookies') }}</h2>
+										<p>{{ __('Le site peut utiliser des cookies. Les détails figurent dans la Politique de cookies.') }}</p>
+
+										<h2>{{ __('8. Commerce électronique') }}</h2>
+										<p>{{ __('Les ventes en ligne sont soumises au Code de la consommation français et aux Conditions générales de vente publiées sur le site. Les prix, modes de paiement, délais, livraisons et droit de rétractation y sont précisés.') }}</p>
+										<p>{{ __('Aucun avantage commercial (livraison gratuite, délais fixes, garantie commerciale spécifique) n’est garanti s’il n’est pas explicitement confirmé sur la fiche produit, le devis ou le récapitulatif de commande.') }}</p>
+
+										<h2>{{ __('9. Droit applicable') }}</h2>
+										<p>{{ __('Les présentes Mentions légales sont régies par le droit français.') }}</p>
+										<p>{{ __('En cas de litige, et à défaut d’accord amiable, les tribunaux compétents seront ceux déterminés par les règles applicables en matière de consommation.') }}</p>
+
+										<h2>{{ __('10. Modifications') }}</h2>
+										<p>{{ __('L’éditeur se réserve le droit de modifier les présentes Mentions légales pour les adapter à l’évolution légale, technique ou organisationnelle. La version applicable est celle publiée sur cette page.') }}</p>
 									</div>
 								</div>
 							</div>
