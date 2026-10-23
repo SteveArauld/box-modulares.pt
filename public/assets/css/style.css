@@ -2934,29 +2934,22 @@
     text-decoration: underline;
 }
 
-@media (max-width: 767px) {
-    .wd-footer #menu-category-menu-edc {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        text-align: left;
-    }
-}
-
 /*
  * Fix: Elementor's generic mobile rule
  * `@media (max-width:767px){.e-con.e-flex{--flex-wrap:var(--flex-wrap-mobile)}}`
- * turns on flex-wrap for every footer container, including the
- * flex-direction:column columns (c27035a, fb5c8fd, 8a8e9df). When a
+ * turns on flex-wrap for every footer container. c27035a and 44f581e are
+ * switched to flex-direction:column at the 768px breakpoint, and when a
  * column-direction flex container wraps, overflowing children start a new
- * line stacked back at the top instead of continuing underneath — which is
- * exactly what made the "Información Legal" toggle content and the
- * "Categorías" block render on top of each other on mobile. Force nowrap
- * (and natural height) on every footer container so children always stack
- * normally, one under the other.
+ * line stacked back at the top instead of continuing underneath — that is
+ * what made the "Información Legal" toggle content and the "Categorías"
+ * block render on top of each other on mobile. Force nowrap only on these
+ * two column containers; other footer containers (e.g. 8a8e9df, which
+ * stacks its two toggles by wrapping their 100%-width children) still need
+ * wrap to lay out correctly on mobile.
  */
 @media (max-width: 767px) {
-    .wd-footer .e-con.e-flex {
+    .wd-footer .elementor-element-c27035a.e-con.e-flex,
+    .wd-footer .elementor-element-44f581e.e-con.e-flex {
         --flex-wrap: nowrap !important;
         flex-wrap: nowrap !important;
         height: auto !important;
