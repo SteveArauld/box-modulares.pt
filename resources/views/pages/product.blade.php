@@ -31,28 +31,28 @@
     {{-- JSON-LD schema.org Product + Offer --}}
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org/",
+        "@@context": "https://schema.org/",
         "@type": "Product",
-        "name": {{ json_encode($product->translatedValue('name')) }},
-        "sku": {{ json_encode($product->sku) }},
+        "name": {!! json_encode($product->translatedValue('name')) !!},
+        "sku": {!! json_encode($product->sku) !!},
         "brand": {
             "@type": "Brand",
-            "name": {{ json_encode(config('company.brand')) }}
+            "name": {!! json_encode(config('company.brand')) !!}
         },
-        "description": {{ json_encode(strip_tags($product->translatedValue('short_description') ?? '')) }},
+        "description": {!! json_encode(strip_tags($product->translatedValue('short_description') ?? '')) !!},
         @if ($product->cover_image)
         "image": [
-            {{ json_encode(url($product->cover_image)) }}
+            {!! json_encode(url($product->cover_image)) !!}
             @foreach ($product->gallery->skip(1)->take(9) as $img)
-            , {{ json_encode(url($img->path)) }}
+            , {!! json_encode(url($img->path)) !!}
             @endforeach
         ],
         @endif
         "offers": {
             "@type": "Offer",
-            "url": {{ json_encode(url()->current()) }},
+            "url": {!! json_encode(url()->current()) !!},
             "priceCurrency": "EUR",
-            "price": {{ json_encode((string) $product->price) }},
+            "price": {!! json_encode((string) $product->price) !!},
             @if ($product->on_sale && $product->regular_price > $product->price)
             "priceValidUntil": "{{ now()->addYear()->toDateString() }}",
             @endif
@@ -60,18 +60,18 @@
             "itemCondition": "https://schema.org/{{ $product->condition === 'used' ? 'UsedCondition' : ($product->condition === 'refurbished' ? 'RefurbishedCondition' : 'NewCondition') }}",
             "seller": {
                 "@type": "Organization",
-                "name": {{ json_encode(config('company.legal_name')) }}
+                "name": {!! json_encode(config('company.legal_name')) !!}
             },
             "shippingDetails": {
                 "@type": "OfferShippingDetails",
                 "shippingRate": {
                     "@type": "MonetaryAmount",
-                    "value": {{ json_encode((string) config('company.shipping.fee', 350)) }},
+                    "value": {!! json_encode((string) config('company.shipping.fee', 350)) !!},
                     "currency": "EUR"
                 },
                 "shippingDestination": [
                     @foreach (config('company.shipping.zones', ['PT','ES']) as $i => $zone)
-                    {{ $i > 0 ? ',' : '' }}{ "@type": "DefinedRegion", "addressCountry": {{ json_encode($zone) }} }
+                    {{ $i > 0 ? ',' : '' }}{ "@type": "DefinedRegion", "addressCountry": {!! json_encode($zone) !!} }
                     @endforeach
                 ],
                 "deliveryTime": {
@@ -97,24 +97,24 @@
     {{-- JSON-LD Organisation (une seule fois sur la page produit) --}}
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "Organization",
-        "name": {{ json_encode(config('company.legal_name')) }},
-        "url": {{ json_encode(url('/')) }},
-        "logo": {{ json_encode(url('assets/images/logo/gsccontainers-logo.jpg')) }},
+        "name": {!! json_encode(config('company.legal_name')) !!},
+        "url": {!! json_encode(url('/')) !!},
+        "logo": {!! json_encode(url('assets/images/logo/gsccontainers-logo.jpg')) !!},
         "contactPoint": {
             "@type": "ContactPoint",
-            "email": {{ json_encode(config('company.email')) }},
+            "email": {!! json_encode(config('company.email')) !!},
             "contactType": "customer service",
             "availableLanguage": ["Spanish","French","Portuguese","English"]
         },
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": {{ json_encode(config('company.address_line1').' '.config('company.address_line2')) }},
-            "postalCode": {{ json_encode(config('company.postal_code')) }},
-            "addressLocality": {{ json_encode(config('company.city')) }},
-            "addressRegion": {{ json_encode(config('company.region')) }},
-            "addressCountry": {{ json_encode(config('company.country_code')) }}
+            "streetAddress": {!! json_encode(config('company.address_line1').' '.config('company.address_line2')) !!},
+            "postalCode": {!! json_encode(config('company.postal_code')) !!},
+            "addressLocality": {!! json_encode(config('company.city')) !!},
+            "addressRegion": {!! json_encode(config('company.region')) !!},
+            "addressCountry": {!! json_encode(config('company.country_code')) !!}
         }
     }
     </script>
