@@ -2935,6 +2935,24 @@
 }
 
 /*
+ * Fix: Elementor's global custom-frontend.min05b2.css stretches every
+ * widget container inside an e-con to height:100% of its flex item, so
+ * columns are forced to equal height. On mobile this relies on the flex
+ * item actually having the right height, which real phones can get wrong
+ * (their address bar shows/hides and resizes the viewport after Woodmart's
+ * JS has already snapshotted a height), unlike a fixed-size devtools
+ * emulator. When the snapshot is off, the footer's toggle content (fully
+ * expanded, static/active state) overflows its 100%-height box without
+ * pushing the next element down, so it visually overlaps the "Categorías"
+ * card underneath. The footer doesn't need equal-height columns, so just
+ * let its widgets size to their real content everywhere.
+ */
+.wd-footer .elementor-widget-container {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+/*
  * Fix: on mobile, the footer's column containers (c27035a, 44f581e) pick up
  * Elementor's generic flex-wrap-mobile:wrap rule even though they are
  * flex-direction:column — when a column container wraps, overflowing
