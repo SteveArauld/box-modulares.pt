@@ -35,3 +35,39 @@
         text-align: left;
     }
 }
+
+/*
+ * Fix: the scraped Elementor CSS for the footer never shipped its mobile
+ * breakpoint overrides for the two footer columns (customer-service/legal
+ * toggles vs. the categories block). Both columns kept their desktop
+ * widths/heights and stacked on top of each other instead of in normal
+ * document flow, so their text visually overlapped on small screens.
+ * Force a simple full-width block stack on mobile instead.
+ */
+@media (max-width: 767px) {
+    .wd-footer [data-id="7a17cac"],
+    .wd-footer [data-id="c27035a"],
+    .wd-footer [data-id="fb5c8fd"],
+    .wd-footer [data-id="fdcdee7"],
+    .wd-footer [data-id="8a8e9df"],
+    .wd-footer [data-id="29542d2"],
+    .wd-footer [data-id="0529992"] {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    .wd-footer [data-id="fb5c8fd"],
+    .wd-footer [data-id="8a8e9df"],
+    .wd-footer [data-id="7221ba1"],
+    .wd-footer [data-id="eb77bf9"] {
+        margin-bottom: 24px;
+    }
+
+    .wd-footer [data-id="29542d2"] {
+        margin-top: 10px;
+        padding: 20px;
+    }
+}
