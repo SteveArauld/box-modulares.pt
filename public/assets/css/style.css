@@ -2933,3 +2933,36 @@
 .wd-footer #menu-category-menu-edc .woodmart-nav-link:hover {
     text-decoration: underline;
 }
+
+/*
+ * Fix: on mobile, the footer's column containers (c27035a, 44f581e) pick up
+ * Elementor's generic flex-wrap-mobile:wrap rule even though they are
+ * flex-direction:column — when a column container wraps, overflowing
+ * children start a new column stacked back at the top instead of
+ * continuing underneath, which is what made "Información Legal" render on
+ * top of the "Categorías" card. Force nowrap on those two column
+ * containers only.
+ *
+ * The "Servicio Cliente" / "Información Legal" row (8a8e9df) is the
+ * opposite case: it is flex-direction:row and genuinely needs to wrap so
+ * its two 100%-width children (7221ba1, eb77bf9) stack one under the other
+ * on mobile instead of being squeezed side by side. Force wrap there
+ * explicitly in case of cascade/specificity issues with Elementor's CSS
+ * custom properties.
+ */
+@media (max-width: 767px) {
+    .wd-footer .elementor-element-c27035a.e-con.e-flex,
+    .wd-footer .elementor-element-44f581e.e-con.e-flex {
+        --flex-wrap: nowrap !important;
+        flex-wrap: nowrap !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    .wd-footer .elementor-element-8a8e9df.e-con.e-flex {
+        --flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+}

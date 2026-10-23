@@ -63,7 +63,7 @@
                                             href={{ asset('/wp-content/themes/woodmart/css/parts/el-toggle8833.css') }}
                                             type="text/css" media="all" />
                                         <div
-                                            class="wd-el-toggle wd-state-static-lg wd-state-static-md-sm wd-state-closed-sm wd-active-lg wd-active-md-sm wd-icon-rotate">
+                                            class="wd-el-toggle wd-state-static-lg wd-state-static-md-sm wd-state-static-sm wd-active-lg wd-active-md-sm wd-active-sm wd-icon-rotate">
                                             <div class="wd-el-toggle-head wd-role-btn" tabindex="0">
                                                 <div class="wd-el-toggle-title title">
                                                     {{ __('Atención al Cliente') }} </div>
@@ -144,7 +144,7 @@
                                     data-widget_type="wd_toggle.default">
                                     <div class="elementor-widget-container">
                                         <div
-                                            class="wd-el-toggle wd-state-static-lg wd-state-static-md-sm wd-state-closed-sm wd-active-lg wd-active-md-sm wd-icon-rotate">
+                                            class="wd-el-toggle wd-state-static-lg wd-state-static-md-sm wd-state-static-sm wd-active-lg wd-active-md-sm wd-active-sm wd-icon-rotate">
                                             <div class="wd-el-toggle-head wd-role-btn" tabindex="0">
                                                 <div class="wd-el-toggle-title title">
                                                     {{ __('Información Legal') }} </div>
