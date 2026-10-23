@@ -2904,3 +2904,62 @@
         font-size: 28px;
     }
 }
+
+/*
+ * Fix: the scraped Woodmart theme never ships a stylesheet for the footer
+ * "Categorías" mega menu (.wd-menu / .wd-nav-horizontal / .woodmart-nav-link),
+ * so on mobile it renders as a wall of unstyled default-size links.
+ */
+.wd-footer #menu-category-menu-edc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wd-footer #menu-category-menu-edc .woodmart-nav-link {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+}
+
+.wd-footer #menu-category-menu-edc .woodmart-nav-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .wd-footer #menu-category-menu-edc {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        text-align: left;
+    }
+}
+
+/*
+ * Fix: Elementor's generic mobile rule
+ * `@media (max-width:767px){.e-con.e-flex{--flex-wrap:var(--flex-wrap-mobile)}}`
+ * turns on flex-wrap for every footer container, including the
+ * flex-direction:column columns (c27035a, fb5c8fd, 8a8e9df). When a
+ * column-direction flex container wraps, overflowing children start a new
+ * line stacked back at the top instead of continuing underneath — which is
+ * exactly what made the "Información Legal" toggle content and the
+ * "Categorías" block render on top of each other on mobile. Force nowrap
+ * (and natural height) on every footer container so children always stack
+ * normally, one under the other.
+ */
+@media (max-width: 767px) {
+    .wd-footer .e-con.e-flex {
+        --flex-wrap: nowrap !important;
+        flex-wrap: nowrap !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+}

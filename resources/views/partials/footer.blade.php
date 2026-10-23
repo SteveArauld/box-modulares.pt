@@ -1,8 +1,7 @@
 <footer class="wd-footer footer-container color-scheme-light">
     <link rel="stylesheet" id="wd-footer-base-css"
         href={{ asset('/wp-content/themes/woodmart/css/parts/footer-base8833.css') }} type="text/css" media="all" />
-    <link rel="stylesheet" id="footer-categories-fix-css"
-        href={{ asset('assets/css/footer-categories-fix.css') }} type="text/css" media="all" />
+
     <div class="container main-footer wd-entry-content">
         <link rel="stylesheet" id="elementor-post-78-css"
             href={{ asset('/wp-content/uploads/elementor/css/post-789304.css') }} type="text/css" media="all">
