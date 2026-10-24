@@ -272,7 +272,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-element elementor-element-8fe6ad4 e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child"
+                    <div class="elementor-element elementor-element-8fe6ad4 e-con-full e-flex e-con e-child"
                         data-id="8fe6ad4" data-element_type="container" data-e-type="container">
                         <div class="elementor-element elementor-element-c6bfab0 wd-width-100 elementor-widget elementor-widget-wd_title"
                             data-id="c6bfab0" data-element_type="widget" data-e-type="widget"
