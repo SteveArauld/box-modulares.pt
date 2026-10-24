@@ -2,33 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-    {{-- Static pages --}}
+    @php $locales = \App\Http\Middleware\SetLocale::SUPPORTED_LOCALES; @endphp
+
+    {{-- Static pages, one entry per locale --}}
+    @foreach ($locales as $lang)
+        @foreach (['home', 'shop.index', 'shop.contact', 'shop.shipping-policy', 'shop.return-policy', 'shop.payment-policy', 'shop.legal-notice', 'shop.terms-of-use', 'shop.terms-of-sale', 'shop.privacy-policy', 'shop.cookie-policy'] as $pageName)
     <url>
-        <loc>{{ url('/') }}</loc>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
+        <loc>{{ lroute($pageName, [], true, $lang) }}</loc>
+        <changefreq>{{ $pageName === 'home' || $pageName === 'shop.index' ? 'daily' : 'monthly' }}</changefreq>
+        <priority>{{ $pageName === 'home' ? '1.0' : ($pageName === 'shop.index' ? '0.9' : '0.5') }}</priority>
+        @foreach ($locales as $altLang)
+        <xhtml:link rel="alternate" hreflang="{{ $altLang }}" href="{{ lroute($pageName, [], true, $altLang) }}"/>
+        @endforeach
     </url>
-    <url>
-        <loc>{{ route('shop.index') }}</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>{{ route('shop.contact') }}</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
+        @endforeach
+    @endforeach
 
     {{-- Category pages --}}
     @foreach ($categories as $category)
     <url>
-        <loc>{{ route('category', $category->getTranslation('slug', 'es', false)) }}</loc>
+        <loc>{{ lroute('category', $category->getTranslation('slug', 'es', false), true, 'es') }}</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        @foreach (['es','fr','pt','en','it','de'] as $lang)
+        @foreach ($locales as $lang)
             @php $altSlug = $category->getTranslation('slug', $lang, false); @endphp
             @if ($altSlug)
-        <xhtml:link rel="alternate" hreflang="{{ $lang }}" href="{{ url('/') }}/{{ $lang }}/categoria-producto/{{ $altSlug }}"/>
+        <xhtml:link rel="alternate" hreflang="{{ $lang }}" href="{{ lroute('category', $altSlug, true, $lang) }}"/>
             @endif
         @endforeach
     </url>
@@ -37,14 +36,14 @@
     {{-- Product pages --}}
     @foreach ($products as $product)
     <url>
-        <loc>{{ route('product', $product->getTranslation('slug', 'es', false)) }}</loc>
+        <loc>{{ lroute('product', $product->getTranslation('slug', 'es', false), true, 'es') }}</loc>
         <lastmod>{{ $product->updated_at->toDateString() }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
-        @foreach (['es','fr','pt','en','it','de'] as $lang)
+        @foreach ($locales as $lang)
             @php $altSlug = $product->getTranslation('slug', $lang, false); @endphp
             @if ($altSlug)
-        <xhtml:link rel="alternate" hreflang="{{ $lang }}" href="{{ url('/') }}/{{ $lang }}/producto/{{ $altSlug }}"/>
+        <xhtml:link rel="alternate" hreflang="{{ $lang }}" href="{{ lroute('product', $altSlug, true, $lang) }}"/>
             @endif
         @endforeach
     </url>

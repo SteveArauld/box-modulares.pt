@@ -14,7 +14,7 @@
         </div>
         <div class="container">
             <h1 class="entry-title title">{{ __('Mi cuenta') }}</h1>
-            <nav class="wd-breadcrumbs"><a href="{{ route('home') }}">{{ __('Inicio') }}</a><span class="wd-delimiter">•</span><span class="wd-last">{{ __('Mi cuenta') }}</span></nav>
+            <nav class="wd-breadcrumbs"><a href="{{ lroute('home') }}">{{ __('Inicio') }}</a><span class="wd-delimiter">•</span><span class="wd-last">{{ __('Mi cuenta') }}</span></nav>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
 
                         @if ($orders->isEmpty())
                             <p>{{ __('Todavía no has realizado ningún pedido.') }}</p>
-                            <p><a href="{{ route('shop.index') }}" class="button">{{ __('Ir a la tienda') }}</a></p>
+                            <p><a href="{{ lroute('shop.index') }}" class="button">{{ __('Ir a la tienda') }}</a></p>
                         @else
                             <table class="shop_table shop_table_responsive my_account_orders woocommerce-orders-table">
                                 <thead>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\SetLocale;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
@@ -9,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -25,25 +27,25 @@ class ShopController extends Controller
      * Une valeur `null` signifie qu'il n'existe pas d'icône statique pour
      * cette catégorie : on retombe alors sur l'image du premier produit.
      */
-     private const HOME_CATEGORY_ICONS = [
+    private const HOME_CATEGORY_ICONS = [
         // 1. Conteneurs préfabriqués (comme les maisons)
-        'casas-moviles'                        => null,
-        'casas-modulares'                      => null,
-        'casas-moviles-prefabricadas'          => null,
-        
+        'casas-moviles' => null,
+        'casas-modulares' => null,
+        'casas-moviles-prefabricadas' => null,
+
         // 2. Conteneurs de bureau / modulaires
         'casetas-de-obra-y-modulos-sanitarios' => null,
-        'bar-contenedor'                       => null,
+        'bar-contenedor' => null,
 
         // 3. Conteneurs piscine
-        'piscina-contenedor'                   => null,
+        'piscina-contenedor' => null,
 
         // 4. Conteneurs maritimes et plates-formes
-        'contenedores-maritimos'               => null,
-        'plataformas-elevadoras'               => null,
-        'contenedores-de-envio'                => null,
-        'contenedores-maritimos-de-20-pies'    => null,
-        'contenedores-maritimos-de-40-pies'    => null,
+        'contenedores-maritimos' => null,
+        'plataformas-elevadoras' => null,
+        'contenedores-de-envio' => null,
+        'contenedores-maritimos-de-20-pies' => null,
+        'contenedores-maritimos-de-40-pies' => null,
     ];
 
     /**
@@ -54,32 +56,32 @@ class ShopController extends Controller
      * Utilisation : ->where($this->localizedColumn('slug'), $value)
      *               ->orderBy($this->localizedColumn('name'))
      */
-  private function localizedColumn(string $field, ?string $fallback = 'es'): string
-{
-    $locale = app()->getLocale();
-    $driver = \DB::connection()->getDriverName();
+    private function localizedColumn(string $field, ?string $fallback = 'es'): string
+    {
+        $locale = app()->getLocale();
+        $driver = \DB::connection()->getDriverName();
 
-    // Selon le driver, on utilise une syntaxe différente pour extraire le JSON
-    $extract = function (string $column, string $lang) use ($driver): string {
-        return match ($driver) {
-            'sqlite'  => "json_extract({$column}, '$.{$lang}')",
-            'pgsql'   => "{$column}->>'{$lang}'",
-            'mysql', 'mariadb' => "JSON_UNQUOTE(JSON_EXTRACT({$column}, '$.{$lang}'))",
-            default   => "JSON_UNQUOTE(JSON_EXTRACT({$column}, '$.{$lang}'))",
+        // Selon le driver, on utilise une syntaxe différente pour extraire le JSON
+        $extract = function (string $column, string $lang) use ($driver): string {
+            return match ($driver) {
+                'sqlite' => "json_extract({$column}, '$.{$lang}')",
+                'pgsql' => "{$column}->>'{$lang}'",
+                'mysql', 'mariadb' => "JSON_UNQUOTE(JSON_EXTRACT({$column}, '$.{$lang}'))",
+                default => "JSON_UNQUOTE(JSON_EXTRACT({$column}, '$.{$lang}'))",
+            };
         };
-    };
 
-    if ($locale === $fallback || $fallback === null) {
-        return $extract($field, $locale);
+        if ($locale === $fallback || $fallback === null) {
+            return $extract($field, $locale);
+        }
+
+        return 'COALESCE('
+            .$extract($field, $locale).', '
+            .$extract($field, $fallback)
+            .')';
     }
 
-    return "COALESCE("
-        . $extract($field, $locale) . ", "
-        . $extract($field, $fallback)
-        . ")";
-}
-
-        public function home(Request $request): View
+    public function home(Request $request): View
     {
         // 1. On définit l'ordre des catégories (on réutilise les clés de ton tableau ou on les recopie)
         $categoryOrder = [
@@ -136,9 +138,9 @@ class ShopController extends Controller
             $position = $index + 1; // On commence à 1
             $orderByCase .= "WHEN {$id} THEN {$position} ";
         }
-        $orderByCase .= "ELSE 99 END"; // Les autres catégories passent à la fin
+        $orderByCase .= 'ELSE 99 END'; // Les autres catégories passent à la fin
 
-        // 4. On récupère les produits en respectant l'ordre des catégories, 
+        // 4. On récupère les produits en respectant l'ordre des catégories,
         // puis l'ordre de mise en avant (featured_position) à l'intérieur de chaque catégorie.
         $featuredProducts = Product::query()
             ->with('category')
@@ -450,23 +452,27 @@ class ShopController extends Controller
         return view('pages.cookie-policy');
     }
 
-    public function robots(): \Illuminate\Http\Response
+    public function robots(): Response
     {
-        $content = implode("\n", [
-            'User-agent: *',
-            'Disallow: /finalizar-compra',
-            'Disallow: /carrito',
-            'Disallow: /mi-cuenta',
-            'Disallow: /login',
-            'Disallow: /register',
-            '',
-            'Sitemap: '.url('/sitemap.xml'),
-        ]);
+        $lines = ['User-agent: *'];
 
-        return response($content, 200, ['Content-Type' => 'text/plain']);
+        foreach (SetLocale::SUPPORTED_LOCALES as $locale) {
+            $slugs = config('route-translations');
+
+            $lines[] = 'Disallow: /'.$locale.'/'.$slugs['shop.checkout'][$locale];
+            $lines[] = 'Disallow: /'.$locale.'/'.$slugs['shop.carrito'][$locale];
+            $lines[] = 'Disallow: /'.$locale.'/'.$slugs['shop.my-account'][$locale];
+        }
+
+        $lines[] = 'Disallow: /login';
+        $lines[] = 'Disallow: /register';
+        $lines[] = '';
+        $lines[] = 'Sitemap: '.url('/sitemap.xml');
+
+        return response(implode("\n", $lines), 200, ['Content-Type' => 'text/plain']);
     }
 
-    public function sitemap(): \Illuminate\Http\Response
+    public function sitemap(): Response
     {
         $products = Product::query()
             ->whereHas('category', fn ($q) => $q->where('is_visible', true))
@@ -479,7 +485,7 @@ class ShopController extends Controller
         $xml = view('feeds.sitemap', compact('products', 'categories'))->render();
 
         return response($xml, 200, [
-            'Content-Type'  => 'application/xml; charset=utf-8',
+            'Content-Type' => 'application/xml; charset=utf-8',
             'Cache-Control' => 'public, max-age=86400',
         ]);
     }

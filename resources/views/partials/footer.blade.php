@@ -96,7 +96,7 @@
                                                                             @endif
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
-                                                                                <a href="{{ route('shop.contact') }}">
+                                                                                <a href="{{ lroute('shop.contact') }}">
 
                                                                                     {{ __('Contacto') }}
                                                                                 </a>
@@ -105,7 +105,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-green">
                                                                                 <a
-                                                                                    href="{{ route('shop.shipping-policy') }}">
+                                                                                    href="{{ lroute('shop.shipping-policy') }}">
 
                                                                                     {{ __('Política de Envíos') }}
                                                                                 </a>
@@ -114,7 +114,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a
-                                                                                    href="{{ route('shop.return-policy') }}">
+                                                                                    href="{{ lroute('shop.return-policy') }}">
 
                                                                                     {{ __('Política de Devoluciones y Reembolsos') }}
                                                                                 </a>
@@ -123,7 +123,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a
-                                                                                    href="{{ route('shop.payment-policy') }}">
+                                                                                    href="{{ lroute('shop.payment-policy') }}">
 
                                                                                     {{ __('Política de Pago') }}
                                                                                 </a>
@@ -168,7 +168,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a
-                                                                                    href="{{ route('shop.legal-notice') }}">
+                                                                                    href="{{ lroute('shop.legal-notice') }}">
 
                                                                                     {{ __('Aviso Legal') }}
                                                                                 </a>
@@ -177,7 +177,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-green">
                                                                                 <a
-                                                                                    href="{{ route('shop.terms-of-use') }}">
+                                                                                    href="{{ lroute('shop.terms-of-use') }}">
 
                                                                                     {{ __('Condiciones Generales de Uso') }}
                                                                                 </a>
@@ -186,7 +186,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a
-                                                                                    href="{{ route('shop.terms-of-sale') }}">
+                                                                                    href="{{ lroute('shop.terms-of-sale') }}">
 
                                                                                     {{ __('Condiciones Generales de Venta') }}
                                                                                 </a>
@@ -195,7 +195,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a
-                                                                                    href="{{ route('shop.privacy-policy') }}">
+                                                                                    href="{{ lroute('shop.privacy-policy') }}">
 
                                                                                     {{ __('Política de Privacidad') }}
                                                                                 </a>
@@ -204,7 +204,7 @@
                                                                             <li
                                                                                 class="item-with-label item-label-primary">
                                                                                 <a
-                                                                                    href="{{ route('shop.cookie-policy') }}">
+                                                                                    href="{{ lroute('shop.cookie-policy') }}">
 
                                                                                     {{ __('Política de Cookies') }}
                                                                                 </a>
@@ -448,7 +448,7 @@
 
 
     <form role="search" method="get" class="searchform  wd-style-default woodmart-ajax-search"
-        action="{{ route('shop.search') }}" data-thumbnail="1" data-price="1" data-post_type="product"
+        action="{{ lroute('shop.search') }}" data-thumbnail="1" data-price="1" data-post_type="product"
         data-count="20" data-sku="0" data-symbols_count="3" data-include_cat_search="no" autocomplete="off">
         <input type="text" class="s" placeholder="{{ __('Buscar productos') }}"
             value="{{ request('q') }}" name="q" aria-label="{{ __('Buscar') }}"
@@ -479,7 +479,7 @@
             href={{ asset('/wp-content/themes/woodmart/css/parts/wd-search-dropdown8833.css') }} type="text/css"
             media="all" />
         <form role="search" method="get" class="searchform  wd-style-default woodmart-ajax-search"
-            action="{{ route('shop.search') }}" data-thumbnail="1" data-price="1" data-post_type="product"
+            action="{{ lroute('shop.search') }}" data-thumbnail="1" data-price="1" data-post_type="product"
             data-count="20" data-sku="0" data-symbols_count="3" data-include_cat_search="no" autocomplete="off">
             <input type="text" class="s" placeholder="{{ __('Buscar productos') }}"
                 value="{{ request('q') }}" name="q" aria-label="{{ __('Buscar') }}"
@@ -508,8 +508,8 @@
     <ul id="menu-main-menu-edc-1"
         class="mobile-pages-menu menu wd-nav wd-nav-mobile wd-dis-hover wd-layout-dropdown wd-active">
         <li
-            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-120 menu-item-6034 item-level-0 {{ request()->routeIs('home') ? 'current-menu-item current_page_item' : '' }}">
-            <a href="{{ route('home') }}" class="woodmart-nav-link"><span
+            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-120 menu-item-6034 item-level-0 {{ request()->routeIs('*.home') ? 'current-menu-item current_page_item' : '' }}">
+            <a href="{{ lroute('home') }}" class="woodmart-nav-link"><span
                     class="nav-link-text">{{ __('Inicio') }}</span></a>
         </li>
         @foreach ($navTree as $entry)
@@ -530,7 +530,7 @@
             </li>
         @endforeach
         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6056 item-level-0"><a
-                href="contactanos/" class="woodmart-nav-link"><span
+                href="{{ lroute('shop.contact') }}" class="woodmart-nav-link"><span
                     class="nav-link-text">{{ __('Contáctanos') }}</span></a></li>
     </ul>
 </div>
@@ -562,14 +562,14 @@
 <div class="wd-toolbar wd-toolbar-label-show" role="complementary"
     aria-label="{{ __('Barra de herramientas fija') }}">
     <div class="wd-toolbar-shop wd-toolbar-item wd-tools-element">
-        <a href="tienda/">
+        <a href="{{ lroute('shop.index') }}">
             <span class="wd-tools-icon"></span>
             <span class="wd-toolbar-label">
                 {{ __('Tienda') }} </span>
         </a>
     </div>
     <div class="wd-header-cart wd-tools-element wd-design-5 cart-widget-opener" title="{{ __('Mi carrito') }}">
-        <a href="carrito/">
+        <a href="{{ lroute('shop.carrito') }}">
             <span class="wd-tools-icon">
                 <span class="wd-cart-number wd-tools-count">380 <span>{{ __('artículos') }}</span></span>
             </span>
@@ -578,7 +578,7 @@
         </a>
     </div>
     <div class="wd-header-my-account wd-tools-element wd-style-icon ">
-        <a href="mi-cuenta/">
+        <a href="{{ lroute('shop.my-account') }}">
             <span class="wd-tools-icon"></span>
             <span class="wd-toolbar-label">
                 {{ __('Mi cuenta') }} </span>

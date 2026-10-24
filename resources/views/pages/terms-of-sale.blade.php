@@ -111,7 +111,7 @@
 											<li>{{ __('Circunstancias excepcionales.') }}</li>
 										</ul>
 										<p class="isSelectedEnd">{{ __('El riesgo sobre los productos se transmitirá al consumidor en el momento de la entrega.') }}</p>
-										<p class="isSelectedEnd"><a href="{{ route('shop.shipping-policy') }}">{{ __('Consultar la Política de envíos completa') }}</a></p>
+										<p class="isSelectedEnd"><a href="{{ lroute('shop.shipping-policy') }}">{{ __('Consultar la Política de envíos completa') }}</a></p>
 										<h2>{{ __('9. Recepción del pedido') }}</h2>
 										<p class="isSelectedEnd">{{ __('El cliente deberá comprobar el estado del pedido en el momento de la entrega.') }}</p>
 										<p class="isSelectedEnd">{{ __('Si detecta daños visibles o incidencias en el embalaje, deberá hacerlo constar en el albarán del transportista y comunicarlo al vendedor en un plazo máximo de 48 horas.') }}</p>

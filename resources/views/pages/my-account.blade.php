@@ -159,7 +159,7 @@
                                     </p>
 
                                     <p class="login-form-footer">
-                                        <a href="{{ route('shop.lost-password') }}"
+                                        <a href="{{ lroute('shop.lost-password') }}"
                                             class="woocommerce-LostPassword lost_password">{{ __('¿Ha olvidado su contraseña?') }}</a>
                                         <label
                                             class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">

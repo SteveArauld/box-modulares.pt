@@ -27,7 +27,7 @@
                             <div class="elementor-widget-container">
                              
                                 <nav class="wd-breadcrumbs woocommerce-breadcrumb" aria-label="{{ __('Breadcrumb') }}"> <a
-                                        href="{{ route('home') }}" class="wd-last-link">
+                                        href="{{ lroute('home') }}" class="wd-last-link">
                                         {{ __('Inicio') }} </a>
                                     <span class="wd-delimiter">•</span> <span class="wd-last">
                                         {{ $pageTitle }} </span>
@@ -64,7 +64,7 @@
                                     <ul class="product-categories">
                                         @foreach ($categories as $cat)
                                             <li class="cat-item {{ $category && $category->id === $cat->id ? 'current-cat wd-active' : '' }}">
-                                                <a href="{{ route('category', $cat->translatedValue('slug')).(($preservedFilterQuery ?? '') !== '' ? '?'.$preservedFilterQuery : '') }}">{{ $cat->translatedValue('name') }}</a>
+                                                <a href="{{ lroute('category', $cat->translatedValue('slug')).(($preservedFilterQuery ?? '') !== '' ? '?'.$preservedFilterQuery : '') }}">{{ $cat->translatedValue('name') }}</a>
                                                 <span class="count">{{ $cat->products_count }}</span>
                                             </li>
                                         @endforeach

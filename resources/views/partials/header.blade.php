@@ -1,15 +1,15 @@
-{{-- <div class="mm-top-bar">
+<div class="mm-top-bar">
 	<div class="container mm-top-bar-inner">
 		<span class="mm-top-bar-label">{{ __('Idioma') }}:</span>
 		<ul class="mm-top-bar-langs">
 			@foreach ($availableLocales as $code => $label)
 				<li class="{{ $code === $currentLocale ? 'mm-top-bar-lang-active' : '' }}">
-					<a href="{{ route('locale.switch', $code) }}">{{ $label }}</a>
+					<a href="{{ route('locale.switch', ['locale' => $code, 'routeName' => $currentRouteName, 'slug' => request()->route('slug')]) }}">{{ $label }}</a>
 				</li>
 			@endforeach
 		</ul>
 	</div>
-</div> --}}
+</div>
 <header class="whb-header whb-header_423087 whb-sticky-shadow whb-scroll-stick whb-sticky-real">
 			<div class="whb-main-header">
 
@@ -19,7 +19,7 @@
 						<div class="whb-flex-row whb-general-header-inner">
 							<div class="whb-column whb-col-left whb-column8 whb-visible-lg">
 								<div class="site-logo whb-jey7bav40wk7t8zxlr1t wd-switch-logo">
-									<a href="/" class="wd-logo wd-main-logo" rel="home"
+									<a href="{{ lroute('home') }}" class="wd-logo wd-main-logo" rel="home"
 										aria-label="{{ __('Logotipo del sitio') }}">
 										<img width="175" height="47" src="{{ asset('assets/images/logo/gsccontainers-logo-175w.png') }}"
 											srcset="{{ asset('assets/images/logo/gsccontainers-logo-175w.png') }} 1x, {{ asset('assets/images/logo/gsccontainers-logo-350w.png') }} 2x"
@@ -34,8 +34,8 @@
 									<ul id="menu-main-menu-edc"
 										class="menu wd-nav wd-nav-header wd-nav-main wd-style-default wd-gap-m">
 										<li id="menu-item-6034"
-											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-120 menu-item-6034 item-level-0 menu-simple-dropdown wd-event-hover {{ request()->routeIs('home') ? 'current-menu-item current_page_item' : '' }}">
-											<a href="{{ route('home') }}" class="woodmart-nav-link"><span
+											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-120 menu-item-6034 item-level-0 menu-simple-dropdown wd-event-hover {{ request()->routeIs('*.home') ? 'current-menu-item current_page_item' : '' }}">
+											<a href="{{ lroute('home') }}" class="woodmart-nav-link"><span
 													class="nav-link-text">{{ __('Inicio') }}</span></a></li>
 										@foreach ($navTree as $entry)
 											<li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat item-level-0 {{ $entry['children']->isNotEmpty() ? 'menu-item-has-children menu-simple-dropdown' : 'menu-simple-dropdown' }} wd-event-hover {{ $entry['active'] ? 'current-menu-item current_page_item' : '' }}">
@@ -59,7 +59,7 @@
 										@endforeach
 										<li id="menu-item-6056"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6056 item-level-0 menu-simple-dropdown wd-event-hover">
-											<a href="contactanos/" class="woodmart-nav-link"><span
+											<a href="{{ lroute('shop.contact') }}" class="woodmart-nav-link"><span
 													class="nav-link-text">{{ __('Contáctanos') }}</span></a></li>
 									</ul>
 								</nav>
@@ -73,7 +73,7 @@
 								</div>
 								<div
 									class="wd-header-my-account wd-tools-element wd-event-hover wd-design-1 wd-style-icon whb-2x15qwfhcl3o3ujdxh9z">
-									<a href="mi-cuenta/" title="{{ __('Mi cuenta') }}">
+									<a href="{{ lroute('shop.my-account') }}" title="{{ __('Mi cuenta') }}">
 
 										<span class="wd-tools-icon">
 										</span>
@@ -86,7 +86,7 @@
 											<span class="wd-heading">
 												<span class="title">
 													{{ __('Iniciar sesión') }} </span>
-												<a class="create-account-link" href="{{ route('shop.my-account') }}">{{ __('Crear una cuenta') }} </a>
+												<a class="create-account-link" href="{{ lroute('shop.my-account') }}">{{ __('Crear una cuenta') }} </a>
 											</span>
 											<form method="post" class="login woocommerce-form woocommerce-form-login"
 												action="{{ route('login') }}">
@@ -124,7 +124,7 @@
 												</p>
 
 												<p class="login-form-footer">
-													<a href="{{ route('shop.lost-password') }}"
+													<a href="{{ lroute('shop.lost-password') }}"
 														class="woocommerce-LostPassword lost_password">{{ __('¿Ha olvidado su contraseña?') }}</a>
 													<label
 														class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
@@ -154,7 +154,7 @@
 									class="wd-header-cart wd-tools-element wd-design-7 cart-widget-opener wd-style-text wd-with-wrap whb-8buyjktpo4jp6c7oimzq">
 									<link rel="stylesheet" id="wd-header-cart-css"
 										href={{ asset('/wp-content/themes/woodmart/css/parts/header-el-cart8833.css') }}
-										type="text/css" media="all" /> <a href="carrito/"
+										type="text/css" media="all" /> <a href="{{ lroute('shop.carrito') }}"
 										title="{{ __('Carrito de compra') }}">
 										<span class="wd-tools-inner">
 
@@ -188,7 +188,7 @@
 							</div>
 							<div class="whb-column whb-mobile-center whb-column_mobile3 whb-hidden-lg">
 								<div class="site-logo whb-ep1ny3r4ky7wli5rao3g wd-switch-logo">
-									<a href="/" class="wd-logo wd-main-logo" rel="home"
+									<a href="{{ lroute('home') }}" class="wd-logo wd-main-logo" rel="home"
 										aria-label="{{ __('Logotipo del sitio') }}">
 										<img width="150" height="40" src="{{ asset('assets/images/logo/gsccontainers-logo-150w.png') }}"
 											srcset="{{ asset('assets/images/logo/gsccontainers-logo-150w.png') }} 1x, {{ asset('assets/images/logo/gsccontainers-logo-350w.png') }} 2x"
@@ -202,7 +202,7 @@
 
 								<div
 									class="wd-header-cart wd-tools-element wd-design-1 cart-widget-opener wd-style-icon whb-bg41lzhdhceld7novk8u">
-									<a href="carrito/" title="{{ __('Carrito de compra') }}">
+									<a href="{{ lroute('shop.carrito') }}" title="{{ __('Carrito de compra') }}">
 
 										<span class="wd-tools-icon">
 										</span>

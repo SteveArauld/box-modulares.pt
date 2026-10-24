@@ -160,7 +160,7 @@
                                                 @foreach ($heroCategories as $index => $entry)
                                                     @php
                                                         $cat = $entry['category'];
-                                                        $catSlug = route('category', $cat->translatedValue('slug'));
+                                                        $catSlug = lroute('category', $cat->translatedValue('slug'));
                                                         $catName = $cat->translatedValue('name');
                                                     @endphp
                                                     <div class="wd-carousel-item">
@@ -640,7 +640,7 @@
                                     <h2>{{ __('Un projet conteneurs ou construction ?') }}</h2>
                                     <p>{{ __('Devis transparent · Informations légales claires · Accompagnement GSC') }}</p>
                                     <div class="mm-final-cta-buttons">
-                                        <a href="{{ route('shop.contact') }}" class="mm-btn mm-btn-primary">{{ __('Nous contacter') }}</a>
+                                        <a href="{{ lroute('shop.contact') }}" class="mm-btn mm-btn-primary">{{ __('Nous contacter') }}</a>
                                         <a href="mailto:{{ config('company.email') }}"
                                             class="mm-btn mm-btn-secondary">{{ __('Écrire par email') }}</a>
                                     </div>

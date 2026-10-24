@@ -14,7 +14,7 @@
             <p class="wd-error-page__subtitle">{{ $subtitle }}</p>
             <p class="wd-error-page__description">{{ $description }}</p>
 
-            <form role="search" method="get" action="{{ route('shop.search') }}" class="wd-error-page__search">
+            <form role="search" method="get" action="{{ lroute('shop.search') }}" class="wd-error-page__search">
                 <input type="text" name="q" value="{{ request('q') }}"
                     placeholder="{{ __('Buscar publicaciones') }}" aria-label="{{ __('Buscar publicaciones') }}" />
                 <button type="submit" aria-label="{{ __('Buscar') }}">

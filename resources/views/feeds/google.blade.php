@@ -9,7 +9,8 @@
                 $slug       = $product->getTranslation('slug', $locale, false) ?: $product->getTranslation('slug', 'es', false);
                 $name       = $product->getTranslation('name', $locale, false) ?: $product->getTranslation('name', 'es', false);
                 $shortDesc  = strip_tags($product->getTranslation('short_description', $locale, false) ?: $product->getTranslation('short_description', 'es', false) ?: '');
-                $link       = $appUrl . '/' . $locale . '/producto/' . $slug;
+                $productSegment = config('route-translations.product.'.$locale, 'producto');
+                $link       = $appUrl . '/' . $locale . '/' . $productSegment . '/' . $slug;
                 $coverImage = $product->cover_image ? rtrim($appUrl, '/') . '/' . ltrim($product->cover_image, '/') : null;
                 $price      = number_format($product->price, 2, '.', '');
                 $regularPrice = number_format($product->regular_price, 2, '.', '');

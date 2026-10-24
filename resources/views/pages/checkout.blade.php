@@ -3839,7 +3839,7 @@
 							</div>
 						</div>
 
-						<p id="js-checkout-empty" class="woocommerce-info" style="display:none;">{{ __('Tu carrito está vacío.') }} <a href="{{ route('shop.index') }}">{{ __('Ver productos') }}</a></p>
+						<p id="js-checkout-empty" class="woocommerce-info" style="display:none;">{{ __('Tu carrito está vacío.') }} <a href="{{ lroute('shop.index') }}">{{ __('Ver productos') }}</a></p>
 
 						<form name="checkout" method="POST" class="checkout woocommerce-checkout wd-checkout-form"
 							action="{{ route('shop.checkout.store') }}" enctype="multipart/form-data"

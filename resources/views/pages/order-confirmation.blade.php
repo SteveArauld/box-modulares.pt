@@ -68,7 +68,7 @@
                         </table>
 
                         <p style="margin-top:24px;">
-                            <a href="{{ route('shop.index') }}" class="button">{{ __('Seguir comprando') }}</a>
+                            <a href="{{ lroute('shop.index') }}" class="button">{{ __('Seguir comprando') }}</a>
                         </p>
                     </div>
                 </article>

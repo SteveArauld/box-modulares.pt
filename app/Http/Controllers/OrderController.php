@@ -85,7 +85,7 @@ class OrderController extends Controller
         return response()->json([
             'success' => true,
             'order_number' => $order->order_number,
-            'redirect' => route('shop.order-confirmation', $order->order_number),
+            'redirect' => lroute('shop.order-confirmation', $order->order_number),
         ]);
     }
 }

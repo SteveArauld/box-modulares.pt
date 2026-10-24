@@ -14,7 +14,7 @@
         </div>
         <div class="container">
             <h1 class="entry-title title">{{ __('Restablecer contraseña') }}</h1>
-            <nav class="wd-breadcrumbs"><a href="{{ route('home') }}">{{ __('Inicio') }}</a><span class="wd-delimiter">•</span><span class="wd-last">{{ __('Mi cuenta') }}</span></nav>
+            <nav class="wd-breadcrumbs"><a href="{{ lroute('home') }}">{{ __('Inicio') }}</a><span class="wd-delimiter">•</span><span class="wd-last">{{ __('Mi cuenta') }}</span></nav>
         </div>
     </div>
 

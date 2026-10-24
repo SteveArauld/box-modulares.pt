@@ -30,7 +30,7 @@ Thumbs.db
 /public/assets/images/products/generadores-y-energia
 /tests
 
-de.json
-it.json
-en.json
-fr.json
+/lang/de.json
+/lang/it.json
+/lang/en.json
+

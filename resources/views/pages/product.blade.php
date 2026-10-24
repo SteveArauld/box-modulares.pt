@@ -5,15 +5,14 @@
 @section('body_class', 'single-product single product page')
 
 @push('meta')
-    {{-- hreflang multilingue (chaque langue utilise son propre slug, sans préfixe de locale) --}}
-    @php $supportedLocales = ['es','pt','fr','it','en','de']; @endphp
-    @foreach ($supportedLocales as $lang)
+    {{-- hreflang multilingue : chaque langue a son propre préfixe d'URL et son propre slug --}}
+    @foreach (\App\Http\Middleware\SetLocale::SUPPORTED_LOCALES as $lang)
         @php $localSlug = $product->getTranslation('slug', $lang, false); @endphp
         @if ($localSlug)
-            <link rel="alternate" hreflang="{{ $lang }}" href="{{ route('product', $localSlug) }}">
+            <link rel="alternate" hreflang="{{ $lang }}" href="{{ lroute('product', $localSlug, true, $lang) }}">
         @endif
     @endforeach
-    <link rel="alternate" hreflang="x-default" href="{{ route('product', $product->getTranslation('slug', 'es', false)) }}">
+    <link rel="alternate" hreflang="x-default" href="{{ lroute('product', $product->getTranslation('slug', 'es', false), true, 'es') }}">
 
     {{-- Open Graph produit --}}
     <meta property="og:type" content="product">
@@ -540,11 +539,11 @@
                                 data-widget_type="wd_wc_breadcrumb.default">
                                 <div class="elementor-widget-container">
                                     <nav class="wd-breadcrumbs woocommerce-breadcrumb" aria-label="{{ __('Breadcrumb') }}"> <a
-                                            href="{{ route('home') }}">
+                                            href="{{ lroute('home') }}">
                                             {{ __('Inicio') }} </a>
                                         @if ($product->category)
                                             <span class="wd-delimiter">•</span> <a
-                                                href="{{ route('category', $product->category->translatedValue('slug')) }}" class="wd-last-link">
+                                                href="{{ lroute('category', $product->category->translatedValue('slug')) }}" class="wd-last-link">
                                                 {{ $product->category->translatedValue('name') }} </a>
                                         @endif
                                         <span class="wd-delimiter">•</span> <span class="wd-last">
@@ -562,20 +561,20 @@
                                         @if ($previousProduct)
                                             <div class="wd-event-hover">
                                                 <a class="wd-product-nav-btn wd-btn-prev"
-                                                    href="{{ route('product', $previousProduct->translatedValue('slug')) }}"
+                                                    href="{{ lroute('product', $previousProduct->translatedValue('slug')) }}"
                                                     aria-label="{{ __('Producto anterior') }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                                                     </svg>
                                                 </a>
                                                 <div class="wd-dropdown">
-                                                    <a href="{{ route('product', $previousProduct->translatedValue('slug')) }}" class="wd-product-nav-thumb">
+                                                    <a href="{{ lroute('product', $previousProduct->translatedValue('slug')) }}" class="wd-product-nav-thumb">
                                                         <img width="150" height="150"
                                                             src="{{ $previousProduct->cover_image ? asset($previousProduct->cover_image) : '' }}"
                                                             class="attachment-thumbnail size-thumbnail"
                                                             alt="{{ $previousProduct->translatedValue('name') }}" decoding="async"> </a>
                                                     <div class="wd-product-nav-desc">
-                                                        <a href="{{ route('product', $previousProduct->translatedValue('slug')) }}"
+                                                        <a href="{{ lroute('product', $previousProduct->translatedValue('slug')) }}"
                                                             class="wd-entities-title">
                                                             {{ $previousProduct->translatedValue('name') }} </a>
                                                         <span class="price">
@@ -597,7 +596,7 @@
                                             </div>
                                         @endif
 
-                                        <a href="{{ route('shop.index') }}" class="wd-product-nav-btn wd-btn-back" title="{{ __('Volver a productos') }}">
+                                        <a href="{{ lroute('shop.index') }}" class="wd-product-nav-btn wd-btn-back" title="{{ __('Volver a productos') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                             </svg>
@@ -606,20 +605,20 @@
                                         @if ($nextProduct)
                                             <div class="wd-event-hover">
                                                 <a class="wd-product-nav-btn wd-btn-next"
-                                                    href="{{ route('product', $nextProduct->translatedValue('slug')) }}"
+                                                    href="{{ lroute('product', $nextProduct->translatedValue('slug')) }}"
                                                     aria-label="{{ __('Siguiente producto') }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                                                     </svg>
                                                 </a>
                                                 <div class="wd-dropdown">
-                                                    <a href="{{ route('product', $nextProduct->translatedValue('slug')) }}" class="wd-product-nav-thumb">
+                                                    <a href="{{ lroute('product', $nextProduct->translatedValue('slug')) }}" class="wd-product-nav-thumb">
                                                         <img width="150" height="150"
                                                             src="{{ $nextProduct->cover_image ? asset($nextProduct->cover_image) : '' }}"
                                                             class="attachment-thumbnail size-thumbnail"
                                                             alt="{{ $nextProduct->translatedValue('name') }}" decoding="async"> </a>
                                                     <div class="wd-product-nav-desc">
-                                                        <a href="{{ route('product', $nextProduct->translatedValue('slug')) }}"
+                                                        <a href="{{ lroute('product', $nextProduct->translatedValue('slug')) }}"
                                                             class="wd-entities-title">
                                                             {{ $nextProduct->translatedValue('name') }} </a>
                                                         <span class="price">
@@ -831,7 +830,7 @@
                                                 </svg><span>{{ __('Consultar por WhatsApp') }}</span></a>
 
                                             <form class="cart mm-product-actions-row"
-                                                action="{{ route('product', $product->translatedValue('slug')) }}" method="post" enctype="multipart/form-data">
+                                                action="{{ lroute('product', $product->translatedValue('slug')) }}" method="post" enctype="multipart/form-data">
 
                                                 <div class="quantity">
                                                     <input type="button" value="-" class="minus btn"
@@ -852,7 +851,7 @@
                                                     data-product_name="{{ $product->translatedValue('name') }}"
                                                     data-product_price="{{ $product->price }}"
                                                     data-product_image="{{ $product->cover_image ? asset($product->cover_image) : '' }}"
-                                                    data-product_slug="{{ route('product', $product->translatedValue('slug')) }}"
+                                                    data-product_slug="{{ lroute('product', $product->translatedValue('slug')) }}"
                                                     data-success_message="{{ __('«:product» se ha añadido a tu carrito', ['product' => $product->translatedValue('name')]) }}">{{ __('Añadir Al Carrito') }}</a>
 
                                                 <a href="#" class="js-buy-now wd-buy-now-btn button alt"
@@ -861,7 +860,7 @@
                                                     data-product_name="{{ $product->translatedValue('name') }}"
                                                     data-product_price="{{ $product->price }}"
                                                     data-product_image="{{ $product->cover_image ? asset($product->cover_image) : '' }}"
-                                                    data-product_slug="{{ route('product', $product->translatedValue('slug')) }}">{{ __('Comprar Ahora') }}</a>
+                                                    data-product_slug="{{ lroute('product', $product->translatedValue('slug')) }}">{{ __('Comprar Ahora') }}</a>
 
                                                 <a href="#" class="mm-wishlist-btn js-favorite-btn wd-single-favorite-wrap" data-product_id="{{ $product->source_id }}" aria-label="{{ __('Añadir a favoritos') }}" title="{{ __('Añadir a favoritos') }}">
                                                     <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2 4.5 5.7 4 8 3.7 10 4.9 12 7c2-2.1 4-3.3 6.3-3 3.7.5 5.2 4.4 3.7 7.9C19.5 16.4 12 21 12 21z"></path></svg>

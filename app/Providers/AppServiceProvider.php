@@ -22,10 +22,9 @@ class AppServiceProvider extends ServiceProvider
     ];
 
     private const LOCALE_LABELS = [
-        'es' => 'ES',
-        'it' => 'IT',
-        'de' => 'DE',
         'pt' => 'PT',
+        'fr' => 'FR',
+        'es' => 'ES',
     ];
 
     /**
@@ -46,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['partials.header', 'partials.footer'], function ($view): void {
             $categories = Category::query()->where('is_visible', true)->withCount('products')->orderBy('name->es')->get();
 
-            $currentCategory = request()->route('slug') && request()->routeIs('category')
+            $currentCategory = request()->route('slug') && request()->routeIs('*.category')
                 ? $categories->first(fn (Category $category) => $category->translatedValue('slug') === request()->route('slug'))
                 : null;
             $currentCategoryName = $currentCategory?->translatedValue('name');
@@ -56,8 +55,12 @@ class AppServiceProvider extends ServiceProvider
             $view->with('navCategories', $categories);
             $view->with('navTree', $navTree);
             $view->with('currentCategoryName', $currentCategoryName);
+            $routeName = request()->route()?->getName();
+            $currentRouteName = is_string($routeName) ? substr($routeName, strpos($routeName, '.') + 1) : 'home';
+
             $view->with('availableLocales', self::LOCALE_LABELS);
             $view->with('currentLocale', app()->getLocale());
+            $view->with('currentRouteName', $currentRouteName);
         });
     }
 
@@ -86,7 +89,7 @@ class AppServiceProvider extends ServiceProvider
 
             $children = $members->map(fn (Category $category) => [
                 'label' => $category->translatedValue('name'),
-                'href' => route('category', $category->translatedValue('slug')),
+                'href' => lroute('category', $category->translatedValue('slug')),
                 'active' => $category->translatedValue('name') === $currentCategoryName,
             ]);
 
@@ -107,7 +110,7 @@ class AppServiceProvider extends ServiceProvider
 
             $entries->push([
                 'label' => $name,
-                'href' => route('category', $category->translatedValue('slug')),
+                'href' => lroute('category', $category->translatedValue('slug')),
                 'active' => $name === $currentCategoryName,
                 'children' => collect(),
             ]);

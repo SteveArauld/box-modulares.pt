@@ -27,7 +27,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('shop.my-account')->with('status', 'Tu cuenta se ha creado correctamente.');
+        return redirect(lroute('shop.my-account'))->with('status', 'Tu cuenta se ha creado correctamente.');
     }
 
     public function login(LoginRequest $request): RedirectResponse
@@ -42,7 +42,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('shop.my-account'));
+        return redirect()->intended(lroute('shop.my-account'));
     }
 
     public function logout(): RedirectResponse
@@ -52,7 +52,7 @@ class AuthController extends Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect(lroute('home'));
     }
 
     public function showResetForm(Request $request, string $token): View
@@ -79,6 +79,6 @@ class AuthController extends Controller
             return back()->withErrors(['email' => __($status)])->onlyInput('email');
         }
 
-        return redirect()->route('shop.my-account')->with('status', 'Tu contraseña se ha actualizado. Ya puedes iniciar sesión.');
+        return redirect(lroute('shop.my-account'))->with('status', 'Tu contraseña se ha actualizado. Ya puedes iniciar sesión.');
     }
 }

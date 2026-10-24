@@ -918,9 +918,9 @@
                                 data-id="b15b650" data-element_type="widget" data-e-type="widget"
                                 data-widget_type="wd_cart_table.default">
                                 <div class="elementor-widget-container">
-                                    <p id="js-cart-empty" class="cart-empty" style="display:none;">{{ __('Tu carrito está vacío.') }} <a href="{{ route('shop.index') }}">{{ __('Ver productos') }}</a></p>
+                                    <p id="js-cart-empty" class="cart-empty" style="display:none;">{{ __('Tu carrito está vacío.') }} <a href="{{ lroute('shop.index') }}">{{ __('Ver productos') }}</a></p>
 
-                                    <form class="woocommerce-cart-form" action="{{ route('shop.carrito') }}"
+                                    <form class="woocommerce-cart-form" action="{{ lroute('shop.carrito') }}"
                                         method="post" onsubmit="return false;">
 
 
@@ -988,7 +988,7 @@
 
 
                                                         <form class="woocommerce-shipping-calculator"
-                                                            action="{{ route('shop.carrito') }}" method="post" onsubmit="return false;">
+                                                            action="{{ lroute('shop.carrito') }}" method="post" onsubmit="return false;">
 
                                                             <a href="#" class="shipping-calculator-button"
                                                                 aria-expanded="false"
@@ -1421,7 +1421,7 @@
 
                                             <div class="wc-proceed-to-checkout">
 
-                                                <a href="{{ route('shop.checkout') }}" id="js-checkout-button"
+                                                <a href="{{ lroute('shop.checkout') }}" id="js-checkout-button"
                                                     class="checkout-button button alt wc-forward">
                                                     {{ __('Finalizar compra') }}</a>
                                             </div>

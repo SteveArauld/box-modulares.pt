@@ -1,6 +1,6 @@
 @php
     $productName = $product->translatedValue('name') ?? 'Producto';
-    $productSlug = route('product', $product->translatedValue('slug'));
+    $productSlug = lroute('product', $product->translatedValue('slug'));
     $productImage = $product->cover_image ? asset($product->cover_image) : asset('wp-content/uploads/2026/07/01-fullsizerender-1024x1024-5b51ed90-024e-4ee8-af91-4c8759da177.jpeg');
     $hoverImage = $product->gallery->skip(1)->first()?->path;
     $productCategory = $product->categories->first();
@@ -32,7 +32,7 @@
         <div class="product-element-bottom">
             <h3 class="wd-entities-title"><a href="{{ $productSlug }}">{{ $productName }}</a></h3>
             @if ($productCategory)
-                <div class="wd-product-cats"><a href="{{ route('category', $productCategory->translatedValue('slug')) }}" rel="tag">{{ $productCategory->translatedValue('name') }}</a></div>
+                <div class="wd-product-cats"><a href="{{ lroute('category', $productCategory->translatedValue('slug')) }}" rel="tag">{{ $productCategory->translatedValue('name') }}</a></div>
             @endif
             <span class="price">
                 @if ($product->on_sale && $product->regular_price > $product->price)
